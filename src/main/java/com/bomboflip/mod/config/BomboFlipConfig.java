@@ -181,6 +181,7 @@ public class BomboFlipConfig {
     // Load from JSON
     public static void load() {
         getInstance();
+        MoulConfigIntegrator.getManaged(); // Force init on main thread to prevent async ServiceLoader crashes
     }
 
     public static void syncWithMoul() {
