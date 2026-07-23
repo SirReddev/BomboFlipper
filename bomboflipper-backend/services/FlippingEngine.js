@@ -198,6 +198,14 @@ class FlippingEngine {
             const maxNextResaleCeiling = nextListingPrice + rawUpgradeBonus;
             targetResalePrice = Math.min(targetResalePrice, maxNextResaleCeiling);
 
+            // HISTORICAL MEDIAN RESALE BOUNDING RULE:
+            // Target resale price cannot exceed 1.25x historical median price + raw upgrade crafting cost
+            // (Fixes 5.5M Block Zapper when 3-day average is 4.25M and next listing is temporarily 6.9M!)
+            if (historicalData && historicalData.medianPrice > 0) {
+                const maxHistoricalResale = (historicalData.medianPrice * 1.25) + rawUpgradeBonus;
+                targetResalePrice = Math.min(targetResalePrice, maxHistoricalResale);
+            }
+
             // UNIVERSAL OUTLIER PRICE GAP CEILING:
             // If target resale price is > 2.5x higher than item buy price, cap it to 1.4x buyPrice
             if (targetResalePrice / item.startingBid > 2.5) {
@@ -225,6 +233,14 @@ class FlippingEngine {
                     else if (activeListingsCount >= 30) demandTier = 3;  // MEDIUM
                     else if (activeListingsCount >= 12) demandTier = 2;  // LOW
                     else demandTier = 1;                                 // LOW/ANY (e.g. 7 listings -> Tier 1)
+                }
+
+                // Penalize demand tier for high-priced upgraded variants (e.g. 51M Scorpion Foil vs 18.7M clean)
+                const markupRatio = rawBaseFloor > 0 ? item.startingBid / rawBaseFloor : 1.0;
+                if (markupRatio >= 2.5) {
+                    demandTier = Math.max(1, demandTier - 2);
+                } else if (markupRatio >= 1.8) {
+                    demandTier = Math.max(1, demandTier - 1);
                 }
 
                 let displayName = item.itemName;

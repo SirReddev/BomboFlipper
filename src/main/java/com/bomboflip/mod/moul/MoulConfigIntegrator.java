@@ -59,26 +59,37 @@ public final class MoulConfigIntegrator {
             BomboFlipConfig.syncWithMoul();
 
             BomboFlipConfig config = BomboFlipConfig.getInstance();
-            if (config.debugMode) {
-                net.minecraft.client.MinecraftClient client = net.minecraft.client.MinecraftClient.getInstance();
-                String msg = String.format(
-                        "§8[§bBomboFlipper Debug§8] §7Config saved: Enabled=%b | Budget=%s | MinProfit=%s | DemandTier=%d | Blacklist=[%s]",
-                        config.enabled,
-                        formatNumber(config.budget),
-                        formatNumber(config.minProfit),
-                        config.minDemandTier,
-                        String.join(", ", config.blacklist)
-                );
+            net.minecraft.client.MinecraftClient client = net.minecraft.client.MinecraftClient.getInstance();
 
-                // Execute on main client thread after screen transition completes
-                client.execute(() -> {
-                    if (client.player != null) {
-                        client.player.sendMessage(net.minecraft.text.Text.literal(msg), false);
-                    } else if (client.inGameHud != null && client.inGameHud.getChatHud() != null) {
-                        client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(msg));
+            String mainMsg = String.format(
+                    "§8[§bBomboFlipper§8] §aConfig saved! §7(MinDemand: Tier %d | Budget: %s | MinProfit: %s)",
+                    config.minDemandTier,
+                    formatNumber(config.budget),
+                    formatNumber(config.minProfit)
+            );
+
+            String debugMsg = config.debugMode ? String.format(
+                    "  └─ [DEBUG] Enabled=%b | Blacklist=[%s] | ChatAlerts=%b | SoundAlerts=%b",
+                    config.enabled,
+                    String.join(", ", config.blacklist),
+                    config.chatAlertsEnabled,
+                    config.soundAlertsEnabled
+            ) : null;
+
+            // Execute on main client thread after screen transition completes
+            client.execute(() -> {
+                if (client.player != null) {
+                    client.player.sendMessage(net.minecraft.text.Text.literal(mainMsg), false);
+                    if (debugMsg != null) {
+                        client.player.sendMessage(net.minecraft.text.Text.literal(debugMsg), false);
                     }
-                });
-            }
+                } else if (client.inGameHud != null && client.inGameHud.getChatHud() != null) {
+                    client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(mainMsg));
+                    if (debugMsg != null) {
+                        client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(debugMsg));
+                    }
+                }
+            });
         }
     }
 
