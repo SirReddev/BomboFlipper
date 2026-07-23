@@ -18,15 +18,16 @@ class PropertiesSelector {
             return {
                 skyblockId: extra.id ? extra.id.value : null,
                 recombobulated: extra.rarity_upgrades ? extra.rarity_upgrades.value === 1 : false,
-                dungeonStars: extra.upgrade_level ? extra.upgrade_level.value : 0,
-                dungeonItemLevel: extra.dungeon_item_level ? extra.dungeon_item_level.value : 0,
-                hotPotatoBooks: extra.hot_potato_count ? extra.hot_potato_book_count ? extra.hot_potato_book_count.value : extra.hot_potato_count.value : 0,
-                artOfWar: extra.art_of_war ? true : false,
+                dungeonStars: extra.upgrade_level ? extra.upgrade_level.value : (extra.dungeon_item_level ? extra.dungeon_item_level.value : 0),
+                masterStars: extra.dungeon_master_stars ? extra.dungeon_master_stars.value : 0,
+                hotPotatoBooks: extra.hot_potato_count ? (extra.hot_potato_book_count ? extra.hot_potato_book_count.value : extra.hot_potato_count.value) : 0,
+                artOfWar: extra.art_of_war_count ? extra.art_of_war_count.value > 0 : (extra.art_of_war ? true : false),
                 enchantments: this.parseEnchantments(extra.enchantments),
                 attributes: this.parseAttributes(extra.attributes),
                 gemstones: this.parseGemstones(extra.gems),
                 petInfo: extra.petInfo ? JSON.parse(extra.petInfo.value) : null,
-                skin: extra.skin ? extra.skin.value : null
+                skin: extra.skin ? extra.skin.value : null,
+                modifier: extra.modifier ? extra.modifier.value : null
             };
         } catch (error) {
             return null;

@@ -29,6 +29,37 @@ class BazaarService {
         }
         return null;
     }
+
+    getEnchantPrice(enchName, level) {
+        if (!enchName || !level) return 0;
+        const cleanName = enchName.toLowerCase();
+        
+        const candidateKeys = [
+            `ENCHANTMENT_${cleanName.toUpperCase()}_${level}`,
+            `ENCHANTMENT_ULTIMATE_${cleanName.toUpperCase()}_${level}`,
+            `ENCHANTMENT_${cleanName.replace(/^ultimate_/, '').toUpperCase()}_${level}`,
+            `ENCHANTMENT_ULTIMATE_${cleanName.replace(/^ultimate_/, '').toUpperCase()}_${level}`
+        ];
+
+        for (const key of candidateKeys) {
+            const price = this.getPrice(key);
+            if (price) return price;
+        }
+
+        return 0;
+    }
+
+    getMasterStarPrice(starIndex) {
+        const masterStarKeys = {
+            1: "FIRST_MASTER_STAR",
+            2: "SECOND_MASTER_STAR",
+            3: "THIRD_MASTER_STAR",
+            4: "FOURTH_MASTER_STAR",
+            5: "FIFTH_MASTER_STAR"
+        };
+        const key = masterStarKeys[starIndex];
+        return key ? (this.getPrice(key) || 0) : 0;
+    }
 }
 
 module.exports = new BazaarService();
