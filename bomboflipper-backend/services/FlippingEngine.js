@@ -213,7 +213,9 @@ class FlippingEngine {
             }
 
             const taxRate = this.calculateAHTax(targetResalePrice);
-            const estimatedNetProfit = (targetResalePrice * (1 - taxRate)) - item.startingBid;
+            const rawNetProfit = (targetResalePrice * (1 - taxRate)) - item.startingBid;
+            // Apply 5% safety margin discount (from NEC formula) to account for listing creation fees and slight undercutting
+            const estimatedNetProfit = rawNetProfit * 0.95;
             const marginRatio = estimatedNetProfit / item.startingBid;
 
             if (estimatedNetProfit >= this.minProfitThreshold && marginRatio >= this.minMarginRatio) {
