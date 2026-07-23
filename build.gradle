@@ -1,0 +1,93 @@
+plugins {
+    id 'fabric-loom' version "${loom_version}"
+    id 'com.gradleup.shadow' version '8.3.11'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	// Add repositories here if you need to depend on other mods.
+	maven { url "https://maven.terraformersmc.com/releases/" } // Mod Menu
+	maven { url "https://maven.notenoughupdates.org/releases/" }
+}
+
+loom {
+	// Using Yarn mappings - the long-standing, well-documented Fabric mapping
+	// set. (1.21.10+ also supports Mojang's official mappings, but Yarn is
+	// the more battle-tested option and what most current tutorials assume.)
+}
+
+// A dedicated configuration for stuff we shade+relocate into our own jar,
+// wired into modImplementation so it's still visible at compile time / in the IDE.
+configurations {
+	shadowModImpl
+	modImplementation.extendsFrom shadowModImpl
+}
+
+dependencies {
+	// To change the versions see the gradle.properties file
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// Fabric API
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_language_kotlin_version}"
+
+
+    // Mod Menu (optional, gives us a config-button entry point)
+	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
+
+	// MoulConfig - shaded and relocated into our own jar (see shadowJar block below).
+	// This is the pattern MoulConfig's own docs require: https://notenoughupdates.org/MoulConfig/
+	shadowModImpl "org.notenoughupdates.moulconfig:modern-1.21.11:4.5.0"
+}
+
+tasks.shadowJar {
+    configurations = [project.configurations.shadowModImpl]
+    // Relocate MoulConfig into our own package so it can never clash with another
+    // mod's (differently-versioned) copy of MoulConfig sitting on the classpath.
+    relocate 'io.github.notenoughupdates.moulconfig', 'com.bomboflip.mod.libs.moulconfig'
+
+    // THIS IS THE LINE YOU MUST ADD:
+    mergeServiceFiles()
+
+    archiveClassifier.set('dev-shadow')
+}
+
+tasks.remapJar {
+	dependsOn tasks.shadowJar
+	inputFile.set(tasks.shadowJar.archiveFile)
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 21
+}
+
+
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}" }
+	}
+}

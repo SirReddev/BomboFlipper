@@ -1,0 +1,20 @@
+accessWidener	v2	named
+accessible	method	net/minecraft/class_332	setScissor	(Lnet/minecraft/class_8030;)V
+accessible	field	net/minecraft/class_332	field_44659	Lnet/minecraft/class_332$class_8214;
+accessible	method	net/minecraft/class_332	drawTexturedQuad	(Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIIFFFFI)V
+accessible	class	net/minecraft/class_332$class_8214
+accessible	method	net/minecraft/class_332	fill	(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/class_11231;IIIIILjava/lang/Integer;)V
+accessible	field	net/minecraft/class_332$class_8214	field_43099	Ljava/util/Deque;
+accessible	method	net/minecraft/class_332	method_48196	(Lcom/mojang/blaze3d/pipeline/RenderPipeline;IIIII)V
+accessible	method	net/minecraft/class_332	drawTexturedQuad	(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIIIFFFFI)V
+accessible	field	net/minecraft/class_757	field_59966	Lnet/minecraft/class_11246;
+accessible	field	net/minecraft/class_10799	field_56863	Lcom/mojang/blaze3d/pipeline/RenderPipeline$Snippet;
+accessible	method	net/minecraft/client/renderer/RenderType	of	(Ljava/lang/String;ILcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/client/renderer/RenderType$CompositeRenderType$Parameters;)Lnet/minecraft/client/renderer/RenderType$CompositeRenderType;
+accessible	class	net/minecraft/client/renderer/RenderType$CompositeRenderType
+accessible	class	net/minecraft/client/renderer/RenderType$CompositeRenderType$Parameters
+accessible	method	net/minecraft/client/renderer/RenderType$CompositeRenderType$Parameters$Builder	build	(Z)Lnet/minecraft/client/renderer/RenderType$CompositeRenderType$Parameters;
+accessible	field	net/minecraft/class_332	field_59826	Lnet/minecraft/class_11246;
+accessible	method	net/minecraft/class_332	method_70848	(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/class_11231;IIIIILjava/lang/Integer;)V
+accessible	method	net/minecraft/class_332	method_25295	(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/class_2960;IIIIFFFFI)V
+accessible	method	net/minecraft/class_332	method_70847	(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lcom/mojang/blaze3d/textures/GpuTextureView;Lnet/minecraft/class_12137;IIIIFFFFI)V
+

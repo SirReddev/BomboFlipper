@@ -1,0 +1,3 @@
+:HL["/BomboFlipper/_next/static/chunks/0~-aqb2-3quev.css","style"]
+:HL["/BomboFlipper/_next/static/media/62c1b8e17b87ad37.p.15l32~m~yyz1s.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"A_xrNFAbdmE24K5n3HWr4"}

@@ -1,0 +1,38 @@
+name: Build and Release Mod
+
+on:
+  push:
+    branches:
+      - main  # Change to 'master' if your default branch is master
+    tags:
+      - 'v*'  # Optional: triggers builds on version tags like v1.0.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # Required for uploading release assets if using tags
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for Gradle wrapper
+        run: chmod +x gradlew
+
+      - name: Build Mod with Gradle
+        run: ./gradlew build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BomboFlipper-Mod-Jar
+          path: build/libs/*.jar

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "bomboflip",
+  "version": "${version}",
+  "name": "BomboFlipper",
+  "description": "A high-performance, real-time Hypixel Skyblock Auction House sniper using WebSocket integration.",
+  "authors": [
+    "YourName"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/bomboflipper",
+    "sources": "https://github.com/yourusername/bomboflipper"
+  },
+  "license": "MIT",
+  "icon": "assets/bomboflip/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.bomboflip.mod.BomboFlipClient"
+    ],
+    "modmenu": [
+      "com.bomboflip.mod.BomboFlipModMenuIntegration"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.21",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

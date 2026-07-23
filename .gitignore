@@ -1,0 +1,17 @@
+# Gradle
+.gradle/
+build/
+
+# Minecraft Runtime
+run/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+
+# Node.js Backend Ignore Rules
+bomboflipper-backend/node_modules/
