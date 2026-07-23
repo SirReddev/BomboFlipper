@@ -1,0 +1,10 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "me.mindlessly.notenoughcoins.mixins",
+  "refmap": "mixins.nec.refmap.json",
+  "mixins": [
+    "MixinEntityPlayerSP",
+    "MixinContainerChest"
+  ],
+  "verbose": true
+}

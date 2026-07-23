@@ -1,0 +1,17 @@
+[
+  {
+    "modid": "nec",
+    "name": "NotEnoughCoins",
+    "description": "Become rich in Hypixel Skyblock.",
+    "version": "2.18.5",
+    "mcversion": "1.8.9",
+    "url": "https://github.com/mindlesslydev/CoinsClient",
+    "updateUrl": "https://github.com/mindlesslydev/CoinsClient",
+    "authorList": [
+      "Mindlessly"
+    ],
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
