@@ -97,14 +97,14 @@ class VolumeCache {
             if (!itemTag) return;
 
             try {
-                const response = await axios.get(`https://sky.coflnet.com/api/item/price/${itemTag}/analysis`, {
+                const response = await axios.get(`https://sky.coflnet.com/api/item/price/${itemTag}`, {
                     headers: { 'User-Agent': 'BomboFlipper-Crawler/2.0' },
                     timeout: 5000
                 });
 
-                const salesPerDay = response.data && typeof response.data.salesPerDay === 'number'
-                    ? response.data.salesPerDay
-                    : 0;
+                const salesPerDay = response.data && typeof response.data.volume === 'number'
+                    ? response.data.volume
+                    : (response.data && typeof response.data.salesPerDay === 'number' ? response.data.salesPerDay : 0);
 
                 this.cache.set(itemTag, {
                     salesPerDay: salesPerDay,
