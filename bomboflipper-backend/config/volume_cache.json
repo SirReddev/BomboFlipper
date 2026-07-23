@@ -2878,5 +2878,65 @@
   "SUMMONING_RING": {
     "salesPerDay": 80.57142857142857,
     "timestamp": 1784824196198
+  },
+  "WORM_THE_FISH": {
+    "salesPerDay": 44,
+    "timestamp": 1784826954732
+  },
+  "BUILDERS_WAND": {
+    "salesPerDay": 171,
+    "timestamp": 1784826954804
+  },
+  "MAGICAL_MILK_BUCKET": {
+    "salesPerDay": 5.5,
+    "timestamp": 1784826956256
+  },
+  "MASTER_SKULL_TIER_5": {
+    "salesPerDay": 111.5,
+    "timestamp": 1784826957770
+  },
+  "PET_SKIN_MAMMOTH_TERRA": {
+    "salesPerDay": 1.5,
+    "timestamp": 1784826959237
+  },
+  "POIGNANT_CARROT_BAIT": {
+    "salesPerDay": 16,
+    "timestamp": 1784826960749
+  },
+  "BLUERTOOTH_RING": {
+    "salesPerDay": 12.5,
+    "timestamp": 1784826962315
+  },
+  "TARANTULA_RING": {
+    "salesPerDay": 11.5,
+    "timestamp": 1784826964010
+  },
+  "GENERAL_MEDALLION": {
+    "salesPerDay": 296.5,
+    "timestamp": 1784826965375
+  },
+  "JUNGLE_PICKAXE": {
+    "salesPerDay": 267,
+    "timestamp": 1784826966825
+  },
+  "BOUNCY_CHESTPLATE": {
+    "salesPerDay": 93,
+    "timestamp": 1784826968351
+  },
+  "SPEED_RING": {
+    "salesPerDay": 173,
+    "timestamp": 1784826969824
+  },
+  "WINTER_BARN_BARN_SKIN": {
+    "salesPerDay": 2,
+    "timestamp": 1784826971323
+  },
+  "BLAZETEKK_HAM_RADIO": {
+    "salesPerDay": 17.5,
+    "timestamp": 1784827012620
+  },
+  "PET_ITEM_COMBAT_SKILL_BOOST_EPIC": {
+    "salesPerDay": 78,
+    "timestamp": 1784827312408
   }
 }

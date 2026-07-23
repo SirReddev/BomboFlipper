@@ -51,7 +51,36 @@ public final class MoulConfigIntegrator {
                 System.err.println("[BomboFlipper] Failed to save config to disk: " + e.getMessage());
             }
             BomboFlipConfig.syncWithMoul();
+
+            BomboFlipConfig config = BomboFlipConfig.getInstance();
+            if (config.debugMode) {
+                net.minecraft.client.MinecraftClient client = net.minecraft.client.MinecraftClient.getInstance();
+                String msg = String.format(
+                        "§8[§bBomboFlipper Debug§8] §7Config saved: Enabled=%b | Budget=%s | MinProfit=%s | DemandTier=%d | Blacklist=[%s]",
+                        config.enabled,
+                        formatNumber(config.budget),
+                        formatNumber(config.minProfit),
+                        config.minDemandTier,
+                        String.join(", ", config.blacklist)
+                );
+                if (client.player != null) {
+                    client.player.sendMessage(net.minecraft.text.Text.literal(msg), false);
+                } else if (client.inGameHud != null) {
+                    client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(msg));
+                }
+            }
         }
+    }
+
+    private static String formatNumber(long number) {
+        if (number >= 1_000_000_000L) {
+            return String.format("%.1fB", number / 1_000_000_000.0);
+        } else if (number >= 1_000_000L) {
+            return String.format("%.1fM", number / 1_000_000.0);
+        } else if (number >= 1_000L) {
+            return String.format("%.1fK", number / 1_000.0);
+        }
+        return String.valueOf(number);
     }
 
     public static long parseNumber(String input, long fallback) {

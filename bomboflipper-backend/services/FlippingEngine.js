@@ -25,6 +25,7 @@ class FlippingEngine {
         const processedAuctions = [];
 
         // Maps to group auctions for dual-path comparison
+        const rawBaseMap = new Map();
         const cleanListingsMap = new Map();
         const variantListingsMap = new Map();
         const allListingsMap = new Map();
@@ -59,6 +60,12 @@ class FlippingEngine {
 
             processedAuctions.push(processed);
 
+            // Group into Raw Base Map (By SkyBlock ID only across all rarities)
+            if (!rawBaseMap.has(skyblockId)) {
+                rawBaseMap.set(skyblockId, []);
+            }
+            rawBaseMap.get(skyblockId).push(processed);
+
             // Group into All Listings Map (By SkyBlock ID + Rarity)
             if (!allListingsMap.has(itemGroupKey)) {
                 allListingsMap.set(itemGroupKey, []);
@@ -83,6 +90,9 @@ class FlippingEngine {
         }));
 
         // Sort all maps by startingBid ascending
+        for (const list of rawBaseMap.values()) {
+            list.sort((a, b) => a.startingBid - b.startingBid);
+        }
         for (const list of allListingsMap.values()) {
             list.sort((a, b) => a.startingBid - b.startingBid);
         }
@@ -107,23 +117,27 @@ class FlippingEngine {
             const baseFloor = otherClean.length > 0 ? otherClean[0].startingBid : otherAll[0].startingBid;
             if (!baseFloor || baseFloor <= 0) continue;
 
+            // Raw Base Floor across ALL rarities for the base item ID (e.g. 240k for SNIPER_BOW)
+            const otherRawBase = (rawBaseMap.get(item.skyblockId) || []).filter(a => a.uuid !== item.uuid);
+            const rawBaseFloor = otherRawBase.length > 0 ? otherRawBase[0].startingBid : baseFloor;
+
             // Calculate exact live crafting cost of applied upgrades
             const rawUpgradeBonus = this.calculateLiveUpgradeValue(item.properties);
 
             // Base floor multiplier scaling (cheap trash gear cannot be listed at 50x base floor)
             let baseFloorMultiplier = 2.0;
-            if (baseFloor < 1000000) {
-                baseFloorMultiplier = 1.5; // Cheap gear (<1M) caps at 1.5x base floor + upgrades
-            } else if (baseFloor > 10000000) {
+            if (rawBaseFloor < 1000000) {
+                baseFloorMultiplier = 1.5; // Cheap gear (<1M) caps at 1.5x raw base floor + upgrades
+            } else if (rawBaseFloor > 10000000) {
                 baseFloorMultiplier = 2.5;
             }
 
-            // HARD CEILING: Max market value cannot exceed (baseCleanFloor * multiplier) + rawUpgradeBonus
-            const maxMarketValue = (baseFloor * baseFloorMultiplier) + rawUpgradeBonus;
+            // HARD CEILING: Max market value cannot exceed (rawBaseFloor * multiplier) + rawUpgradeBonus
+            const maxMarketValue = (rawBaseFloor * baseFloorMultiplier) + rawUpgradeBonus;
 
             // ABSOLUTE RULE 1: If item price exceeds max reasonable market value, REJECT IMMEDIATELY!
             if (item.startingBid >= maxMarketValue) {
-                continue; // REJECT: Overpriced listing! (Rejects 2.7M Earthen Blade, 33.5M Livid Dagger, etc.)
+                continue; // REJECT: Overpriced listing! (Rejects 3.0M Sniper Bow when 240k base is available, 2.7M Earthen Blade, etc.)
             }
 
             let targetResalePrice = 0;

@@ -33,7 +33,7 @@ public class MoulBomboConfig extends Config {
         @Expose
         @ConfigOption(name = "Budget", desc = "Max spend per flip")
         @ConfigEditorText
-        public String budget = "10000000";
+        public String budget = "100000000";
 
         @Expose
         @ConfigOption(name = "Min profit", desc = "Minimum profit to display")
@@ -44,13 +44,25 @@ public class MoulBomboConfig extends Config {
         @ConfigOption(name = "Max profit", desc = "Ignore suspiciously huge profits")
         @ConfigEditorText
         public String maxProfit = "100000000";
+
+        @Expose
+        @ConfigOption(name = "Reset to Defaults", desc = "Click to restore all recommended default settings")
+        @ConfigEditorButton
+        public Runnable resetDefaults = () -> {
+            com.bomboflip.mod.config.BomboFlipConfig.getInstance().resetToDefaults();
+            net.minecraft.client.MinecraftClient client = net.minecraft.client.MinecraftClient.getInstance();
+            String msg = "§8[§bBomboFlipper§8] §aReset all settings to recommended defaults!";
+            if (client.player != null) {
+                client.player.sendMessage(net.minecraft.text.Text.literal(msg), false);
+            }
+        };
     }
 
     public static class Filters {
         @Expose
         @ConfigOption(name = "Blacklist", desc = "Comma separated names to ignore")
         @ConfigEditorText
-        public String blacklist = "";
+        public String blacklist = "Skin, Dye, Rune, Travel Scroll, Furniture, Cake, Minion Skin, Pet Skin, Firework, Banner, Balloon, Bucket";
 
         @Expose
         @ConfigOption(
@@ -63,7 +75,7 @@ public class MoulBomboConfig extends Config {
                         "5 = VERY HIGH"
         )
         @ConfigEditorSlider(minValue = 1, maxValue = 5, minStep = 1)
-        public int minDemandTier = 1;
+        public int minDemandTier = 2;
     }
 
     public static class Alerts {

@@ -80,4 +80,22 @@ public class BomboFlipConfig {
             MoulConfigIntegrator.save();
         }
     }
+
+    public void resetToDefaults() {
+        MoulBomboConfig gui = MoulConfigIntegrator.getManaged().getInstance();
+        if (gui != null) {
+            gui.general.enabled = true;
+            gui.general.budget = "100000000";
+            gui.general.minProfit = "500000";
+            gui.general.maxProfit = "100000000";
+            gui.filters.minDemandTier = 2;
+            gui.filters.blacklist = "Skin, Dye, Rune, Travel Scroll, Furniture, Cake, Minion Skin, Pet Skin, Firework, Banner, Balloon, Bucket";
+            gui.alerts.chatAlertsEnabled = true;
+            gui.alerts.soundAlertsEnabled = true;
+            gui.alerts.debugMode = false;
+            gui.alerts.showAllFlips = false;
+
+            MoulConfigIntegrator.save();
+        }
+    }
 }
