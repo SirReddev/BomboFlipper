@@ -22,6 +22,7 @@ class PropertiesSelector {
                 masterStars: extra.dungeon_master_stars ? extra.dungeon_master_stars.value : 0,
                 hotPotatoBooks: extra.hot_potato_count ? (extra.hot_potato_book_count ? extra.hot_potato_book_count.value : extra.hot_potato_count.value) : 0,
                 artOfWar: extra.art_of_war_count ? extra.art_of_war_count.value > 0 : (extra.art_of_war ? true : false),
+                dungeonFloor: extra.item_tier ? extra.item_tier.value : (extra.dungeon_item_level ? extra.dungeon_item_level.value : 0),
                 enchantments: this.parseEnchantments(extra.enchantments),
                 attributes: this.parseAttributes(extra.attributes),
                 gemstones: this.parseGemstones(extra.gems),

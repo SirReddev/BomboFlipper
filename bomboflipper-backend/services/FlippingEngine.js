@@ -300,6 +300,7 @@ class FlippingEngine {
         const recomb = props.recombobulated ? '1' : '0';
         const stars = props.dungeonStars || 0;
         const master = props.masterStars || 0;
+        const floor = props.dungeonFloor || 0;
 
         // Group by MAJOR ultimate/high enchants only
         const majorEnchants = [];
@@ -314,7 +315,19 @@ class FlippingEngine {
         }
         majorEnchants.sort();
 
-        return `${skyblockId}|r:${recomb}|s:${stars}|m:${master}|e:${majorEnchants.join(',')}`;
+        // Kuudra Armor attribute scoping (CRIMSON, AURORA, TERROR, HOLLOW, FERVOR)
+        let attrStr = "";
+        if (props.attributes) {
+            const attrList = Object.entries(props.attributes)
+                .map(([k, v]) => `${k}:${v}`)
+                .sort()
+                .join(',');
+            if (attrList.length > 0) {
+                attrStr = `|attr:${attrList}`;
+            }
+        }
+
+        return `${skyblockId}|r:${recomb}|s:${stars}|m:${master}|f:${floor}|e:${majorEnchants.join(',')}${attrStr}`;
     }
 
     calculateLiveUpgradeValue(properties) {
