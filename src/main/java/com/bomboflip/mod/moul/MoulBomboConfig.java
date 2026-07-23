@@ -65,10 +65,9 @@ public class MoulBomboConfig extends Config {
         @ConfigEditorText
         public String maxProfit = "100000000";
 
-        @Expose
         @ConfigOption(name = "Reset to Defaults", desc = "Click to restore all recommended default settings")
         @ConfigEditorButton
-        public Runnable resetDefaults = () -> {
+        public transient Runnable resetDefaults = () -> {
             com.bomboflip.mod.config.BomboFlipConfig.getInstance().resetToDefaults();
             net.minecraft.client.MinecraftClient client = net.minecraft.client.MinecraftClient.getInstance();
             String msg = "§8[§bBomboFlipper§8] §aReset all settings to recommended defaults!";
@@ -124,10 +123,9 @@ public class MoulBomboConfig extends Config {
         @ConfigEditorBoolean
         public boolean showAllFlips = false;
 
-        @Expose
         @ConfigOption(name = "Test Connection", desc = "Click to test WebSocket connection status")
         @ConfigEditorButton
-        public Runnable testConnection = () -> {
+        public transient Runnable testConnection = () -> {
             net.minecraft.client.MinecraftClient client = net.minecraft.client.MinecraftClient.getInstance();
 
             boolean isOnline = com.bomboflip.mod.api.CoflWebSocketClient.isServerConnected();

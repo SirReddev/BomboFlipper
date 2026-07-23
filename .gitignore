@@ -7,11 +7,22 @@ run/
 
 # IDE files
 .idea/
+.vscode/
 *.iml
 *.iws
 *.ipr
 out/
 
+# OS Files
+.DS_Store
+
+# Temporary Debug/Work Folders
+temp_moulconfig/
 
 # Node.js Backend Ignore Rules
 bomboflipper-backend/node_modules/
+bomboflipper-backend/.env
+
+# Ignore accidentally downloaded/compiled JARs (like the NotEnoughCoins jar)
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
