@@ -43,7 +43,7 @@ public class BomboFlipClient implements ClientModInitializer {
         // Anti-AFK Tick Handler (Runs subtle rotation packets when fullAfk is enabled)
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.player == null || client.world == null) return;
-            if (!BomboFlipConfig.getInstance().fullAfk) return;
+            if (!BomboFlipConfig.getInstance().isFullAfk()) return;
 
             long currentTime = System.currentTimeMillis();
             if (nextAfkTickTime == 0) {

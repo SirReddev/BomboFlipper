@@ -71,17 +71,17 @@ public final class MoulConfigIntegrator {
 
             String mainMsg = String.format(
                     "§8[§bBomboFlipper§8] §aConfig saved! §7(MinDemand: Tier %d | Budget: %s | MinProfit: %s)",
-                    config.minDemandTier,
-                    formatNumber(config.budget),
-                    formatNumber(config.minProfit)
+                    config.getMinDemandTier(),
+                    formatNumber(config.getBudget()),
+                    formatNumber(config.getMinProfit())
             );
 
-            String debugMsg = config.debugMode ? String.format(
+            String debugMsg = config.isDebugMode() ? String.format(
                     "  └─ [DEBUG] Enabled=%b | FullAFK=%b | OneClickBuy=%b | Blacklist=[%s]",
-                    config.enabled,
-                    config.fullAfk,
-                    config.oneClickBuy,
-                    String.join(", ", config.blacklist)
+                    config.isEnabled(),
+                    config.isFullAfk(),
+                    config.isOneClickBuy(),
+                    String.join(", ", config.getBlacklist())
             ) : null;
 
             // Schedule notification on thread after screen transition is completely finished

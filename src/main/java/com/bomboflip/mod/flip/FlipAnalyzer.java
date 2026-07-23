@@ -1,8 +1,10 @@
 package com.bomboflip.mod.flip;
 
+import com.bomboflip.mod.autobuy.FlipAutoBuyHandler;
 import com.bomboflip.mod.config.BomboFlipConfig;
 import com.bomboflip.mod.notify.FlipChatNotifier;
 import com.google.gson.JsonObject;
+import net.minecraft.client.MinecraftClient;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -29,7 +31,7 @@ public class FlipAnalyzer {
         try {
             BomboFlipConfig config = BomboFlipConfig.getInstance();
 
-            if (!config.enabled || !config.chatAlertsEnabled) return;
+            if (!config.isEnabled() || !config.isChatAlertsEnabled()) return;
 
             String itemName = json.has("itemName") ? json.get("itemName").getAsString() : (json.has("item") ? json.get("item").getAsString() : "Unknown Item");
             long price = json.has("price") ? json.get("price").getAsLong() : 0;
@@ -45,12 +47,12 @@ public class FlipAnalyzer {
             int demandTier = json.has("demandTier") ? json.get("demandTier").getAsInt() : 5;
             double salesPerDay = json.has("salesPerDay") ? json.get("salesPerDay").getAsDouble() : -1;
 
-            if (price > config.budget) return;
-            if (profit < config.minProfit) return;
-            if (config.maxProfit > 0 && profit > config.maxProfit) return;
-            if (demandTier < config.minDemandTier) return;
+            if (price > config.getBudget()) return;
+            if (profit < config.getMinProfit()) return;
+            if (config.getMaxProfit() > 0 && profit > config.getMaxProfit()) return;
+            if (demandTier < config.getMinDemandTier()) return;
 
-            for (String blockedWord : config.blacklist) {
+            for (String blockedWord : config.getBlacklist()) {
                 if (itemName.toLowerCase().contains(blockedWord.toLowerCase())) {
                     return;
                 }
@@ -58,7 +60,7 @@ public class FlipAnalyzer {
 
             // Deduplication (Per session / server join)
             if (uuid != null) {
-                if (!config.showAllFlips) {
+                if (!config.isShowAllFlips()) {
                     if (announcedAuctions.put(uuid, Boolean.TRUE) != null) {
                         return;
                     }
@@ -66,6 +68,19 @@ public class FlipAnalyzer {
             }
 
             long estimatedValue = json.has("estimatedValue") ? json.get("estimatedValue").getAsLong() : (price + profit);
+
+            // If Full AFK is enabled, arm the auto-buy state machine and send /viewauction
+            if (config.isFullAfk() && uuid != null && !uuid.isEmpty()) {
+                // Arm the NEC-style state machine with the target resale price
+                FlipAutoBuyHandler.prepareAutoBuy(estimatedValue);
+
+                MinecraftClient client = MinecraftClient.getInstance();
+                client.execute(() -> {
+                    if (client.player != null) {
+                        client.player.networkHandler.sendChatMessage("/viewauction " + uuid);
+                    }
+                });
+            }
 
             FlipChatNotifier.notifyFlip(itemName, price, profit, estimatedValue, command, demandTier, salesPerDay, uuid);
 

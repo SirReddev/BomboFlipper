@@ -110,7 +110,7 @@ public class CoflWebSocketClient implements WebSocket.Listener {
                 }
 
                 if ("debugLog".equals(type)) {
-                    if (BomboFlipConfig.getInstance().debugMode) {
+                    if (BomboFlipConfig.getInstance().isDebugMode()) {
                         String debugMsg = json.has("message") ? json.get("message").getAsString() : "Unknown debug log";
                         sendDebugMessage(debugMsg);
                     }

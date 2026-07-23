@@ -7,66 +7,120 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Runtime config that ALWAYS reads live from the MoulConfig GUI instance.
+ * This guarantees that GUI changes take effect immediately — no stale cache.
+ */
 public class BomboFlipConfig {
 
     private static BomboFlipConfig instance;
 
-    // --- YOUR ACTIVE SETTINGS ---
+    // Singleton instance getter
+    public static BomboFlipConfig getInstance() {
+        if (instance == null) {
+            instance = new BomboFlipConfig();
+        }
+        return instance;
+    }
+
+    // ── Live Getters (always read from MoulConfig GUI instance) ──
+
+    private MoulBomboConfig gui() {
+        return MoulConfigIntegrator.getManaged().getInstance();
+    }
+
+    public boolean isEnabled() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.general.enabled : true;
+    }
+
+    public boolean isOneClickBuy() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.general.oneClickBuy : true;
+    }
+
+    public boolean isFullAfk() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.general.fullAfk : false;
+    }
+
+    public long getBudget() {
+        MoulBomboConfig g = gui();
+        return g != null ? MoulConfigIntegrator.parseNumber(g.general.budget, 100000000L) : 100000000L;
+    }
+
+    public long getMinProfit() {
+        MoulBomboConfig g = gui();
+        return g != null ? MoulConfigIntegrator.parseNumber(g.general.minProfit, 500000L) : 500000L;
+    }
+
+    public long getMaxProfit() {
+        MoulBomboConfig g = gui();
+        return g != null ? MoulConfigIntegrator.parseNumber(g.general.maxProfit, 100000000L) : 100000000L;
+    }
+
+    public int getMinDemandTier() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.filters.minDemandTier : 1;
+    }
+
+    public boolean isChatAlertsEnabled() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.alerts.chatAlertsEnabled : true;
+    }
+
+    public boolean isSoundAlertsEnabled() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.alerts.soundAlertsEnabled : true;
+    }
+
+    public boolean isDebugMode() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.alerts.debugMode : false;
+    }
+
+    public boolean isShowAllFlips() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.alerts.showAllFlips : false;
+    }
+
+    public List<String> getBlacklist() {
+        MoulBomboConfig g = gui();
+        List<String> list = new ArrayList<>();
+        if (g != null && g.filters.blacklist != null) {
+            for (String s : g.filters.blacklist.split(",")) {
+                String t = s.trim();
+                if (!t.isEmpty()) list.add(t);
+            }
+        }
+        return list;
+    }
+
+    // ── Legacy field accessors (for backwards compat with commands) ──
+
     public boolean enabled = true;
     public boolean oneClickBuy = true;
     public boolean fullAfk = false;
-    public long budget = 100000000L; // 100m default
-    public long minProfit = 500000L; // 500k default
-    public long maxProfit = 50000000L; // 50m default
-    public int minDemandTier = 1; // 1-5 scale
+    public long budget = 100000000L;
+    public long minProfit = 500000L;
+    public long maxProfit = 50000000L;
+    public int minDemandTier = 1;
     public boolean chatAlertsEnabled = true;
     public boolean soundAlertsEnabled = true;
     public boolean debugMode = false;
     public boolean showAllFlips = false;
     public List<String> blacklist = new ArrayList<>(Arrays.asList("Skin", "Dye", "Rune"));
 
-    // Singleton instance getter
-    public static BomboFlipConfig getInstance() {
-        if (instance == null) {
-            instance = new BomboFlipConfig();
-            syncWithMoul();
-        }
-        return instance;
-    }
-
     // Load from JSON
     public static void load() {
         getInstance();
-        syncWithMoul();
     }
 
     public static void syncWithMoul() {
-        if (instance == null) instance = new BomboFlipConfig();
-        MoulBomboConfig gui = MoulConfigIntegrator.getManaged().getInstance();
-        if (gui == null) return;
-
-        instance.enabled = gui.general.enabled;
-        instance.oneClickBuy = gui.general.oneClickBuy;
-        instance.fullAfk = gui.general.fullAfk;
-        instance.budget = MoulConfigIntegrator.parseNumber(gui.general.budget, instance.budget);
-        instance.minProfit = MoulConfigIntegrator.parseNumber(gui.general.minProfit, instance.minProfit);
-        instance.maxProfit = MoulConfigIntegrator.parseNumber(gui.general.maxProfit, instance.maxProfit);
-        instance.minDemandTier = gui.filters.minDemandTier;
-        instance.chatAlertsEnabled = gui.alerts.chatAlertsEnabled;
-        instance.soundAlertsEnabled = gui.alerts.soundAlertsEnabled;
-        instance.debugMode = gui.alerts.debugMode;
-        instance.showAllFlips = gui.alerts.showAllFlips;
-
-        instance.blacklist.clear();
-        if (gui.filters.blacklist != null) {
-            for (String s : gui.filters.blacklist.split(",")) {
-                String t = s.trim();
-                if (!t.isEmpty()) instance.blacklist.add(t);
-            }
-        }
+        // No-op: we now read live from MoulConfig
     }
 
-    // Save to JSON
+    // Save (push command-set values to GUI and persist)
     public void save() {
         MoulBomboConfig gui = MoulConfigIntegrator.getManaged().getInstance();
         if (gui != null) {
@@ -97,7 +151,7 @@ public class BomboFlipConfig {
             gui.general.minProfit = "500000";
             gui.general.maxProfit = "100000000";
             gui.filters.minDemandTier = 2;
-            gui.filters.blacklist = "Skin, Dye, Rune, Travel Scroll, Furniture, Cake, Minion Skin, Pet Skin, Firework, Banner, Balloon, Bucket";
+            gui.filters.blacklist = "Skin, Dye, Rune, Travel Scroll, Furniture, Cake, Minion Skin, Pet Skin, Firework, Banner, Balloon, Bucket, Gauntlet, Blossom Cloak, Bits Talisman";
             gui.alerts.chatAlertsEnabled = true;
             gui.alerts.soundAlertsEnabled = true;
             gui.alerts.debugMode = false;

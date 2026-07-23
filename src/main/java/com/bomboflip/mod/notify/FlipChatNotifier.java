@@ -27,16 +27,17 @@ public class FlipChatNotifier {
 
         MutableText mainMessage = prefix.append(itemText).append(priceText).append(profitText).append(demandText);
 
-        // Add the Click to Buy button
-        MutableText clickToBuy = Text.literal(" [CLICK TO BUY]")
-                .formatted(Formatting.RED, Formatting.BOLD)
-                .styled(style -> style.withClickEvent(new ClickEvent.RunCommand(command)));
-
-        mainMessage.append(clickToBuy);
+        // Add the Click to Buy button (only if oneClickBuy config is enabled)
+        if (BomboFlipConfig.getInstance().isOneClickBuy()) {
+            MutableText clickToBuy = Text.literal(" [CLICK TO BUY]")
+                    .formatted(Formatting.RED, Formatting.BOLD)
+                    .styled(style -> style.withClickEvent(new ClickEvent.RunCommand(command)));
+            mainMessage.append(clickToBuy);
+        }
 
         // 2. Build Debug Detail Line (only shown when Debug Mode is ON)
         MutableText debugLine = null;
-        if (BomboFlipConfig.getInstance().debugMode) {
+        if (BomboFlipConfig.getInstance().isDebugMode()) {
             double marginPct = price > 0 ? ((double) profit / price) * 100.0 : 0.0;
             String uuidStr = (uuid != null && !uuid.isEmpty()) ? uuid : "N/A";
 

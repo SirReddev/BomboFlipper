@@ -9968,5 +9968,230 @@
     "salesPerDay": 2.5,
     "medianPrice": 39000000,
     "timestamp": 1784839054590
+  },
+  "BATTLE_DISC": {
+    "salesPerDay": 21,
+    "medianPrice": 100,
+    "timestamp": 1784839179464
+  },
+  "EMERALD_ARTIFACT": {
+    "salesPerDay": 2.5,
+    "medianPrice": 209999995,
+    "timestamp": 1784839180888
+  },
+  "MYCELIUM_DUST": {
+    "salesPerDay": 0.5,
+    "medianPrice": 12500,
+    "timestamp": 1784839182353
+  },
+  "NETHERRACK_LOOKING_SUNSHADE": {
+    "salesPerDay": 219.5,
+    "medianPrice": 50000,
+    "timestamp": 1784839183862
+  },
+  "FLAMINGO": {
+    "salesPerDay": 2.5,
+    "medianPrice": 500,
+    "timestamp": 1784839229687
+  },
+  "JUNGLE_DRESSER": {
+    "salesPerDay": 1.5,
+    "medianPrice": 500,
+    "timestamp": 1784839231062
+  },
+  "WINTER_DISC": {
+    "salesPerDay": 18,
+    "medianPrice": 750,
+    "timestamp": 1784839232608
+  },
+  "ABIPHONE_X_PLUS_SPECIAL_EDITION": {
+    "salesPerDay": 7.5,
+    "medianPrice": 549999,
+    "timestamp": 1784839462733
+  },
+  "GEMSTONE_FUEL_TANK": {
+    "salesPerDay": 28.5,
+    "medianPrice": 56380000,
+    "timestamp": 1784839599353
+  },
+  "MINING_1_TRAVEL_SCROLL": {
+    "salesPerDay": 69,
+    "medianPrice": 394996,
+    "timestamp": 1784839901770
+  },
+  "RIFT_WIZARD_TOWER_TRAVEL_SCROLL": {
+    "salesPerDay": 48.5,
+    "medianPrice": 738000,
+    "timestamp": 1784839903160
+  },
+  "ZOG_ANVIL": {
+    "salesPerDay": 15,
+    "medianPrice": 4300000,
+    "timestamp": 1784839963601
+  },
+  "SCAVENGER_RING": {
+    "salesPerDay": 0.5,
+    "medianPrice": 75000000,
+    "timestamp": 1784840091063
+  },
+  "HOLY_DRAGON_DRAKE": {
+    "salesPerDay": 0.5,
+    "medianPrice": 30000000,
+    "timestamp": 1784840263467
+  },
+  "BROKEN_PIGGY_BANK": {
+    "salesPerDay": 35,
+    "medianPrice": 300000,
+    "timestamp": 1784840264812
+  },
+  "SEA_LANTERN": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784840634908
+  },
+  "WISE_DRAGON_DRAKE": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784840636298
+  },
+  "OLD_DRAGON_DRAKE": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784840638185
+  },
+  "PREHISTORIC_EGG": {
+    "salesPerDay": 18,
+    "medianPrice": 4998,
+    "timestamp": 1784840681613
+  },
+  "MINI_SANDCASTLE": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784840913568
+  },
+  "BUBBLES_OF_AIR": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784841147391
+  },
+  "SNORKELING_LEGGINGS": {
+    "salesPerDay": 16,
+    "medianPrice": 200000,
+    "timestamp": 1784841257239
+  },
+  "FRESHLY_BAKED_HEIRLOOM": {
+    "salesPerDay": 8.5,
+    "medianPrice": 499899999,
+    "timestamp": 1784841380034
+  },
+  "BERSERKER_LEGGINGS": {
+    "salesPerDay": 9,
+    "medianPrice": 1950000,
+    "timestamp": 1784841438113
+  },
+  "PROTECTOR_DRAGON_BOOTS": {
+    "salesPerDay": 24.5,
+    "medianPrice": 740000,
+    "timestamp": 1784841618336
+  },
+  "INFERNAL_TERROR_CHESTPLATE": {
+    "salesPerDay": 2.5,
+    "medianPrice": 300000000,
+    "timestamp": 1784841800498
+  },
+  "PET_SKIN_GIRAFFE_BAMBOO": {
+    "salesPerDay": 1.5,
+    "medianPrice": 16000000,
+    "timestamp": 1784841801848
+  },
+  "STARRED_SPIDER_QUEENS_STINGER": {
+    "salesPerDay": 5,
+    "medianPrice": 1500000,
+    "timestamp": 1784841866174
+  },
+  "BAMBOO": {
+    "salesPerDay": 1.5,
+    "medianPrice": 25,
+    "timestamp": 1784841927586
+  },
+  "DANGER_1_PORTAL": {
+    "salesPerDay": 8,
+    "medianPrice": 436000,
+    "timestamp": 1784841989474
+  },
+  "DYE_DUSK": {
+    "salesPerDay": 12.5,
+    "medianPrice": 22333333,
+    "timestamp": 1784841990867
+  },
+  "PUMPKIN_BED": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784842048714
+  },
+  "VAMPIRE_TABLE": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784842108621
+  },
+  "MINER_OUTFIT_HELMET": {
+    "salesPerDay": 21.5,
+    "medianPrice": 129999,
+    "timestamp": 1784842109983
+  },
+  "WOLF_FUR_MIXIN": {
+    "salesPerDay": 7.5,
+    "medianPrice": 299000,
+    "timestamp": 1784842231382
+  },
+  "SKYMART_TURBO_VACUUM": {
+    "salesPerDay": 10.5,
+    "medianPrice": 799999,
+    "timestamp": 1784842647278
+  },
+  "BEACH_UMBRELLA": {
+    "salesPerDay": 2,
+    "medianPrice": 500,
+    "timestamp": 1784843376418
+  },
+  "PATIO_BENCH": {
+    "salesPerDay": 0.5,
+    "medianPrice": 500,
+    "timestamp": 1784843377885
+  },
+  "MYTHOS_BRACELET": {
+    "salesPerDay": 8.5,
+    "medianPrice": 20000000,
+    "timestamp": 1784843737564
+  },
+  "GIFT_BLUE_BACKPACK": {
+    "salesPerDay": 1.5,
+    "medianPrice": 1000000,
+    "timestamp": 1784843794480
+  },
+  "GIFT_GREEN_BACKPACK": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784843795890
+  },
+  "PET_SKIN_TIGER_LOAF_CAT_ORANGE": {
+    "salesPerDay": 4.5,
+    "medianPrice": 11899999,
+    "timestamp": 1784844331177
+  },
+  "BACKWATER_GLOVES": {
+    "salesPerDay": 42,
+    "medianPrice": 540000,
+    "timestamp": 1784844510272
+  },
+  "MINER_OUTFIT_BOOTS": {
+    "salesPerDay": 19.5,
+    "medianPrice": 129999,
+    "timestamp": 1784844629596
+  },
+  "MINER_OUTFIT_CHESTPLATE": {
+    "salesPerDay": 19.5,
+    "medianPrice": 149998,
+    "timestamp": 1784844630962
   }
 }
