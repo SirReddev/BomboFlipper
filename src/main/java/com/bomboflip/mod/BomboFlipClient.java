@@ -25,7 +25,7 @@ public class BomboFlipClient implements ClientModInitializer {
         // Shutdown hook to guarantee config is saved on game close
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-                MoulConfigIntegrator.pushToRuntimeConfig();
+                MoulConfigIntegrator.save();
             } catch (Exception ignored) {}
         }));
 

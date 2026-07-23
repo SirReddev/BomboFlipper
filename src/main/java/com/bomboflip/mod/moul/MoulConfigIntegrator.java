@@ -22,7 +22,7 @@ public final class MoulConfigIntegrator {
         if (managed == null) {
             var file = FabricLoader.getInstance()
                     .getConfigDir()
-                    .resolve("bomboflip_gui.json")
+                    .resolve("bomboflip.json")
                     .toFile();
 
             managed = new ManagedConfig<>(new ManagedConfigBuilder<>(file, MoulBomboConfig.class));
@@ -31,8 +31,6 @@ public final class MoulConfigIntegrator {
     }
 
     public static void openConfigScreen() {
-        pullFromRuntimeConfig();
-
         GuiContext context = new GuiContext(new GuiElementComponent(getManaged().getEditor()));
         Screen previousScreen = MinecraftClient.getInstance().currentScreen;
 
@@ -40,64 +38,19 @@ public final class MoulConfigIntegrator {
             @Override
             public void removed() {
                 super.removed();
-                // Backup save trigger when the screen is closed
-                pushToRuntimeConfig();
+                save();
             }
         });
     }
 
-    public static void pullFromRuntimeConfig() {
-        BomboFlipConfig runtime = BomboFlipConfig.getInstance();
-        MoulBomboConfig gui = getManaged().getInstance();
-        if (gui == null || runtime == null) return;
-
-        gui.general.enabled = runtime.enabled;
-        gui.general.budget = String.valueOf(runtime.budget);
-        gui.general.minProfit = String.valueOf(runtime.minProfit);
-        gui.general.maxProfit = String.valueOf(runtime.maxProfit);
-        gui.filters.blacklist = String.join(", ", runtime.blacklist);
-        gui.filters.minDemandTier = runtime.minDemandTier;
-        gui.alerts.chatAlertsEnabled = runtime.chatAlertsEnabled;
-        gui.alerts.soundAlertsEnabled = runtime.soundAlertsEnabled;
-        gui.alerts.debugMode = runtime.debugMode;
-        gui.alerts.showAllFlips = runtime.showAllFlips;
-    }
-
-    public static void pushToRuntimeConfig() {
-        MoulBomboConfig gui = getManaged().getInstance();
-        BomboFlipConfig runtime = BomboFlipConfig.getInstance();
-        if (gui == null || runtime == null) return;
-
-        runtime.enabled = gui.general.enabled;
-
-        runtime.budget = parseNumber(gui.general.budget, runtime.budget);
-        runtime.minProfit = parseNumber(gui.general.minProfit, runtime.minProfit);
-        runtime.maxProfit = parseNumber(gui.general.maxProfit, runtime.maxProfit);
-
-        runtime.blacklist.clear();
-        if (gui.filters.blacklist != null) {
-            for (String entry : gui.filters.blacklist.split(",")) {
-                String trimmed = entry.trim();
-                if (!trimmed.isEmpty()) {
-                    runtime.blacklist.add(trimmed);
-                }
+    public static void save() {
+        if (managed != null) {
+            try {
+                managed.saveToFile();
+            } catch (Exception e) {
+                System.err.println("[BomboFlipper] Failed to save config to disk: " + e.getMessage());
             }
-        }
-
-        runtime.minDemandTier = gui.filters.minDemandTier;
-        runtime.chatAlertsEnabled = gui.alerts.chatAlertsEnabled;
-        runtime.soundAlertsEnabled = gui.alerts.soundAlertsEnabled;
-        runtime.debugMode = gui.alerts.debugMode;
-        runtime.showAllFlips = gui.alerts.showAllFlips;
-
-        // Save runtime JSON config to disk
-        runtime.save();
-
-        // Save Managed GUI config to disk
-        try {
-            getManaged().saveToFile();
-        } catch (Exception e) {
-            System.err.println("[BomboFlipper] Failed to save GUI config to disk: " + e.getMessage());
+            BomboFlipConfig.syncWithMoul();
         }
     }
 

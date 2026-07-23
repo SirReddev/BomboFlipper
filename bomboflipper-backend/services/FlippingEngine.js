@@ -39,14 +39,19 @@ class FlippingEngine {
 
             if (!skyblockId || skyblockId === "ENCHANTED_BOOK") return;
 
+            const rarity = auction.tier || "COMMON";
+            const itemGroupKey = `${skyblockId}|${rarity}`;
+
             const isClean = this.isCleanItem(extractedProps);
-            const variantKey = this.getVariantKey(skyblockId, extractedProps);
+            const variantKey = this.getVariantKey(itemGroupKey, extractedProps);
 
             const processed = {
                 uuid: auction.uuid,
                 itemName: auction.item_name,
                 startingBid: auction.starting_bid,
                 skyblockId: skyblockId,
+                rarity: rarity,
+                itemGroupKey: itemGroupKey,
                 properties: extractedProps,
                 isClean: isClean,
                 variantKey: variantKey
@@ -54,18 +59,18 @@ class FlippingEngine {
 
             processedAuctions.push(processed);
 
-            // Group into All Listings Map
-            if (!allListingsMap.has(skyblockId)) {
-                allListingsMap.set(skyblockId, []);
+            // Group into All Listings Map (By SkyBlock ID + Rarity)
+            if (!allListingsMap.has(itemGroupKey)) {
+                allListingsMap.set(itemGroupKey, []);
             }
-            allListingsMap.get(skyblockId).push(processed);
+            allListingsMap.get(itemGroupKey).push(processed);
 
-            // Group into Clean Listings Map
+            // Group into Clean Listings Map (By SkyBlock ID + Rarity)
             if (isClean) {
-                if (!cleanListingsMap.has(skyblockId)) {
-                    cleanListingsMap.set(skyblockId, []);
+                if (!cleanListingsMap.has(itemGroupKey)) {
+                    cleanListingsMap.set(itemGroupKey, []);
                 }
-                cleanListingsMap.get(skyblockId).push(processed);
+                cleanListingsMap.get(itemGroupKey).push(processed);
             }
 
             // Group into Variant Listings Map
@@ -90,12 +95,12 @@ class FlippingEngine {
 
         const identifiedFlips = [];
 
-        // Step 2: Strict LBIN1 vs LBIN2 Evaluation with Crafting Cost Ceiling Rule
+        // Step 2: Strict LBIN1 vs LBIN2 Evaluation with Crafting Cost & Rarity Scope Rules
         for (const item of processedAuctions) {
             // Comparable lists excluding the target item itself (Self-Exclusion)
-            const otherClean = (cleanListingsMap.get(item.skyblockId) || []).filter(a => a.uuid !== item.uuid);
+            const otherClean = (cleanListingsMap.get(item.itemGroupKey) || []).filter(a => a.uuid !== item.uuid);
             const otherVariant = item.variantKey ? (variantListingsMap.get(item.variantKey) || []).filter(a => a.uuid !== item.uuid) : [];
-            const otherAll = (allListingsMap.get(item.skyblockId) || []).filter(a => a.uuid !== item.uuid);
+            const otherAll = (allListingsMap.get(item.itemGroupKey) || []).filter(a => a.uuid !== item.uuid);
 
             if (otherAll.length === 0) continue; // Single listing on entire AH, cannot determine market floor safely
 

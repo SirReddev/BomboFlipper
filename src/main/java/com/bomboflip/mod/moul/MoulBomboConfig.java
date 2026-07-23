@@ -116,6 +116,6 @@ public class MoulBomboConfig extends Config {
     // --- CRITICAL FIX: Intercept MoulConfig's native save event ---
     @Override
     public void saveNow() {
-        MoulConfigIntegrator.pushToRuntimeConfig();
+        MoulConfigIntegrator.save();
     }
 }
