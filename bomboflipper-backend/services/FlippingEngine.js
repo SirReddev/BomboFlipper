@@ -90,77 +90,113 @@ class FlippingEngine {
 
         const identifiedFlips = [];
 
-        // Step 2: Dual-Path Evaluation with Self-Exclusion
+        // Step 2: Strict LBIN1 vs LBIN2 Evaluation with Crafting Cost Ceiling Rule
         for (const item of processedAuctions) {
             // Comparable lists excluding the target item itself (Self-Exclusion)
             const otherClean = (cleanListingsMap.get(item.skyblockId) || []).filter(a => a.uuid !== item.uuid);
             const otherVariant = item.variantKey ? (variantListingsMap.get(item.variantKey) || []).filter(a => a.uuid !== item.uuid) : [];
             const otherAll = (allListingsMap.get(item.skyblockId) || []).filter(a => a.uuid !== item.uuid);
 
+            if (otherAll.length === 0) continue; // Single listing on entire AH, cannot determine market floor safely
+
+            const baseFloor = otherClean.length > 0 ? otherClean[0].startingBid : otherAll[0].startingBid;
+            if (!baseFloor || baseFloor <= 0) continue;
+
+            // Calculate exact live crafting cost of applied upgrades
+            const rawUpgradeBonus = this.calculateLiveUpgradeValue(item.properties);
+
+            // Base floor multiplier scaling (cheap trash gear cannot be listed at 50x base floor)
+            let baseFloorMultiplier = 2.0;
+            if (baseFloor < 1000000) {
+                baseFloorMultiplier = 1.5; // Cheap gear (<1M) caps at 1.5x base floor + upgrades
+            } else if (baseFloor > 10000000) {
+                baseFloorMultiplier = 2.5;
+            }
+
+            // HARD CEILING: Max market value cannot exceed (baseCleanFloor * multiplier) + rawUpgradeBonus
+            const maxMarketValue = (baseFloor * baseFloorMultiplier) + rawUpgradeBonus;
+
+            // ABSOLUTE RULE 1: If item price exceeds max reasonable market value, REJECT IMMEDIATELY!
+            if (item.startingBid >= maxMarketValue) {
+                continue; // REJECT: Overpriced listing! (Rejects 2.7M Earthen Blade, 33.5M Livid Dagger, etc.)
+            }
+
             let targetResalePrice = 0;
-            let estimatedNetProfit = 0;
 
             if (!item.isClean && otherVariant.length > 0) {
-                // PATH 1: Upgraded Variant Direct Comparison
+                // PATH 1: Upgraded Variant LBIN Sniping
                 const lowestOtherVariantBin = otherVariant[0].startingBid;
 
-                // CRITICAL FIX: If another identical upgraded item is already listed cheaper or equal, REJECT
+                // ABSOLUTE RULE 2: Item MUST be cheaper than the lowest identical variant listing on AH
                 if (item.startingBid >= lowestOtherVariantBin) {
-                    continue;
+                    continue; // REJECT: Another identical/similar upgraded item is cheaper or equal
                 }
 
-                targetResalePrice = lowestOtherVariantBin;
-                estimatedNetProfit = (targetResalePrice * (1 - this.ahTaxFee)) - item.startingBid;
+                targetResalePrice = Math.min(lowestOtherVariantBin, maxMarketValue);
 
             } else if (item.isClean && otherClean.length > 0) {
-                // PATH 2: Clean Item Comparison (Item is compared against 2nd Lowest BIN)
+                // PATH 2: Clean Item LBIN Sniping
                 const lowestOtherCleanBin = otherClean[0].startingBid;
 
+                // ABSOLUTE RULE 3: Clean item MUST be cheaper than the lowest clean listing on AH
                 if (item.startingBid >= lowestOtherCleanBin) {
-                    continue;
+                    continue; // REJECT: Another clean item is cheaper or equal
                 }
 
                 targetResalePrice = lowestOtherCleanBin;
-                estimatedNetProfit = (targetResalePrice * (1 - this.ahTaxFee)) - item.startingBid;
 
             } else if (!item.isClean && otherVariant.length === 0) {
-                // PATH 3: Upgraded Fallback Valuation (No identical variant on AH)
-                const baseFloor = otherClean.length > 0 ? otherClean[0].startingBid : (otherAll.length > 0 ? otherAll[0].startingBid : null);
-                if (!baseFloor || baseFloor <= 0) continue;
+                // PATH 3: Unique Upgraded Fallback (No identical variant on AH)
+                let maxUpgradeCap = baseFloor * 0.50; // Max 50% above base floor
+                if (baseFloor < 1000000) maxUpgradeCap = baseFloor * 0.30;
+                else if (baseFloor > 20000000) maxUpgradeCap = rawUpgradeBonus * 0.70;
 
-                const rawUpgradeBonus = this.calculateLiveUpgradeValue(item.properties);
+                const maxAllowedFallback = baseFloor + Math.min(rawUpgradeBonus, maxUpgradeCap);
 
-                // Scaled Upgrade Depreciation Cap relative to base item price
-                let retentionCapRatio = 0.50;
-                if (baseFloor < 1000000) {
-                    retentionCapRatio = 0.25; // Low-tier gear caps upgrade credit at 25% of base price
-                } else if (baseFloor > 10000000) {
-                    retentionCapRatio = 0.75;
-                }
-
-                const scaledUpgradeBonus = Math.min(rawUpgradeBonus, baseFloor * retentionCapRatio);
-                const estimatedTrueValue = baseFloor + scaledUpgradeBonus;
-
-                if (item.startingBid >= estimatedTrueValue) {
+                if (item.startingBid >= maxAllowedFallback) {
                     continue;
                 }
 
-                targetResalePrice = estimatedTrueValue;
-                estimatedNetProfit = (targetResalePrice * (1 - this.ahTaxFee)) - item.startingBid;
+                targetResalePrice = maxAllowedFallback;
             } else {
                 continue;
             }
 
+            // NEXT-LISTING RESALE CEILING RULE:
+            // Target resale price can NEVER exceed the next lowest listing on AH + extra upgrade crafting cost
+            // (Fixes 3.3M SA Helmet with next listing at 3.4M from claiming 3.4M fake profit!)
+            const nextListingPrice = otherAll[0].startingBid;
+            const maxNextResaleCeiling = nextListingPrice + rawUpgradeBonus;
+            targetResalePrice = Math.min(targetResalePrice, maxNextResaleCeiling);
+
+            // UNIVERSAL OUTLIER PRICE GAP CEILING:
+            // If target resale price is > 2.5x higher than item buy price, cap it to 1.4x buyPrice
+            if (targetResalePrice / item.startingBid > 2.5) {
+                targetResalePrice = item.startingBid * 1.4;
+            }
+
+            const taxRate = this.calculateAHTax(targetResalePrice);
+            const estimatedNetProfit = (targetResalePrice * (1 - taxRate)) - item.startingBid;
             const marginRatio = estimatedNetProfit / item.startingBid;
 
             if (estimatedNetProfit >= this.minProfitThreshold && marginRatio >= this.minMarginRatio) {
-                const salesPerDay = volumeCache.getVolume(item.skyblockId);
+                const salesPerDay = volumeCache.getVolume(item.skyblockId, true);
+                const activeListingsCount = (allListingsMap.get(item.skyblockId) || []).length;
 
-                let demandTier = 1; // ANY
-                if (salesPerDay >= 100) demandTier = 5;      // VERY HIGH
-                else if (salesPerDay >= 40) demandTier = 4;  // HIGH
-                else if (salesPerDay >= 10) demandTier = 3;  // MEDIUM
-                else if (salesPerDay >= 3) demandTier = 2;   // LOW
+                let demandTier = 1; // 1 = ANY/LOW
+                if (salesPerDay > 0) {
+                    if (salesPerDay >= 100) demandTier = 5;      // VERY HIGH
+                    else if (salesPerDay >= 40) demandTier = 4;  // HIGH
+                    else if (salesPerDay >= 10) demandTier = 3;  // MEDIUM
+                    else if (salesPerDay >= 3) demandTier = 2;   // LOW
+                    else demandTier = 1;
+                } else {
+                    // Real-time supply fallback when salesPerDay is uncached
+                    if (activeListingsCount >= 80) demandTier = 4;      // HIGH
+                    else if (activeListingsCount >= 30) demandTier = 3;  // MEDIUM
+                    else if (activeListingsCount >= 12) demandTier = 2;  // LOW
+                    else demandTier = 1;                                 // LOW/ANY (e.g. 7 listings -> Tier 1)
+                }
 
                 let displayName = item.itemName;
                 if (!displayName || !displayName.trim()) {
@@ -182,22 +218,17 @@ class FlippingEngine {
             }
         }
 
-        // --- ORGANIZED LOGGING ---
-        logger.info(`Evaluated ${processedAuctions.length} BIN items. Flips Found: ${identifiedFlips.length}. Cache Queue: ${volumeCache.queue.size} pending.`);
-
-        for (const flip of identifiedFlips) {
-            const nameCol = (flip.item || "Unknown Item").padEnd(35).substring(0, 35);
-            const priceCol = logger.formatNumber(flip.price).padEnd(12);
-            const profitCol = logger.formatNumber(flip.profit).padEnd(11);
-            const salesCol = logger.formatNumber(Math.round(flip.salesPerDay)).padEnd(5);
-
-            logger.flip(`[Tier ${flip.demandTier}] ${nameCol} | Cost: ${priceCol} | Profit: ${profitCol} | Sales/Day: ${salesCol}`);
-        }
-
         return {
             totalEvaluated: processedAuctions.length,
             flips: identifiedFlips
         };
+    }
+
+    calculateAHTax(price) {
+        if (!price || price <= 0) return 0.01;
+        if (price >= 100000000) return 0.025; // 2.5% tax over 100M
+        if (price >= 10000000) return 0.020;  // 2.0% tax for 10M-100M
+        return 0.010;                         // 1.0% tax under 10M
     }
 
     isCleanItem(props) {
@@ -209,7 +240,8 @@ class FlippingEngine {
 
         if (props.enchantments) {
             for (const [ench, level] of Object.entries(props.enchantments)) {
-                if (level >= 5 || ench.toLowerCase().includes("ultimate") || ench.toLowerCase().includes("soul_eater") || ench.toLowerCase().includes("overload")) {
+                const cleanEnch = ench.toLowerCase();
+                if (level >= 5 || cleanEnch.includes("ultimate") || cleanEnch.includes("soul_eater") || cleanEnch.includes("overload") || cleanEnch.includes("one_for_all")) {
                     return false;
                 }
             }
@@ -224,17 +256,20 @@ class FlippingEngine {
         const stars = props.dungeonStars || 0;
         const master = props.masterStars || 0;
 
-        const keyEnchants = [];
+        // Group by MAJOR ultimate/high enchants only
+        const majorEnchants = [];
         if (props.enchantments) {
+            const highValueList = ["soul_eater", "overload", "one_for_all", "duplex", "fatal_tempest", "inferno", "swarm", "chimera", "legion", "rend", "wisdom", "bank", "flash"];
             for (const [ench, level] of Object.entries(props.enchantments)) {
-                if (level >= 5 || ench.toLowerCase().includes("ultimate") || ench.toLowerCase().includes("soul_eater") || ench.toLowerCase().includes("overload")) {
-                    keyEnchants.push(`${ench.toLowerCase()}:${level}`);
+                const cleanEnch = ench.toLowerCase();
+                if (cleanEnch.includes("ultimate") || highValueList.some(h => cleanEnch.includes(h))) {
+                    majorEnchants.push(`${cleanEnch}:${level}`);
                 }
             }
         }
-        keyEnchants.sort();
+        majorEnchants.sort();
 
-        return `${skyblockId}|r:${recomb}|s:${stars}|m:${master}|e:${keyEnchants.join(',')}`;
+        return `${skyblockId}|r:${recomb}|s:${stars}|m:${master}|e:${majorEnchants.join(',')}`;
     }
 
     calculateLiveUpgradeValue(properties) {

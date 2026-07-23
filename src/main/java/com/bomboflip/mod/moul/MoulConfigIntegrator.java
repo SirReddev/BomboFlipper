@@ -26,9 +26,6 @@ public final class MoulConfigIntegrator {
                     .toFile();
 
             managed = new ManagedConfig<>(new ManagedConfigBuilder<>(file, MoulBomboConfig.class));
-
-            // We can safely remove the saveRunnables list addition here
-            // since we are now natively overriding saveNow() in MoulBomboConfig.java
         }
         return managed;
     }
@@ -73,13 +70,9 @@ public final class MoulConfigIntegrator {
 
         runtime.enabled = gui.general.enabled;
 
-        try {
-            runtime.budget = Long.parseLong(gui.general.budget);
-            runtime.minProfit = Long.parseLong(gui.general.minProfit);
-            runtime.maxProfit = Long.parseLong(gui.general.maxProfit);
-        } catch (NumberFormatException e) {
-            System.err.println("[BomboFlipper] Invalid number format entered in config GUI!");
-        }
+        runtime.budget = parseNumber(gui.general.budget, runtime.budget);
+        runtime.minProfit = parseNumber(gui.general.minProfit, runtime.minProfit);
+        runtime.maxProfit = parseNumber(gui.general.maxProfit, runtime.maxProfit);
 
         runtime.blacklist.clear();
         if (gui.filters.blacklist != null) {
@@ -97,10 +90,31 @@ public final class MoulConfigIntegrator {
         runtime.debugMode = gui.alerts.debugMode;
         runtime.showAllFlips = gui.alerts.showAllFlips;
 
-        // Save backend logic config to disk
+        // Save runtime JSON config to disk
         runtime.save();
 
-        // CRITICAL FIX: Save the visual GUI config to disk
-        getManaged().saveToFile();
+        // Save Managed GUI config to disk
+        try {
+            getManaged().saveToFile();
+        } catch (Exception e) {
+            System.err.println("[BomboFlipper] Failed to save GUI config to disk: " + e.getMessage());
+        }
+    }
+
+    public static long parseNumber(String input, long fallback) {
+        if (input == null || input.trim().isEmpty()) return fallback;
+        String clean = input.trim().toLowerCase().replaceAll("[,_\\s]", "");
+        try {
+            if (clean.endsWith("m")) {
+                return (long) (Double.parseDouble(clean.substring(0, clean.length() - 1)) * 1_000_000);
+            } else if (clean.endsWith("k")) {
+                return (long) (Double.parseDouble(clean.substring(0, clean.length() - 1)) * 1_000);
+            } else if (clean.endsWith("b")) {
+                return (long) (Double.parseDouble(clean.substring(0, clean.length() - 1)) * 1_000_000_000L);
+            }
+            return Long.parseLong(clean);
+        } catch (Exception e) {
+            return fallback;
+        }
     }
 }

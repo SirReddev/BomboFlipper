@@ -33,7 +33,7 @@ class BazaarService {
     getEnchantPrice(enchName, level) {
         if (!enchName || !level) return 0;
         const cleanName = enchName.toLowerCase();
-        
+
         const candidateKeys = [
             `ENCHANTMENT_${cleanName.toUpperCase()}_${level}`,
             `ENCHANTMENT_ULTIMATE_${cleanName.toUpperCase()}_${level}`,
@@ -46,7 +46,20 @@ class BazaarService {
             if (price) return price;
         }
 
-        return 0;
+        // Fallback prices for major high-tier enchants if Bazaar product key varies
+        const fallbackEnchantPrices = {
+            "soul_eater_5": 15000000,
+            "overload_5": 6000000,
+            "one_for_all_1": 4000000,
+            "legion_5": 20000000,
+            "chimera_1": 20000000,
+            "swarm_5": 5000000,
+            "fatal_tempest_5": 15000000,
+            "wisdom_5": 2000000
+        };
+
+        const fallbackKey = `${cleanName.replace(/^ultimate_/, '')}_${level}`;
+        return fallbackEnchantPrices[fallbackKey] || 0;
     }
 
     getMasterStarPrice(starIndex) {

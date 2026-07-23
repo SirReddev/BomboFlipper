@@ -1,19 +1,19 @@
 const WebSocket = require('ws');
 const axios = require('axios');
-const bazaarService = require('./services/BazaarService'); // Import Bazaar Service
+const bazaarService = require('./services/BazaarService');
 const flippingEngine = require('./services/FlippingEngine');
+const volumeCache = require('./services/VolumeCache');
+const logger = require('./services/Logger');
 
 const PORT = process.env.PORT || 8080;
 const wss = new WebSocket.Server({ port: PORT });
 let connectedClients = [];
 
-console.log(`================================────────────────────────`);
-console.log(`[BomboFlipper Server] Initializing AH/Bazaar Engine on Port ${PORT}`);
-console.log(`================================────────────────────────`);
+logger.banner(`BomboFlipper Hybrid AH/Bazaar Engine Running on Port ${PORT}`);
 
 wss.on('connection', (ws, req) => {
     const clientIp = req.socket.remoteAddress;
-    console.log(`[WebSocket] Client connected from ${clientIp}`);
+    logger.success(`WebSocket client connected from ${clientIp}`);
     connectedClients.push(ws);
 
     ws.send(JSON.stringify({
@@ -25,13 +25,13 @@ wss.on('connection', (ws, req) => {
         try {
             const parsed = JSON.parse(message);
             if (parsed.type === 'command') {
-                console.log(`[WebSocket] Received client command: ${parsed.data}`);
+                logger.info(`Received client command: ${parsed.data}`);
             }
         } catch (e) {}
     });
 
     ws.on('close', () => {
-        console.log(`[WebSocket] Client disconnected.`);
+        logger.info(`WebSocket client disconnected.`);
         connectedClients = connectedClients.filter(c => c !== ws);
     });
 });
@@ -45,72 +45,79 @@ function broadcastFlip(flipPayload) {
     });
 }
 
-function broadcastDebugLog(message) {
-    const payload = JSON.stringify({ type: "debugLog", message: message });
-    connectedClients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN) {
-            client.send(payload);
+async function fetchAllAHPages(totalPages) {
+    const allAuctions = [];
+    const chunkSize = 15;
+
+    for (let i = 0; i < totalPages; i += chunkSize) {
+        const batchPromises = [];
+        for (let page = i; page < Math.min(i + chunkSize, totalPages); page++) {
+            batchPromises.push(
+                axios.get(`https://api.hypixel.net/skyblock/auctions?page=${page}`, { timeout: 8000 })
+                     .catch(err => null)
+            );
         }
-    });
+        const responses = await Promise.all(batchPromises);
+        for (const res of responses) {
+            if (res && res.data && res.data.auctions) {
+                allAuctions.push(...res.data.auctions);
+            }
+        }
+    }
+    return allAuctions;
 }
 
 async function runAuctionCheckCycle() {
     const cycleStartTime = Date.now();
+    logger.cycle(`Starting Auction House & Bazaar scan cycle...`);
+
     try {
         // 1. Fetch live upgrade prices from the Bazaar
         await bazaarService.updateBazaar();
-
         const bzKeys = Object.keys(bazaarService.products).length;
-        broadcastDebugLog(`[BazaarService] Live prices updated for ${bzKeys} items.`);
+        logger.info(`[BazaarService] Live prices updated for ${bzKeys} items.`);
 
-        // 2. Fetch all pages from the Auction House
-        const firstPageRes = await axios.get('https://api.hypixel.net/skyblock/auctions?page=0');
-        const totalPages = firstPageRes.data.totalPages;
-        let allAuctions = [...firstPageRes.data.auctions];
+        // 2. Fetch total page count
+        const firstPageRes = await axios.get('https://api.hypixel.net/skyblock/auctions?page=0', { timeout: 8000 });
+        const totalPages = firstPageRes.data ? firstPageRes.data.totalPages : 0;
 
-        const fetchMsg = `[AuctionCheckService] Fetching ${totalPages} AH pages...`;
-        console.log(fetchMsg);
-        broadcastDebugLog(fetchMsg);
-
-        const pagePromises = [];
-        for (let page = 1; page < totalPages; page++) {
-            pagePromises.push(axios.get(`https://api.hypixel.net/skyblock/auctions?page=${page}`));
+        if (totalPages === 0) {
+            logger.error(`Hypixel AH API returned 0 total pages.`);
+            return;
         }
 
-        const pageResponses = await Promise.all(pagePromises);
-        pageResponses.forEach((res) => {
-            if (res.data && res.data.auctions) {
-                allAuctions.push(...res.data.auctions);
-            }
-        });
+        // 3. Fetch all pages in chunked parallel batches (15 pages at a time)
+        const allAuctions = await fetchAllAHPages(totalPages);
+        logger.info(`[AuctionCheck] Downloaded ${totalPages} AH pages (${logger.formatNumber(allAuctions.length)} total active auctions).`);
 
-        console.log(`[AuctionCheckService] Total active auctions retrieved: ${allAuctions.length}`);
-
-        // 3. Pass auctions to Flipping Engine for valuation
+        // 4. Pass auctions to Flipping Engine for valuation
         const evaluationResult = await flippingEngine.evaluateAuctions(allAuctions);
+        const durationMs = Date.now() - cycleStartTime;
 
-        const evalMsg = `[Engine] Evaluated ${evaluationResult.totalEvaluated} BIN items in ${Date.now() - cycleStartTime}ms. Flips Found: ${evaluationResult.flips.length}`;
-        console.log(evalMsg);
-        broadcastDebugLog(evalMsg);
+        // Print neat ASCII Table for flips
+        logger.printFlipTable(evaluationResult.flips);
+
+        const vStatus = volumeCache.getStatus();
+        logger.info(`[VolumeCache Status] ${logger.formatNumber(vStatus.cachedCount)} records saved on disk | ${vStatus.pendingQueue} items queued.`);
+
+        logger.success(`[SCAN COMPLETE] Evaluated ${logger.formatNumber(evaluationResult.totalEvaluated)} BIN items in ${durationMs}ms | ${evaluationResult.flips.length} Flips Found.`);
 
         for (const flip of evaluationResult.flips) {
-            console.log(`[FLIP DETECTED] ${flip.item} | Price: ${flip.price.toLocaleString()} | Value: ${flip.estimatedValue.toLocaleString()} | Profit: ${flip.profit.toLocaleString()}`);
-
             broadcastFlip({
                 type: "flip",
                 itemName: flip.item || flip.itemName || "Unknown Item",
                 price: flip.price,
                 profit: flip.profit,
                 command: flip.command,
-                uuid: flip.id || flip.uuid, // Coflnet usually provides the auction UUID under 'id'
-                demandTier: flip.demandTier || 5,
-                salesPerDay: flip.salesPerDay || -1,
+                uuid: flip.id || flip.uuid,
+                demandTier: flip.demandTier !== undefined ? flip.demandTier : 1,
+                salesPerDay: flip.salesPerDay !== undefined ? flip.salesPerDay : 0,
                 bytes: null
             });
         }
 
     } catch (error) {
-        console.error('[AuctionCheckService] Error during auction check cycle:', error.message);
+        logger.error(`Error during auction check cycle: ${error.message}`);
     }
 }
 

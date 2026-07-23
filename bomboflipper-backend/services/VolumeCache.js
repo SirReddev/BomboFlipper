@@ -8,7 +8,11 @@ class VolumeCache {
         this.cacheDir = path.join(__dirname, '../config');
         this.cacheFile = path.join(this.cacheDir, 'volume_cache.json');
         this.cache = new Map();
+        
+        // Dual-queue system: High Priority for flip candidates, Normal for general items
+        this.priorityQueue = new Set();
         this.queue = new Set();
+        this.failedAttempts = new Map();
 
         this.loadFromDisk();
         this.startBackgroundCrawler();
@@ -44,63 +48,88 @@ class VolumeCache {
         }
     }
 
-    // The FlippingEngine calls this. It is 100% instant.
-    getVolume(itemTag) {
+    // Instant lookup with auto-queueing
+    getVolume(itemTag, isFlipCandidate = false) {
         if (!itemTag) return 0;
 
         if (this.cache.has(itemTag)) {
             const data = this.cache.get(itemTag);
-            // Return cached volume if it's less than 48 hours old
+            // Cache valid for 48 hours
             if (Date.now() - data.timestamp < 172800000) {
                 return data.salesPerDay;
             }
         }
 
-        // If not cached or too old, add to the crawler's to-do list
-        this.queue.add(itemTag);
+        // Add to appropriate queue
+        if (isFlipCandidate) {
+            this.priorityQueue.add(itemTag);
+        } else if (!this.cache.has(itemTag)) {
+            this.queue.add(itemTag);
+        }
 
-        // Return 0 (lowest/ANY tier) rather than a high number, so items
-        // the background crawler hasn't gotten to yet show up as
-        // "unconfirmed demand" instead of being mislabeled VERY HIGH -
-        // guessing optimistically here could mislead you into buying
-        // something that's actually illiquid.
-        return 0;
+        return 0; // Default fallback for uncached items
     }
 
-    // Runs silently in the background, 1 request every 2 seconds
+    getStatus() {
+        return {
+            cachedCount: this.cache.size,
+            pendingQueue: this.queue.size + this.priorityQueue.size,
+            priorityPending: this.priorityQueue.size
+        };
+    }
+
+    // Smart background crawler: processes priority queue first, 1 request every 1.5 seconds
     async startBackgroundCrawler() {
-        let scannedCount = 0;
+        let processedSinceSave = 0;
 
         setInterval(async () => {
-            if (this.queue.size === 0) return;
+            let itemTag = null;
 
-            const itemTag = this.queue.values().next().value;
-            this.queue.delete(itemTag);
+            // Process priority items first
+            if (this.priorityQueue.size > 0) {
+                itemTag = this.priorityQueue.values().next().value;
+                this.priorityQueue.delete(itemTag);
+            } else if (this.queue.size > 0) {
+                itemTag = this.queue.values().next().value;
+                this.queue.delete(itemTag);
+            }
+
+            if (!itemTag) return;
 
             try {
                 const response = await axios.get(`https://sky.coflnet.com/api/item/price/${itemTag}/analysis`, {
-                    headers: { 'User-Agent': 'BomboFlipper-Crawler/1.0' }
+                    headers: { 'User-Agent': 'BomboFlipper-Crawler/2.0' },
+                    timeout: 5000
                 });
 
-                const salesPerDay = response.data.salesPerDay || 0;
+                const salesPerDay = response.data && typeof response.data.salesPerDay === 'number'
+                    ? response.data.salesPerDay
+                    : 0;
 
                 this.cache.set(itemTag, {
                     salesPerDay: salesPerDay,
                     timestamp: Date.now()
                 });
 
-                scannedCount++;
+                this.failedAttempts.delete(itemTag);
+                processedSinceSave++;
 
-                // Neatly report progress every 10 items and save to disk
-                if (scannedCount % 10 === 0) {
-                    logger.cache(`Background Crawler mapped 10 items. Remaining in queue: ${this.queue.size}`);
-                    this.saveToDisk(); // Persist progress safely
+                // Persist cache to disk every 15 new entries
+                if (processedSinceSave >= 15) {
+                    this.saveToDisk();
+                    processedSinceSave = 0;
                 }
 
             } catch (error) {
-                this.queue.add(itemTag); // Re-queue on failure
+                const fails = (this.failedAttempts.get(itemTag) || 0) + 1;
+                this.failedAttempts.set(itemTag, fails);
+
+                // Retry up to 3 times, then stop queueing broken item tags
+                if (fails <= 3) {
+                    this.queue.add(itemTag);
+                }
             }
-        }, 2000);
+        }, 1500);
     }
 }
 

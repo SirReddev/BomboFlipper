@@ -22,6 +22,13 @@ public class BomboFlipClient implements ClientModInitializer {
         // 1. Load config file
         BomboFlipConfig.load();
 
+        // Shutdown hook to guarantee config is saved on game close
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                MoulConfigIntegrator.pushToRuntimeConfig();
+            } catch (Exception ignored) {}
+        }));
+
         // 2. Start the WebSocket connection statically in the background
         Thread webSocketThread = new Thread(() -> {
             try {

@@ -1994,5 +1994,889 @@
   "REAPER_BOOTS": {
     "salesPerDay": 23.142857142857142,
     "timestamp": 1784762544504
+  },
+  "FINNS_FOCACCIA": {
+    "salesPerDay": 3.7142857142857144,
+    "timestamp": 1784821612470
+  },
+  "ROSETTA_HELMET": {
+    "salesPerDay": 9,
+    "timestamp": 1784821614340
+  },
+  "GREAT_SPOOK_CHESTPLATE": {
+    "salesPerDay": 1.7142857142857142,
+    "timestamp": 1784821616360
+  },
+  "GREAT_SPOOK_LEGGINGS": {
+    "salesPerDay": 2.857142857142857,
+    "timestamp": 1784821618375
+  },
+  "PUMPKIN_PERSONALITY": {
+    "salesPerDay": 4,
+    "timestamp": 1784821620409
+  },
+  "GREAT_SPOOK_STAFF": {
+    "salesPerDay": 4.142857142857143,
+    "timestamp": 1784821622409
+  },
+  "TITANIUM_DRILL_ENGINE": {
+    "salesPerDay": 63.57142857142857,
+    "timestamp": 1784821624399
+  },
+  "ARTIFACT_POTION_AFFINITY": {
+    "salesPerDay": 273.57142857138336,
+    "timestamp": 1784821626426
+  },
+  "STARLIGHT_WAND": {
+    "salesPerDay": 30.714285714285715,
+    "timestamp": 1784821628430
+  },
+  "VOODOO_DOLL_WILTED": {
+    "salesPerDay": 8.571428571427154,
+    "timestamp": 1784821630420
+  },
+  "ICE_SPRAY_WAND": {
+    "salesPerDay": 96.71428571426972,
+    "timestamp": 1784821632425
+  },
+  "PLACEABLE_FAIRY_SOUL_RIFT": {
+    "salesPerDay": 0.5714285714285714,
+    "timestamp": 1784821634423
+  },
+  "SCYTHE_BLADE": {
+    "salesPerDay": 205.28571428568034,
+    "timestamp": 1784821636448
+  },
+  "MELON_BOOTS": {
+    "salesPerDay": 169.28571428571428,
+    "timestamp": 1784821638475
+  },
+  "PET_SKIN_GUARDIAN_CORRUPT_EYE": {
+    "salesPerDay": 4.285714285714286,
+    "timestamp": 1784821640464
+  },
+  "GEMSTONE_DRILL_4": {
+    "salesPerDay": 106.57142857142857,
+    "timestamp": 1784821642467
+  },
+  "CLOWNFISH_HAT": {
+    "salesPerDay": 90.28571428571429,
+    "timestamp": 1784821644482
+  },
+  "BINGO_TALISMAN": {
+    "salesPerDay": 2,
+    "timestamp": 1784821646508
+  },
+  "SKULL_PERSONALITY": {
+    "salesPerDay": 6.714285714285714,
+    "timestamp": 1784821648699
+  },
+  "EMBER_ROD": {
+    "salesPerDay": 3.5714285714285716,
+    "timestamp": 1784821650558
+  },
+  "DIVAN_CHESTPLATE": {
+    "salesPerDay": 171.85714285711444,
+    "timestamp": 1784821652675
+  },
+  "DIAMOND_HOE": {
+    "salesPerDay": 7.714285714285714,
+    "timestamp": 1784821655193
+  },
+  "DYE_HOLLY": {
+    "salesPerDay": 32.428571428566066,
+    "timestamp": 1784821657238
+  },
+  "UNSTABLE_DRAGON_CHESTPLATE": {
+    "salesPerDay": 151.71428571428572,
+    "timestamp": 1784821658977
+  },
+  "FRESHLY_BAKED_RELIC": {
+    "salesPerDay": 2.2857142857142856,
+    "timestamp": 1784821660971
+  },
+  "MYTHOS_NECKLACE": {
+    "salesPerDay": 7.57142857142732,
+    "timestamp": 1784821662803
+  },
+  "UNIQUE_RUNE": {
+    "salesPerDay": 0,
+    "timestamp": 1784821664647
+  },
+  "ARMOR_OF_YOG_HELMET": {
+    "salesPerDay": 138.42857142857142,
+    "timestamp": 1784821666737
+  },
+  "TARANTULA_LEGGINGS": {
+    "salesPerDay": 22.714285714285715,
+    "timestamp": 1784821668724
+  },
+  "INK_WAND": {
+    "salesPerDay": 5.857142857142857,
+    "timestamp": 1784821670561
+  },
+  "ROTTEN_BOOTS": {
+    "salesPerDay": 141.14285714285714,
+    "timestamp": 1784821672539
+  },
+  "INFERNO_FUEL_CRUDE_GABAGOOL": {
+    "salesPerDay": 4.142857142857143,
+    "timestamp": 1784821940765
+  },
+  "PET_SKIN_PHEONIX_FLAMINGO": {
+    "salesPerDay": 0.4285714285713577,
+    "timestamp": 1784821678886
+  },
+  "FANCY_TUXEDO_BOOTS": {
+    "salesPerDay": 1.2857142857142858,
+    "timestamp": 1784821680923
+  },
+  "FANCY_TUXEDO_LEGGINGS": {
+    "salesPerDay": 1.5714285714285714,
+    "timestamp": 1784821682846
+  },
+  "SUSPICIOUS_STEW": {
+    "salesPerDay": 0.7142857142857143,
+    "timestamp": 1784821684850
+  },
+  "BOTANICAL_GREENHOUSE_SKIN": {
+    "salesPerDay": 1.4285714285714286,
+    "timestamp": 1784821686859
+  },
+  "DIVAN_HELMET": {
+    "salesPerDay": 182.42857142857142,
+    "timestamp": 1784821688900
+  },
+  "BLUE_EGG": {
+    "salesPerDay": 0.14285714285714285,
+    "timestamp": 1784821690930
+  },
+  "DIAMOND_CHESTPLATE": {
+    "salesPerDay": 3.7142857142851002,
+    "timestamp": 1784821692879
+  },
+  "GHOUL_BUSTER": {
+    "salesPerDay": 5.714285714285714,
+    "timestamp": 1784821694904
+  },
+  "PET_SKIN_AMMONITE_HERMIT_BEACH_BALL": {
+    "salesPerDay": 0.7142857142855962,
+    "timestamp": 1784821696914
+  },
+  "TITANIUM_DRILL_2": {
+    "salesPerDay": 38.857142857142854,
+    "timestamp": 1784821698918
+  },
+  "UNSTABLE_DRAGON_HELMET": {
+    "salesPerDay": 172.71428571428572,
+    "timestamp": 1784821700950
+  },
+  "PET_SKIN_BLACK_CAT_LITTER": {
+    "salesPerDay": 2.7142857142852654,
+    "timestamp": 1784821702933
+  },
+  "DRAGON_EGG_BACKPACK": {
+    "salesPerDay": 0.7142857142857143,
+    "timestamp": 1784821704931
+  },
+  "STARLIGHT_BOOTS": {
+    "salesPerDay": 10,
+    "timestamp": 1784821706942
+  },
+  "PET_SKIN_BLUE_WHALE_PLUSHIE": {
+    "salesPerDay": 0.5714285714284769,
+    "timestamp": 1784821708960
+  },
+  "EXPENSIVE_TOY": {
+    "salesPerDay": 1.8571428571428572,
+    "timestamp": 1784821710980
+  },
+  "SALMON_CHESTPLATE_NEW": {
+    "salesPerDay": 40,
+    "timestamp": 1784821713672
+  },
+  "REVENANT_LEGGINGS": {
+    "salesPerDay": 17.714285714285715,
+    "timestamp": 1784821715579
+  },
+  "STARRED_STONE_BLADE": {
+    "salesPerDay": 8.142857142857142,
+    "timestamp": 1784821717297
+  },
+  "FANCY_TUXEDO_CHESTPLATE": {
+    "salesPerDay": 2.857142857142857,
+    "timestamp": 1784821719163
+  },
+  "KNOCKOFF_COLA": {
+    "salesPerDay": 0.5714285714285714,
+    "timestamp": 1784821721175
+  },
+  "PAINTERS_PALETTE": {
+    "salesPerDay": 0.8571428571427154,
+    "timestamp": 1784821723035
+  },
+  "THE_PRIMORDIAL": {
+    "salesPerDay": 16.428571428571427,
+    "timestamp": 1784821725024
+  },
+  "ARMOR_OF_MAGMA_BOOTS": {
+    "salesPerDay": 1.4285714285714286,
+    "timestamp": 1784821727053
+  },
+  "ARMOR_OF_MAGMA_LEGGINGS": {
+    "salesPerDay": 1.5714285714283116,
+    "timestamp": 1784821729011
+  },
+  "JERRY_TALISMAN_PURPLE": {
+    "salesPerDay": 11.857142857142858,
+    "timestamp": 1784821948830
+  },
+  "SHADOW_ASSASSIN_SLY_FOX": {
+    "salesPerDay": 0.7142857142855962,
+    "timestamp": 1784821735851
+  },
+  "PET_SKIN_ENDERMITE_RADIANT": {
+    "salesPerDay": 0.14285714285714285,
+    "timestamp": 1784821737868
+  },
+  "ARMOR_OF_THE_RESISTANCE_BOOTS": {
+    "salesPerDay": 2.857142857142857,
+    "timestamp": 1784821739864
+  },
+  "DESERT_ISLAND": {
+    "salesPerDay": 5,
+    "timestamp": 1784821741879
+  },
+  "PET_SKIN_GLACITE_GOLEM_MOLTEN": {
+    "salesPerDay": 2.7142857142857144,
+    "timestamp": 1784821743886
+  },
+  "EMBER_BOOTS": {
+    "salesPerDay": 13.714285714285714,
+    "timestamp": 1784821745912
+  },
+  "CROWN_OF_AVARICE": {
+    "salesPerDay": 20.285714285714285,
+    "timestamp": 1784821747889
+  },
+  "HELIANTHUS_HELMET": {
+    "salesPerDay": 52.42857142856276,
+    "timestamp": 1784821749919
+  },
+  "DYE_JERRY": {
+    "salesPerDay": 10.857142857142858,
+    "timestamp": 1784821751945
+  },
+  "ARMOR_OF_THE_RESISTANCE_CHESTPLATE": {
+    "salesPerDay": 3.2857142857137425,
+    "timestamp": 1784821753931
+  },
+  "INFERNAL_CRIMSON_LEGGINGS": {
+    "salesPerDay": 6.142857142856127,
+    "timestamp": 1784821755920
+  },
+  "FIERY_CRIMSON_CHESTPLATE": {
+    "salesPerDay": 8.999999999998511,
+    "timestamp": 1784821757931
+  },
+  "DARK_AUCTION_PORTAL": {
+    "salesPerDay": 0,
+    "timestamp": 1784821759935
+  },
+  "EMBER_CHESTPLATE": {
+    "salesPerDay": 12.714285714285714,
+    "timestamp": 1784821761947
+  },
+  "DIVAN_DRILL": {
+    "salesPerDay": 6.714285714285714,
+    "timestamp": 1784821763972
+  },
+  "PET_SKIN_OCELOT_RACOON": {
+    "salesPerDay": 1,
+    "timestamp": 1784821765994
+  },
+  "PET_SKIN_MOOSHROOM_COW_MOONBLOOM": {
+    "salesPerDay": 2.2857142857142856,
+    "timestamp": 1784821768028
+  },
+  "DYE_FROG": {
+    "salesPerDay": 8.285714285714286,
+    "timestamp": 1784821769998
+  },
+  "MINERAL_CHESTPLATE": {
+    "salesPerDay": 244.85714285714286,
+    "timestamp": 1784821772142
+  },
+  "MYTHOS_CLOAK": {
+    "salesPerDay": 6.714285714284604,
+    "timestamp": 1784821774179
+  },
+  "CHAINMAIL_CHESTPLATE": {
+    "salesPerDay": 0.7142857142857143,
+    "timestamp": 1784821776649
+  },
+  "INFERNAL_AURORA_BOOTS": {
+    "salesPerDay": 0.7142857142857143,
+    "timestamp": 1784821778551
+  },
+  "WARDEN_HELMET": {
+    "salesPerDay": 85.42857142857143,
+    "timestamp": 1784821780609
+  },
+  "HELIANTHUS_LEGGINGS": {
+    "salesPerDay": 47,
+    "timestamp": 1784821782535
+  },
+  "PET_SKIN_ZOMBIE_BIG_BRAIN": {
+    "salesPerDay": 0,
+    "timestamp": 1784821784373
+  },
+  "CELESTE_WAND": {
+    "salesPerDay": 32.857142857137426,
+    "timestamp": 1784821786210
+  },
+  "PET_SKIN_MAMMOTH_VOID": {
+    "salesPerDay": 2.142857142857143,
+    "timestamp": 1784821788064
+  },
+  "HYPERION": {
+    "salesPerDay": 100.14285714285714,
+    "timestamp": 1784821790026
+  },
+  "STARRED_LAST_BREATH": {
+    "salesPerDay": 6.285714285713246,
+    "timestamp": 1784821955493
+  },
+  "PET_SKIN_ENDER_DRAGON_BABY_BLUE": {
+    "salesPerDay": 1.8571428571428572,
+    "timestamp": 1784821796854
+  },
+  "DRAGON_NEST_PORTAL": {
+    "salesPerDay": 0.7142857142857143,
+    "timestamp": 1784821798881
+  },
+  "PET_SKIN_WHALE_COSMIC": {
+    "salesPerDay": 1,
+    "timestamp": 1784821800912
+  },
+  "PET_SKIN_CHICKEN_CHICK_PINK": {
+    "salesPerDay": 0,
+    "timestamp": 1784821802881
+  },
+  "PET_SKIN_DOLPHIN_SNUBNOSE_RED": {
+    "salesPerDay": 0.5714285714285714,
+    "timestamp": 1784821804883
+  },
+  "BLENDED_FISH_MIXIN": {
+    "salesPerDay": 3.142857142856623,
+    "timestamp": 1784821806909
+  },
+  "ARMOR_OF_MAGMA_HELMET": {
+    "salesPerDay": 1.5714285714285714,
+    "timestamp": 1784821808941
+  },
+  "PERFECT_LEGGINGS_1": {
+    "salesPerDay": 2.142857142857143,
+    "timestamp": 1784821810931
+  },
+  "PET_SKIN_SNOWMAN_ICE_GOLEM": {
+    "salesPerDay": 0,
+    "timestamp": 1784821812941
+  },
+  "FROGGLES_DIAMOND": {
+    "salesPerDay": 21.571428571428573,
+    "timestamp": 1784821814949
+  },
+  "PET_SKIN_PIGMAN_BBQ": {
+    "salesPerDay": 0.14285714285714285,
+    "timestamp": 1784821816965
+  },
+  "6_ANNIVERSARY_BARN_SKIN": {
+    "salesPerDay": 4.571428571428571,
+    "timestamp": 1784821818966
+  },
+  "WIZARD_WAND": {
+    "salesPerDay": 0.8571428571427154,
+    "timestamp": 1784821820983
+  },
+  "COFFEE_TABLE": {
+    "salesPerDay": 0,
+    "timestamp": 1784821822978
+  },
+  "ARTIFACT_OF_COINS": {
+    "salesPerDay": 0.42857142857142855,
+    "timestamp": 1784821824999
+  },
+  "TITANIUM_DRILL_3": {
+    "salesPerDay": 31.142857142857142,
+    "timestamp": 1784821827007
+  },
+  "PET_SKIN_TURTLE_ANCIENT_GOLDEN": {
+    "salesPerDay": 0.2857142857142857,
+    "timestamp": 1784821829026
+  },
+  "MOLDY_MUFFIN": {
+    "salesPerDay": 0.7142857142857143,
+    "timestamp": 1784821831012
+  },
+  "RED_THORNLEAF": {
+    "salesPerDay": 2.857142857142857,
+    "timestamp": 1784821833659
+  },
+  "PET_SKIN_REINDEER_UNICORN": {
+    "salesPerDay": 0.2857142857142857,
+    "timestamp": 1784821835650
+  },
+  "PET_SKIN_TYRANNOSAURUS_FOSSIL": {
+    "salesPerDay": 2.7142857142852654,
+    "timestamp": 1784821837538
+  },
+  "DARK_CLAYMORE": {
+    "salesPerDay": 61.42857142857143,
+    "timestamp": 1784821839418
+  },
+  "PIRATE_BOMB_FLUX": {
+    "salesPerDay": 1.4285714285714286,
+    "timestamp": 1784821841162
+  },
+  "UNSTABLE_DRAGON_BOOTS": {
+    "salesPerDay": 173.85714285714286,
+    "timestamp": 1784821843062
+  },
+  "RAGNA_ROCK": {
+    "salesPerDay": 0.8571428571428571,
+    "timestamp": 1784821845199
+  },
+  "BEACH_BALL_BARN_SKIN": {
+    "salesPerDay": 0.2857142857142857,
+    "timestamp": 1784821847075
+  },
+  "PET_SKIN_BLACK_CAT_CARDBOARD_BOX": {
+    "salesPerDay": 0.42857142857142855,
+    "timestamp": 1784821849090
+  },
+  "PERFECT_PALADIN": {
+    "salesPerDay": 0.14285714285714285,
+    "timestamp": 1784821963019
+  },
+  "FARM_ARMOR_LEGGINGS": {
+    "salesPerDay": 67.99999999998876,
+    "timestamp": 1784821855365
+  },
+  "IRON_CHEST": {
+    "salesPerDay": 0.14285714285714285,
+    "timestamp": 1784821857319
+  },
+  "FARM_ARMOR_HELMET": {
+    "salesPerDay": 67.85714285713163,
+    "timestamp": 1784821859269
+  },
+  "PET_SKIN_ENDERMAN_NEON": {
+    "salesPerDay": 0.2857142857142857,
+    "timestamp": 1784821861295
+  },
+  "BEACH_BALL_FLUX": {
+    "salesPerDay": 0,
+    "timestamp": 1784821863292
+  },
+  "TROPICAL_BIRD_2_PERSONALITY": {
+    "salesPerDay": 1.7142857142857142,
+    "timestamp": 1784821865280
+  },
+  "SHARK_SCALE_LEGGINGS": {
+    "salesPerDay": 84.71428571428571,
+    "timestamp": 1784821867318
+  },
+  "BLAZE_HELMET": {
+    "salesPerDay": 2.7142857142857144,
+    "timestamp": 1784821869326
+  },
+  "PINK_BUNNY_PERSONALITY": {
+    "salesPerDay": 1.5714285714285714,
+    "timestamp": 1784821871318
+  },
+  "REDSTONE_ORE": {
+    "salesPerDay": 0.42857142857142855,
+    "timestamp": 1784821873318
+  },
+  "PET_SKIN_ROCK_SWEATING": {
+    "salesPerDay": 0.14285714285714285,
+    "timestamp": 1784821875328
+  },
+  "BLAZETEKK_HAM": {
+    "salesPerDay": 1.1428571428569538,
+    "timestamp": 1784821877349
+  },
+  "MAGMA_LORD_CHESTPLATE": {
+    "salesPerDay": 25.285714285714285,
+    "timestamp": 1784821879337
+  },
+  "PET_SKIN_SLUG_AZURE_SEA_SLUG": {
+    "salesPerDay": 0.42857142857142855,
+    "timestamp": 1784821881338
+  },
+  "PET_SKIN_AMMONITE_HERMIT_BAKED_BEANS": {
+    "salesPerDay": 1.4285714285711923,
+    "timestamp": 1784821883365
+  },
+  "DEIFIC_SPADE": {
+    "salesPerDay": 11.571428571428571,
+    "timestamp": 1784821885355
+  },
+  "PET_SKIN_BABY_YETI_MIDNIGHT": {
+    "salesPerDay": 0.5714285714284769,
+    "timestamp": 1784821887364
+  },
+  "GOLDEN_APPLE_FLUX": {
+    "salesPerDay": 0.42857142857142855,
+    "timestamp": 1784821889363
+  },
+  "FIERY_CRIMSON_HELMET": {
+    "salesPerDay": 4.857142857142857,
+    "timestamp": 1784821891398
+  },
+  "MEDIOCRE_FISH_DRAWING": {
+    "salesPerDay": 1,
+    "timestamp": 1784821893995
+  },
+  "PET_SKIN_SNOWMAN_PLUSHIE": {
+    "salesPerDay": 0.14285714285714285,
+    "timestamp": 1784821895987
+  },
+  "VALKYRIE": {
+    "salesPerDay": 1.285714285714073,
+    "timestamp": 1784821897820
+  },
+  "DYE_COPPER": {
+    "salesPerDay": 5.857142857142857,
+    "timestamp": 1784821899678
+  },
+  "PET_SKIN_BLACK_CAT_IVORY": {
+    "salesPerDay": 0.14285714285711923,
+    "timestamp": 1784821901617
+  },
+  "FLOWER_POT_BARN_SKIN": {
+    "salesPerDay": 0.14285714285714285,
+    "timestamp": 1784821903487
+  },
+  "QUARTZ_ORE": {
+    "salesPerDay": 0.14285714285711923,
+    "timestamp": 1784821905445
+  },
+  "SPOOKY_TREE": {
+    "salesPerDay": 0.42857142857142855,
+    "timestamp": 1784821907409
+  },
+  "ANVIL:2": {
+    "salesPerDay": 0.14285714285711923,
+    "timestamp": 1784821909410
+  },
+  "TARANTULA_BOOTS": {
+    "salesPerDay": 98.57142857142857,
+    "timestamp": 1784821914784
+  },
+  "SALMON_LEGGINGS": {
+    "salesPerDay": 0,
+    "timestamp": 1784821916720
+  },
+  "PET_SKIN_CHICKEN_RUBBER": {
+    "salesPerDay": 0.5714285714285714,
+    "timestamp": 1784821918718
+  },
+  "THERMODYNAMIC_CHESTPLATE": {
+    "salesPerDay": 1.2857142857142858,
+    "timestamp": 1784821920772
+  },
+  "ENCHANTED_NOOK_BARN_SKIN": {
+    "salesPerDay": 0.2857142857142857,
+    "timestamp": 1784821922732
+  },
+  "BEAUTIFALL_CABIN_BARN_SKIN": {
+    "salesPerDay": 0,
+    "timestamp": 1784821924732
+  },
+  "PET_SKIN_TIGER_ZODIAC": {
+    "salesPerDay": 0,
+    "timestamp": 1784821926759
+  },
+  "PET_SKIN_WITHER_SKELETON_DESPAIR": {
+    "salesPerDay": 0.8571428571428571,
+    "timestamp": 1784821928780
+  },
+  "ENCHANTED_BOOKSHELF": {
+    "salesPerDay": 89.71428571428571,
+    "timestamp": 1784821930776
+  },
+  "GLOWING_GRAPE_FLUX": {
+    "salesPerDay": 0,
+    "timestamp": 1784821932783
+  },
+  "BIOHAZARD_SPACE_TEAL": {
+    "salesPerDay": 0.7142857142857143,
+    "timestamp": 1784821934776
+  },
+  "RAY_OF_HELIOS": {
+    "salesPerDay": 1,
+    "timestamp": 1784821936797
+  },
+  "SNOW": {
+    "salesPerDay": 0.8571428571427154,
+    "timestamp": 1784821938799
+  },
+  "BLAZE_TALISMAN": {
+    "salesPerDay": 258.2857142857143,
+    "timestamp": 1784821942822
+  },
+  "PET_SKIN_ROSE_DRAGON_PETAL": {
+    "salesPerDay": 112.28571428571429,
+    "timestamp": 1784821944830
+  },
+  "WITHER_BOW": {
+    "salesPerDay": 60.1428571428472,
+    "timestamp": 1784821946892
+  },
+  "CANDY_TALISMAN": {
+    "salesPerDay": 104.99999999998263,
+    "timestamp": 1784821950926
+  },
+  "CLEAVER": {
+    "salesPerDay": 95.57142857142857,
+    "timestamp": 1784821952889
+  },
+  "PET_ITEM_IRON_CLAWS_COMMON": {
+    "salesPerDay": 17.714285714285715,
+    "timestamp": 1784821957445
+  },
+  "ASPECT_OF_THE_VOID": {
+    "salesPerDay": 465.42857142857144,
+    "timestamp": 1784821959437
+  },
+  "MITHRIL_DRILL_1": {
+    "salesPerDay": 259,
+    "timestamp": 1784821961182
+  },
+  "JUICY_SPRAYONATOR": {
+    "salesPerDay": 33.71428571428014,
+    "timestamp": 1784821964969
+  },
+  "MELON_HELMET": {
+    "salesPerDay": 168.85714285711495,
+    "timestamp": 1784822063617
+  },
+  "MINERAL_BOOTS": {
+    "salesPerDay": 250.85714285714286,
+    "timestamp": 1784822065598
+  },
+  "POLISHED_TOPAZ_ROD": {
+    "salesPerDay": 45.285714285714285,
+    "timestamp": 1784822067607
+  },
+  "WITHER_CLOAK": {
+    "salesPerDay": 295.71428571423684,
+    "timestamp": 1784822069610
+  },
+  "HELIANTHUS_BOOTS": {
+    "salesPerDay": 58.571428571418885,
+    "timestamp": 1784822071598
+  },
+  "WITHER_RELIC": {
+    "salesPerDay": 30.428571428571427,
+    "timestamp": 1784822073655
+  },
+  "STARRED_SPIRIT_MASK": {
+    "salesPerDay": 43,
+    "timestamp": 1784822075653
+  },
+  "FIERY_AURORA_HELMET": {
+    "salesPerDay": 1.1428571428569538,
+    "timestamp": 1784822077680
+  },
+  "MIDAS_STAFF": {
+    "salesPerDay": 34,
+    "timestamp": 1784822079730
+  },
+  "MITHRIL_DRILL_2": {
+    "salesPerDay": 280.7142857142857,
+    "timestamp": 1784822081668
+  },
+  "INFERNAL_AURORA_HELMET": {
+    "salesPerDay": 2.142857142857143,
+    "timestamp": 1784822083723
+  },
+  "CROPIE_HELMET": {
+    "salesPerDay": 83.85714285712899,
+    "timestamp": 1784822085706
+  },
+  "STARRED_MIDAS_SWORD": {
+    "salesPerDay": 10.285714285714286,
+    "timestamp": 1784822087691
+  },
+  "EDIBLE_MACE": {
+    "salesPerDay": 12.142857142855135,
+    "timestamp": 1784822089705
+  },
+  "ALPHA_PICK": {
+    "salesPerDay": 1.7142857142857142,
+    "timestamp": 1784822091714
+  },
+  "STING": {
+    "salesPerDay": 20.857142857139408,
+    "timestamp": 1784822093703
+  },
+  "STARRED_MIDAS_STAFF": {
+    "salesPerDay": 3.7142857142857144,
+    "timestamp": 1784822095714
+  },
+  "MITHRIL_DRILL_ENGINE": {
+    "salesPerDay": 128.28571428571428,
+    "timestamp": 1784822097733
+  },
+  "HURRICANE_BOW": {
+    "salesPerDay": 115.71428571426658,
+    "timestamp": 1784822099759
+  },
+  "SHARK_SCALE_CHESTPLATE": {
+    "salesPerDay": 86.71428571428571,
+    "timestamp": 1784822103191
+  },
+  "FIERY_TERROR_CHESTPLATE": {
+    "salesPerDay": 3.2857142857137425,
+    "timestamp": 1784822104412
+  },
+  "ASPECT_OF_THE_JERRY_SIGNATURE": {
+    "salesPerDay": 112.42857142855284,
+    "timestamp": 1784822106231
+  },
+  "PIG_MASK": {
+    "salesPerDay": 3.5714285714285716,
+    "timestamp": 1784822141293
+  },
+  "CROPIE_BOOTS": {
+    "salesPerDay": 85.57142857142857,
+    "timestamp": 1784822143251
+  },
+  "DYE_PORTAL": {
+    "salesPerDay": 22.571428571428573,
+    "timestamp": 1784822184645
+  },
+  "CHALLENGER_CHESTPLATE": {
+    "salesPerDay": 2.142857142857143,
+    "timestamp": 1784822246088
+  },
+  "SHRIVELED_WASP": {
+    "salesPerDay": 317.57142857142856,
+    "timestamp": 1784822295332
+  },
+  "PET_SKIN_SHEEP_SHLEEPY": {
+    "salesPerDay": 16,
+    "timestamp": 1784822297212
+  },
+  "SALTY_NOZZLE": {
+    "salesPerDay": 9.857142857142858,
+    "timestamp": 1784822364985
+  },
+  "TREASURE_HOOK": {
+    "salesPerDay": 71.42857142857143,
+    "timestamp": 1784822366902
+  },
+  "SPRING_BOOTS": {
+    "salesPerDay": 11.28571428571242,
+    "timestamp": 1784822430388
+  },
+  "DYE_BEACH": {
+    "salesPerDay": 57.42857142856193,
+    "timestamp": 1784822493446
+  },
+  "RUBY_POLISHED_DRILL_ENGINE": {
+    "salesPerDay": 30.857142857142858,
+    "timestamp": 1784822495398
+  },
+  "BUZZYBEES_FANTABULOUS_DISCO_DESTINATION": {
+    "salesPerDay": 125.85714285712206,
+    "timestamp": 1784822553216
+  },
+  "PET_ITEM_TIER_BOOST": {
+    "salesPerDay": 13.999999999997685,
+    "timestamp": 1784822555104
+  },
+  "TARANTULA_CHESTPLATE": {
+    "salesPerDay": 25,
+    "timestamp": 1784822613330
+  },
+  "PET_SKIN_ELEPHANT_WHITE_PLUSHIE": {
+    "salesPerDay": 0.5714285714285714,
+    "timestamp": 1784822615254
+  },
+  "SHINIEST": {
+    "salesPerDay": 41,
+    "timestamp": 1784822673243
+  },
+  "MANA_FLUX_POWER_ORB": {
+    "salesPerDay": 79.71428571427253,
+    "timestamp": 1784822733364
+  },
+  "MITHRIL_FUEL_TANK": {
+    "salesPerDay": 174.4285714285426,
+    "timestamp": 1784822791955
+  },
+  "SORROW_PALADIN": {
+    "salesPerDay": 7.142857142857143,
+    "timestamp": 1784824140203
+  },
+  "PET_SKIN_SILVERFISH_SILBRRRFISH": {
+    "salesPerDay": 2.7142857142857144,
+    "timestamp": 1784824141572
+  },
+  "PET_SKIN_JERRY_MUMMY": {
+    "salesPerDay": 0.5714285714285714,
+    "timestamp": 1784824143090
+  },
+  "PET_SKIN_GOBLIN_JINN": {
+    "salesPerDay": 1.5714285714285714,
+    "timestamp": 1784824144603
+  },
+  "WITCH_ARTIFACT": {
+    "salesPerDay": 36.42857142857143,
+    "timestamp": 1784824146112
+  },
+  "DYE_NECRON": {
+    "salesPerDay": 11.428571428569539,
+    "timestamp": 1784824147619
+  },
+  "BEASTMASTER_CREST_LEGENDARY": {
+    "salesPerDay": 14,
+    "timestamp": 1784824149173
+  },
+  "SORROW_SAMURAI": {
+    "salesPerDay": 2.1428571428567884,
+    "timestamp": 1784824150697
+  },
+  "MAGMA_LORD_RAGNAROK": {
+    "salesPerDay": 17.428571428571427,
+    "timestamp": 1784824152167
+  },
+  "GEMSTONE_DRILL_3": {
+    "salesPerDay": 33.57142857142857,
+    "timestamp": 1784824153679
+  },
+  "ARMOR_OF_THE_RESISTANCE_HELMET": {
+    "salesPerDay": 3.2857142857142856,
+    "timestamp": 1784824155246
+  },
+  "LAPIS_ORE": {
+    "salesPerDay": 1,
+    "timestamp": 1784824156690
+  },
+  "PASTEL_SUPERIOR_DRAGON": {
+    "salesPerDay": 7.571428571428571,
+    "timestamp": 1784824158190
+  },
+  "GREAT_SPOOK_ARTIFACT": {
+    "salesPerDay": 13.571428571428571,
+    "timestamp": 1784824159743
+  },
+  "SUMMONING_RING": {
+    "salesPerDay": 80.57142857142857,
+    "timestamp": 1784824196198
   }
 }
