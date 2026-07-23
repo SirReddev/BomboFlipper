@@ -11,6 +11,7 @@ import java.util.Map;
 public class FlipAnalyzer {
 
     private static final int MAX_TRACKED_AUCTIONS = 5000;
+
     private static final Map<String, Boolean> announcedAuctions =
             Collections.synchronizedMap(new LinkedHashMap<>(512, 0.75f, true) {
                 @Override
@@ -18,6 +19,11 @@ public class FlipAnalyzer {
                     return size() > MAX_TRACKED_AUCTIONS;
                 }
             });
+
+    public static void clearAnnouncedAuctions() {
+        announcedAuctions.clear();
+        System.out.println("[BomboFlipper] Cleared announced auctions history on server rejoin.");
+    }
 
     public static void processWebSocketFlip(JsonObject json) {
         try {
@@ -50,10 +56,12 @@ public class FlipAnalyzer {
                 }
             }
 
-            // Deduplication
+            // Deduplication (Per session / server join)
             if (uuid != null) {
-                if (announcedAuctions.put(uuid, Boolean.TRUE) != null) {
-                    return;
+                if (!config.showAllFlips) {
+                    if (announcedAuctions.put(uuid, Boolean.TRUE) != null) {
+                        return;
+                    }
                 }
             }
 

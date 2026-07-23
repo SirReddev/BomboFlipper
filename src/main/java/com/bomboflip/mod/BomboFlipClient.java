@@ -29,6 +29,11 @@ public class BomboFlipClient implements ClientModInitializer {
             } catch (Exception ignored) {}
         }));
 
+        // Register server join event: clear announced auctions memory so active flips re-announce on join
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+            com.bomboflip.mod.flip.FlipAnalyzer.clearAnnouncedAuctions();
+        });
+
         // 2. Start the WebSocket connection statically in the background
         Thread webSocketThread = new Thread(() -> {
             try {
