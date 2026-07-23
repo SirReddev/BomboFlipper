@@ -2938,5 +2938,185 @@
   "PET_ITEM_COMBAT_SKILL_BOOST_EPIC": {
     "salesPerDay": 78,
     "timestamp": 1784827312408
+  },
+  "HUNTER_TALISMAN": {
+    "salesPerDay": 18.5,
+    "timestamp": 1784828297850
+  },
+  "UNSTABLE_DRAGON_LEGGINGS": {
+    "salesPerDay": 141.5,
+    "timestamp": 1784828299293
+  },
+  "BONZO_STAFF": {
+    "salesPerDay": 279.5,
+    "timestamp": 1784828300756
+  },
+  "GYROKINETIC_WAND": {
+    "salesPerDay": 59,
+    "timestamp": 1784828302381
+  },
+  "MASTIFF_CHESTPLATE": {
+    "salesPerDay": 150.5,
+    "timestamp": 1784828303780
+  },
+  "ARACHNE_SANCTUARY_TRAVEL_SCROLL": {
+    "salesPerDay": 9.5,
+    "timestamp": 1784828305354
+  },
+  "GRATITUDE_TALISMAN": {
+    "salesPerDay": 2.5,
+    "timestamp": 1784828477731
+  },
+  "POIGNANT_LUCKY_CLOVER": {
+    "salesPerDay": 131.5,
+    "timestamp": 1784828597291
+  },
+  "PLASMAFLUX_POWER_ORB": {
+    "salesPerDay": 4,
+    "timestamp": 1784828657520
+  },
+  "GOLD_GIFT": {
+    "salesPerDay": 174.5,
+    "timestamp": 1784828718244
+  },
+  "THORNS_BOOTS": {
+    "salesPerDay": 46.5,
+    "timestamp": 1784828837695
+  },
+  "CHALLENGER_CLOAK": {
+    "salesPerDay": 3,
+    "timestamp": 1784828839165
+  },
+  "BLOCK_ZAPPER": {
+    "salesPerDay": 72,
+    "timestamp": 1784828840627
+  },
+  "MEDIUM_POCKET_BLACK_HOLE": {
+    "salesPerDay": 229,
+    "timestamp": 1784828842179
+  },
+  "HIGH_CLASS_ARCHFIEND_DICE": {
+    "salesPerDay": 641,
+    "timestamp": 1784828897971
+  },
+  "GILLSPLASH_BELT": {
+    "salesPerDay": 18.5,
+    "timestamp": 1784829137786
+  },
+  "BAT_THE_FISH": {
+    "salesPerDay": 31.5,
+    "timestamp": 1784829259228
+  },
+  "OVERFLUX_CAPACITOR": {
+    "salesPerDay": 92,
+    "timestamp": 1784829379341
+  },
+  "JERRY_STAFF": {
+    "salesPerDay": 230.5,
+    "timestamp": 1784829499182
+  },
+  "SHRIMP_THE_FISH": {
+    "salesPerDay": 100.5,
+    "timestamp": 1784829559189
+  },
+  "PET_SKIN_ENDERMAN_DESPAIR": {
+    "salesPerDay": 2.5,
+    "timestamp": 1784830038798
+  },
+  "PRESSURE_ARTIFACT": {
+    "salesPerDay": 293,
+    "timestamp": 1784830278217
+  },
+  "PIG_BRAIN_MIXIN": {
+    "salesPerDay": 25,
+    "timestamp": 1784830279643
+  },
+  "DYE_PASTEL_SKY": {
+    "salesPerDay": 18,
+    "timestamp": 1784830638326
+  },
+  "PET_SKIN_SPINOSAURUS_BABY": {
+    "salesPerDay": 4.5,
+    "timestamp": 1784830639753
+  },
+  "PET_SKIN_TYRANNOSAURUS_BABY": {
+    "salesPerDay": 6,
+    "timestamp": 1784830641306
+  },
+  "STEAMED_CHOCOLATE_FISH": {
+    "salesPerDay": 31,
+    "timestamp": 1784830757876
+  },
+  "FROZEN_BLAZE_FROST_KNIGHT": {
+    "salesPerDay": 0.5,
+    "timestamp": 1784830878331
+  },
+  "FLEX_HELMET": {
+    "salesPerDay": 1.5,
+    "timestamp": 1784830879773
+  },
+  "NECRON_CELESTIAL": {
+    "salesPerDay": 2,
+    "timestamp": 1784830881271
+  },
+  "DISCRITE": {
+    "salesPerDay": 39,
+    "timestamp": 1784830938854
+  },
+  "WILSON_ENGINEERING_PLANS": {
+    "salesPerDay": 46.5,
+    "timestamp": 1784830998894
+  },
+  "ETHERWARP_CONDUIT": {
+    "salesPerDay": 69,
+    "timestamp": 1784831058372
+  },
+  "MASTIFF_LEGGINGS": {
+    "salesPerDay": 153.5,
+    "timestamp": 1784831418389
+  },
+  "PARTY_THE_FISH": {
+    "salesPerDay": 17.5,
+    "timestamp": 1784831480009
+  },
+  "BEASTMASTER_CREST_EPIC": {
+    "salesPerDay": 9,
+    "timestamp": 1784831538781
+  },
+  "ULTIMATE_CARROT_CANDY_UPGRADE": {
+    "salesPerDay": 68.5,
+    "timestamp": 1784832139532
+  },
+  "NOT_VERY_MOLDY_BREAD": {
+    "salesPerDay": 7,
+    "timestamp": 1784832259452
+  },
+  "DANGER_3_TRAVEL_SCROLL": {
+    "salesPerDay": 165.5,
+    "timestamp": 1784832499130
+  },
+  "SHRIVELED_BRACELET": {
+    "salesPerDay": 15,
+    "timestamp": 1784833040158
+  },
+  "GLACITE_PALACE_GREENHOUSE_SKIN": {
+    "salesPerDay": 1.5,
+    "timestamp": 1784833399095
+  },
+  "VACCINE_RING": {
+    "salesPerDay": 12,
+    "timestamp": 1784833461001
+  },
+  "BEASTMASTER_CREST_RARE": {
+    "salesPerDay": 17,
+    "timestamp": 1784833461498
+  },
+  "LUCKY_BARN_SKIN": {
+    "salesPerDay": 2,
+    "timestamp": 1784833519498
+  },
+  "MINER_OUTFIT_LEGGINGS": {
+    "salesPerDay": 19.5,
+    "timestamp": 1784833821155
   }
 }

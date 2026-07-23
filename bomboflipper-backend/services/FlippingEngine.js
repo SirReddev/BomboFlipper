@@ -140,6 +140,16 @@ class FlippingEngine {
                 continue; // REJECT: Overpriced listing! (Rejects 3.0M Sniper Bow when 240k base is available, 2.7M Earthen Blade, etc.)
             }
 
+            // ABSOLUTE RULE 1.5: Historical Median Manipulation Guard
+            // Reject items whose raw price (minus upgrades) exceeds 3.0x their historical Coflnet median price!
+            const historicalData = volumeCache.getHistoricalData(item.skyblockId, true);
+            if (historicalData && historicalData.medianPrice > 0) {
+                const rawItemPrice = item.startingBid - rawUpgradeBonus;
+                if (rawItemPrice > historicalData.medianPrice * 3.0) {
+                    continue; // REJECT: AH Manipulation / Market Cornering Scam! (Rejects 100M Titanium Minecart)
+                }
+            }
+
             let targetResalePrice = 0;
 
             if (!item.isClean && otherVariant.length > 0) {

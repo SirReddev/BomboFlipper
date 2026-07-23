@@ -479,3 +479,558 @@
 [19:37:05] [INFO] [VolumeCache Status] 740 records saved on disk | 1 items queued.
 [19:37:05] [SUCCESS] [SCAN COMPLETE] Evaluated 46,422 BIN items in 24776ms | 211 Flips Found.
 [19:37:30] [INFO] WebSocket client disconnected.
+[19:37:40] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:37:40] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:37:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:37:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:38:14] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,116 total active auctions).
+[19:38:17] [INFO] [VolumeCache Status] 735 records saved on disk | 6 items queued.
+[19:38:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,399 BIN items in 21525ms | 215 Flips Found.
+[19:38:19] [SUCCESS] WebSocket client connected from ::ffff:127.0.0.1
+[19:38:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:38:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:39:14] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,101 total active auctions).
+[19:39:17] [INFO] [VolumeCache Status] 741 records saved on disk | 0 items queued.
+[19:39:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,379 BIN items in 21087ms | 212 Flips Found.
+[19:39:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:39:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:40:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,119 total active auctions).
+[19:40:20] [INFO] [VolumeCache Status] 741 records saved on disk | 0 items queued.
+[19:40:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,385 BIN items in 24073ms | 214 Flips Found.
+[19:40:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:40:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:41:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,170 total active auctions).
+[19:41:17] [INFO] [VolumeCache Status] 741 records saved on disk | 1 items queued.
+[19:41:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,439 BIN items in 21388ms | 214 Flips Found.
+[19:41:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:41:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:42:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,178 total active auctions).
+[19:42:17] [INFO] [VolumeCache Status] 742 records saved on disk | 0 items queued.
+[19:42:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,445 BIN items in 21580ms | 213 Flips Found.
+[19:42:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:42:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:43:14] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,208 total active auctions).
+[19:43:17] [INFO] [VolumeCache Status] 742 records saved on disk | 1 items queued.
+[19:43:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,468 BIN items in 20934ms | 214 Flips Found.
+[19:43:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:43:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:44:14] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,177 total active auctions).
+[19:44:17] [INFO] [VolumeCache Status] 743 records saved on disk | 1 items queued.
+[19:44:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,438 BIN items in 21014ms | 214 Flips Found.
+[19:44:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:44:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:45:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,206 total active auctions).
+[19:45:18] [INFO] [VolumeCache Status] 744 records saved on disk | 1 items queued.
+[19:45:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,469 BIN items in 21866ms | 218 Flips Found.
+[19:45:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:45:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:46:14] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,222 total active auctions).
+[19:46:17] [INFO] [VolumeCache Status] 745 records saved on disk | 0 items queued.
+[19:46:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,485 BIN items in 21062ms | 218 Flips Found.
+[19:46:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:46:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:47:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,262 total active auctions).
+[19:47:17] [INFO] [VolumeCache Status] 745 records saved on disk | 4 items queued.
+[19:47:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,505 BIN items in 21280ms | 224 Flips Found.
+[19:47:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:47:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:48:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,215 total active auctions).
+[19:48:17] [INFO] [VolumeCache Status] 749 records saved on disk | 1 items queued.
+[19:48:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,450 BIN items in 21543ms | 219 Flips Found.
+[19:48:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:48:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:49:14] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,174 total active auctions).
+[19:49:17] [INFO] [VolumeCache Status] 750 records saved on disk | 0 items queued.
+[19:49:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,408 BIN items in 21061ms | 218 Flips Found.
+[19:49:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:49:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:50:14] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,231 total active auctions).
+[19:50:17] [INFO] [VolumeCache Status] 750 records saved on disk | 0 items queued.
+[19:50:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,464 BIN items in 21002ms | 220 Flips Found.
+[19:50:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:50:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:51:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,285 total active auctions).
+[19:51:17] [INFO] [VolumeCache Status] 750 records saved on disk | 0 items queued.
+[19:51:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,511 BIN items in 21574ms | 217 Flips Found.
+[19:51:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:51:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:52:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,280 total active auctions).
+[19:52:17] [INFO] [VolumeCache Status] 750 records saved on disk | 1 items queued.
+[19:52:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,509 BIN items in 21325ms | 217 Flips Found.
+[19:52:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:52:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:53:14] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,310 total active auctions).
+[19:53:17] [INFO] [VolumeCache Status] 751 records saved on disk | 0 items queued.
+[19:53:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,541 BIN items in 20843ms | 216 Flips Found.
+[19:53:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:53:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:54:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,325 total active auctions).
+[19:54:19] [INFO] [VolumeCache Status] 751 records saved on disk | 1 items queued.
+[19:54:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,551 BIN items in 22678ms | 217 Flips Found.
+[19:54:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:54:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:55:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,388 total active auctions).
+[19:55:18] [INFO] [VolumeCache Status] 752 records saved on disk | 0 items queued.
+[19:55:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,609 BIN items in 22026ms | 216 Flips Found.
+[19:55:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:55:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:56:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,443 total active auctions).
+[19:56:19] [INFO] [VolumeCache Status] 752 records saved on disk | 1 items queued.
+[19:56:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,659 BIN items in 22825ms | 214 Flips Found.
+[19:56:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:56:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:57:34] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,499 total active auctions).
+[19:57:36] [INFO] [VolumeCache Status] 753 records saved on disk | 0 items queued.
+[19:57:36] [SUCCESS] [SCAN COMPLETE] Evaluated 46,707 BIN items in 40457ms | 213 Flips Found.
+[19:57:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:57:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:58:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,512 total active auctions).
+[19:58:19] [INFO] [VolumeCache Status] 753 records saved on disk | 1 items queued.
+[19:58:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,718 BIN items in 22665ms | 213 Flips Found.
+[19:58:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:58:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[19:59:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,568 total active auctions).
+[19:59:19] [INFO] [VolumeCache Status] 754 records saved on disk | 1 items queued.
+[19:59:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,775 BIN items in 22650ms | 210 Flips Found.
+[19:59:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[19:59:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:00:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,534 total active auctions).
+[20:00:18] [INFO] [VolumeCache Status] 755 records saved on disk | 0 items queued.
+[20:00:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,741 BIN items in 21784ms | 209 Flips Found.
+[20:00:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:00:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:01:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,555 total active auctions).
+[20:01:18] [INFO] [VolumeCache Status] 755 records saved on disk | 0 items queued.
+[20:01:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,765 BIN items in 21851ms | 213 Flips Found.
+[20:01:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:01:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:02:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,557 total active auctions).
+[20:02:19] [INFO] [VolumeCache Status] 755 records saved on disk | 0 items queued.
+[20:02:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,768 BIN items in 23609ms | 210 Flips Found.
+[20:02:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:02:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:03:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,582 total active auctions).
+[20:03:20] [INFO] [VolumeCache Status] 755 records saved on disk | 0 items queued.
+[20:03:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,795 BIN items in 23756ms | 210 Flips Found.
+[20:03:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:03:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:04:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,574 total active auctions).
+[20:04:20] [INFO] [VolumeCache Status] 755 records saved on disk | 0 items queued.
+[20:04:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,784 BIN items in 24260ms | 207 Flips Found.
+[20:04:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:04:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:05:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,608 total active auctions).
+[20:05:18] [INFO] [VolumeCache Status] 755 records saved on disk | 0 items queued.
+[20:05:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,820 BIN items in 22299ms | 203 Flips Found.
+[20:05:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:05:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:06:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,637 total active auctions).
+[20:06:18] [INFO] [VolumeCache Status] 755 records saved on disk | 0 items queued.
+[20:06:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,849 BIN items in 21833ms | 201 Flips Found.
+[20:06:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:06:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:07:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,679 total active auctions).
+[20:07:18] [INFO] [VolumeCache Status] 755 records saved on disk | 1 items queued.
+[20:07:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,886 BIN items in 22223ms | 202 Flips Found.
+[20:07:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:07:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:08:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,732 total active auctions).
+[20:08:17] [INFO] [VolumeCache Status] 756 records saved on disk | 0 items queued.
+[20:08:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,937 BIN items in 21355ms | 202 Flips Found.
+[20:08:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:08:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:09:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,823 total active auctions).
+[20:09:17] [INFO] [VolumeCache Status] 756 records saved on disk | 0 items queued.
+[20:09:17] [SUCCESS] [SCAN COMPLETE] Evaluated 47,024 BIN items in 21561ms | 199 Flips Found.
+[20:09:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:09:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:10:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,816 total active auctions).
+[20:10:18] [INFO] [VolumeCache Status] 756 records saved on disk | 0 items queued.
+[20:10:18] [SUCCESS] [SCAN COMPLETE] Evaluated 47,008 BIN items in 21944ms | 197 Flips Found.
+[20:10:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:10:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:11:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,858 total active auctions).
+[20:11:18] [INFO] [VolumeCache Status] 756 records saved on disk | 2 items queued.
+[20:11:18] [SUCCESS] [SCAN COMPLETE] Evaluated 47,049 BIN items in 21645ms | 199 Flips Found.
+[20:11:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:11:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:12:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,852 total active auctions).
+[20:12:18] [INFO] [VolumeCache Status] 758 records saved on disk | 0 items queued.
+[20:12:18] [SUCCESS] [SCAN COMPLETE] Evaluated 47,046 BIN items in 21761ms | 198 Flips Found.
+[20:12:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:12:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:13:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,829 total active auctions).
+[20:13:18] [INFO] [VolumeCache Status] 758 records saved on disk | 0 items queued.
+[20:13:18] [SUCCESS] [SCAN COMPLETE] Evaluated 47,022 BIN items in 21570ms | 196 Flips Found.
+[20:13:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:13:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:14:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,795 total active auctions).
+[20:14:18] [INFO] [VolumeCache Status] 758 records saved on disk | 0 items queued.
+[20:14:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,998 BIN items in 21710ms | 199 Flips Found.
+[20:14:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:14:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:15:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,779 total active auctions).
+[20:15:17] [INFO] [VolumeCache Status] 758 records saved on disk | 0 items queued.
+[20:15:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,994 BIN items in 21512ms | 201 Flips Found.
+[20:15:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:15:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:16:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,760 total active auctions).
+[20:16:18] [INFO] [VolumeCache Status] 758 records saved on disk | 0 items queued.
+[20:16:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,981 BIN items in 21743ms | 200 Flips Found.
+[20:16:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:16:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:17:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,804 total active auctions).
+[20:17:18] [INFO] [VolumeCache Status] 758 records saved on disk | 3 items queued.
+[20:17:18] [SUCCESS] [SCAN COMPLETE] Evaluated 47,028 BIN items in 21667ms | 203 Flips Found.
+[20:17:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:17:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:18:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,807 total active auctions).
+[20:18:18] [INFO] [VolumeCache Status] 761 records saved on disk | 0 items queued.
+[20:18:18] [SUCCESS] [SCAN COMPLETE] Evaluated 47,032 BIN items in 21960ms | 200 Flips Found.
+[20:18:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:18:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:19:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,737 total active auctions).
+[20:19:17] [INFO] [VolumeCache Status] 761 records saved on disk | 1 items queued.
+[20:19:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,960 BIN items in 21216ms | 202 Flips Found.
+[20:19:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:19:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:20:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,684 total active auctions).
+[20:20:18] [INFO] [VolumeCache Status] 762 records saved on disk | 0 items queued.
+[20:20:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,905 BIN items in 21927ms | 207 Flips Found.
+[20:20:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:20:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:21:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,606 total active auctions).
+[20:21:18] [INFO] [VolumeCache Status] 762 records saved on disk | 3 items queued.
+[20:21:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,816 BIN items in 21621ms | 204 Flips Found.
+[20:21:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:21:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:22:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,620 total active auctions).
+[20:22:18] [INFO] [VolumeCache Status] 765 records saved on disk | 1 items queued.
+[20:22:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,824 BIN items in 22149ms | 206 Flips Found.
+[20:22:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:22:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:23:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,606 total active auctions).
+[20:23:18] [INFO] [VolumeCache Status] 766 records saved on disk | 1 items queued.
+[20:23:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,819 BIN items in 22199ms | 205 Flips Found.
+[20:23:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:23:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:24:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,663 total active auctions).
+[20:24:18] [INFO] [VolumeCache Status] 767 records saved on disk | 1 items queued.
+[20:24:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,878 BIN items in 21634ms | 207 Flips Found.
+[20:24:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:24:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:25:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,692 total active auctions).
+[20:25:17] [INFO] [VolumeCache Status] 768 records saved on disk | 0 items queued.
+[20:25:17] [SUCCESS] [SCAN COMPLETE] Evaluated 46,905 BIN items in 21396ms | 208 Flips Found.
+[20:25:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:25:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:26:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,655 total active auctions).
+[20:26:18] [INFO] [VolumeCache Status] 768 records saved on disk | 0 items queued.
+[20:26:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,870 BIN items in 21866ms | 204 Flips Found.
+[20:26:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:26:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:27:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,628 total active auctions).
+[20:27:19] [INFO] [VolumeCache Status] 768 records saved on disk | 0 items queued.
+[20:27:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,847 BIN items in 22498ms | 205 Flips Found.
+[20:27:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:27:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:28:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,563 total active auctions).
+[20:28:18] [INFO] [VolumeCache Status] 768 records saved on disk | 0 items queued.
+[20:28:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,786 BIN items in 21999ms | 205 Flips Found.
+[20:28:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:28:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:29:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,548 total active auctions).
+[20:29:18] [INFO] [VolumeCache Status] 768 records saved on disk | 0 items queued.
+[20:29:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,778 BIN items in 21881ms | 209 Flips Found.
+[20:29:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:29:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:30:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,516 total active auctions).
+[20:30:18] [INFO] [VolumeCache Status] 768 records saved on disk | 1 items queued.
+[20:30:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,739 BIN items in 21564ms | 207 Flips Found.
+[20:30:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:30:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:31:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,578 total active auctions).
+[20:31:19] [INFO] [VolumeCache Status] 769 records saved on disk | 1 items queued.
+[20:31:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,793 BIN items in 23234ms | 209 Flips Found.
+[20:31:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:31:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:32:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,604 total active auctions).
+[20:32:18] [INFO] [VolumeCache Status] 770 records saved on disk | 1 items queued.
+[20:32:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,822 BIN items in 21986ms | 209 Flips Found.
+[20:32:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:32:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:33:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,624 total active auctions).
+[20:33:18] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:33:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,832 BIN items in 22334ms | 211 Flips Found.
+[20:33:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:33:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:34:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,627 total active auctions).
+[20:34:19] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:34:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,832 BIN items in 22486ms | 206 Flips Found.
+[20:34:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:34:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:35:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,619 total active auctions).
+[20:35:18] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:35:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,833 BIN items in 21720ms | 205 Flips Found.
+[20:35:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:35:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:36:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,645 total active auctions).
+[20:36:19] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:36:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,855 BIN items in 22900ms | 203 Flips Found.
+[20:36:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:36:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:37:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,629 total active auctions).
+[20:37:18] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:37:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,844 BIN items in 22138ms | 201 Flips Found.
+[20:37:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:37:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:38:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,644 total active auctions).
+[20:38:18] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:38:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,862 BIN items in 21760ms | 201 Flips Found.
+[20:38:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:38:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:39:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,700 total active auctions).
+[20:39:18] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:39:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,909 BIN items in 22158ms | 200 Flips Found.
+[20:39:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:39:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:40:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,723 total active auctions).
+[20:40:18] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:40:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,926 BIN items in 21711ms | 199 Flips Found.
+[20:40:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:40:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:41:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,734 total active auctions).
+[20:41:18] [INFO] [VolumeCache Status] 771 records saved on disk | 0 items queued.
+[20:41:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,941 BIN items in 21413ms | 197 Flips Found.
+[20:41:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:41:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:42:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,698 total active auctions).
+[20:42:19] [INFO] [VolumeCache Status] 771 records saved on disk | 1 items queued.
+[20:42:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,908 BIN items in 22654ms | 197 Flips Found.
+[20:42:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:42:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:43:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,666 total active auctions).
+[20:43:18] [INFO] [VolumeCache Status] 772 records saved on disk | 0 items queued.
+[20:43:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,875 BIN items in 21896ms | 196 Flips Found.
+[20:43:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:43:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:44:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,631 total active auctions).
+[20:44:19] [INFO] [VolumeCache Status] 772 records saved on disk | 1 items queued.
+[20:44:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,844 BIN items in 22554ms | 195 Flips Found.
+[20:44:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:44:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:45:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,670 total active auctions).
+[20:45:19] [INFO] [VolumeCache Status] 773 records saved on disk | 0 items queued.
+[20:45:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,876 BIN items in 23241ms | 193 Flips Found.
+[20:45:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:45:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:46:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,686 total active auctions).
+[20:46:18] [INFO] [VolumeCache Status] 773 records saved on disk | 0 items queued.
+[20:46:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,903 BIN items in 21649ms | 191 Flips Found.
+[20:46:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:46:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:47:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,718 total active auctions).
+[20:47:19] [INFO] [VolumeCache Status] 773 records saved on disk | 0 items queued.
+[20:47:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,942 BIN items in 22398ms | 192 Flips Found.
+[20:47:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:47:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:48:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,674 total active auctions).
+[20:48:18] [INFO] [VolumeCache Status] 773 records saved on disk | 1 items queued.
+[20:48:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,899 BIN items in 22164ms | 194 Flips Found.
+[20:48:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:48:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:49:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,674 total active auctions).
+[20:49:19] [INFO] [VolumeCache Status] 774 records saved on disk | 0 items queued.
+[20:49:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,901 BIN items in 22322ms | 192 Flips Found.
+[20:49:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:49:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:50:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,717 total active auctions).
+[20:50:19] [INFO] [VolumeCache Status] 774 records saved on disk | 0 items queued.
+[20:50:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,949 BIN items in 22833ms | 186 Flips Found.
+[20:50:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:50:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:51:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,714 total active auctions).
+[20:51:19] [INFO] [VolumeCache Status] 774 records saved on disk | 0 items queued.
+[20:51:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,946 BIN items in 23038ms | 187 Flips Found.
+[20:51:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:51:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:52:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,740 total active auctions).
+[20:52:18] [INFO] [VolumeCache Status] 774 records saved on disk | 0 items queued.
+[20:52:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,969 BIN items in 21922ms | 185 Flips Found.
+[20:52:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:52:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:53:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,692 total active auctions).
+[20:53:20] [INFO] [VolumeCache Status] 774 records saved on disk | 0 items queued.
+[20:53:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,921 BIN items in 23706ms | 185 Flips Found.
+[20:53:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:53:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:54:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,650 total active auctions).
+[20:54:20] [INFO] [VolumeCache Status] 774 records saved on disk | 0 items queued.
+[20:54:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,879 BIN items in 23579ms | 184 Flips Found.
+[20:54:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:54:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:55:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,648 total active auctions).
+[20:55:20] [INFO] [VolumeCache Status] 774 records saved on disk | 0 items queued.
+[20:55:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,874 BIN items in 24073ms | 184 Flips Found.
+[20:55:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:55:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:56:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,628 total active auctions).
+[20:56:20] [INFO] [VolumeCache Status] 774 records saved on disk | 0 items queued.
+[20:56:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,858 BIN items in 23364ms | 183 Flips Found.
+[20:56:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:56:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:57:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,615 total active auctions).
+[20:57:19] [INFO] [VolumeCache Status] 774 records saved on disk | 1 items queued.
+[20:57:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,846 BIN items in 23116ms | 188 Flips Found.
+[20:57:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:57:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:58:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,651 total active auctions).
+[20:58:20] [INFO] [VolumeCache Status] 775 records saved on disk | 0 items queued.
+[20:58:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,877 BIN items in 23145ms | 188 Flips Found.
+[20:58:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:58:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[20:59:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,588 total active auctions).
+[20:59:20] [INFO] [VolumeCache Status] 775 records saved on disk | 0 items queued.
+[20:59:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,814 BIN items in 23697ms | 190 Flips Found.
+[20:59:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[20:59:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:00:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,534 total active auctions).
+[21:00:20] [INFO] [VolumeCache Status] 775 records saved on disk | 0 items queued.
+[21:00:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,762 BIN items in 23704ms | 188 Flips Found.
+[21:00:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:00:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:01:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,568 total active auctions).
+[21:01:18] [INFO] [VolumeCache Status] 775 records saved on disk | 0 items queued.
+[21:01:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,797 BIN items in 21454ms | 189 Flips Found.
+[21:01:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:01:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:02:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,572 total active auctions).
+[21:02:18] [INFO] [VolumeCache Status] 775 records saved on disk | 0 items queued.
+[21:02:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,802 BIN items in 21767ms | 188 Flips Found.
+[21:02:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:02:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:03:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,560 total active auctions).
+[21:03:18] [INFO] [VolumeCache Status] 775 records saved on disk | 1 items queued.
+[21:03:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,788 BIN items in 22023ms | 190 Flips Found.
+[21:03:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:03:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:04:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,572 total active auctions).
+[21:04:19] [INFO] [VolumeCache Status] 776 records saved on disk | 2 items queued.
+[21:04:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,795 BIN items in 22994ms | 194 Flips Found.
+[21:04:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:04:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:05:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,556 total active auctions).
+[21:05:19] [INFO] [VolumeCache Status] 778 records saved on disk | 1 items queued.
+[21:05:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,779 BIN items in 22388ms | 189 Flips Found.
+[21:05:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:05:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:06:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,529 total active auctions).
+[21:06:20] [INFO] [VolumeCache Status] 779 records saved on disk | 0 items queued.
+[21:06:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,751 BIN items in 23300ms | 189 Flips Found.
+[21:06:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:06:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:07:15] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,507 total active auctions).
+[21:07:18] [INFO] [VolumeCache Status] 779 records saved on disk | 0 items queued.
+[21:07:18] [SUCCESS] [SCAN COMPLETE] Evaluated 46,731 BIN items in 21547ms | 189 Flips Found.
+[21:07:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:07:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:08:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,441 total active auctions).
+[21:08:20] [INFO] [VolumeCache Status] 779 records saved on disk | 0 items queued.
+[21:08:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,665 BIN items in 23194ms | 194 Flips Found.
+[21:08:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:08:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:09:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,385 total active auctions).
+[21:09:21] [INFO] [VolumeCache Status] 779 records saved on disk | 0 items queued.
+[21:09:21] [SUCCESS] [SCAN COMPLETE] Evaluated 46,603 BIN items in 24851ms | 193 Flips Found.
+[21:09:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:09:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:10:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,386 total active auctions).
+[21:10:20] [INFO] [VolumeCache Status] 779 records saved on disk | 2 items queued.
+[21:10:20] [SUCCESS] [SCAN COMPLETE] Evaluated 46,603 BIN items in 24010ms | 193 Flips Found.
+[21:10:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:10:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:11:19] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,387 total active auctions).
+[21:11:22] [INFO] [VolumeCache Status] 781 records saved on disk | 2 items queued.
+[21:11:22] [SUCCESS] [SCAN COMPLETE] Evaluated 46,605 BIN items in 25507ms | 196 Flips Found.
+[21:11:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:11:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:12:19] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,429 total active auctions).
+[21:12:22] [INFO] [VolumeCache Status] 783 records saved on disk | 0 items queued.
+[21:12:22] [SUCCESS] [SCAN COMPLETE] Evaluated 46,651 BIN items in 25072ms | 196 Flips Found.
+[21:12:56] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:12:56] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:13:19] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,425 total active auctions).
+[21:13:22] [INFO] [VolumeCache Status] 783 records saved on disk | 0 items queued.
+[21:13:22] [SUCCESS] [SCAN COMPLETE] Evaluated 46,645 BIN items in 25003ms | 194 Flips Found.
+[21:13:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:13:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:14:16] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,424 total active auctions).
+[21:14:19] [INFO] [VolumeCache Status] 783 records saved on disk | 0 items queued.
+[21:14:19] [SUCCESS] [SCAN COMPLETE] Evaluated 46,643 BIN items in 22818ms | 197 Flips Found.
+[21:14:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:14:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:15:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,415 total active auctions).
+[21:15:21] [INFO] [VolumeCache Status] 783 records saved on disk | 0 items queued.
+[21:15:21] [SUCCESS] [SCAN COMPLETE] Evaluated 46,631 BIN items in 24144ms | 196 Flips Found.
+[21:15:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:15:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:16:20] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,423 total active auctions).
+[21:16:24] [INFO] [VolumeCache Status] 783 records saved on disk | 1 items queued.
+[21:16:24] [SUCCESS] [SCAN COMPLETE] Evaluated 46,643 BIN items in 26991ms | 201 Flips Found.
+[21:16:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:16:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:17:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,426 total active auctions).
+[21:17:24] [INFO] [VolumeCache Status] 784 records saved on disk | 0 items queued.
+[21:17:24] [SUCCESS] [SCAN COMPLETE] Evaluated 46,644 BIN items in 27434ms | 199 Flips Found.
+[21:17:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:17:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:18:20] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,459 total active auctions).
+[21:18:25] [INFO] [VolumeCache Status] 784 records saved on disk | 1 items queued.
+[21:18:25] [SUCCESS] [SCAN COMPLETE] Evaluated 46,677 BIN items in 28722ms | 202 Flips Found.
+[21:18:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:18:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:19:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,455 total active auctions).
+[21:19:23] [INFO] [VolumeCache Status] 785 records saved on disk | 2 items queued.
+[21:19:23] [SUCCESS] [SCAN COMPLETE] Evaluated 46,681 BIN items in 26351ms | 201 Flips Found.
+[21:19:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:19:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:20:22] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,405 total active auctions).
+[21:20:28] [INFO] [VolumeCache Status] 787 records saved on disk | 1 items queued.
+[21:20:28] [SUCCESS] [SCAN COMPLETE] Evaluated 46,631 BIN items in 31140ms | 200 Flips Found.
+[21:20:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:20:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:21:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,370 total active auctions).
+[21:21:23] [INFO] [VolumeCache Status] 788 records saved on disk | 0 items queued.
+[21:21:23] [SUCCESS] [SCAN COMPLETE] Evaluated 46,595 BIN items in 26064ms | 198 Flips Found.
+[21:21:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:21:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:22:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,396 total active auctions).
+[21:22:24] [INFO] [VolumeCache Status] 788 records saved on disk | 2 items queued.
+[21:22:24] [SUCCESS] [SCAN COMPLETE] Evaluated 46,613 BIN items in 26955ms | 199 Flips Found.
+[21:22:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:22:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:23:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,387 total active auctions).
+[21:23:24] [INFO] [VolumeCache Status] 790 records saved on disk | 1 items queued.
+[21:23:24] [SUCCESS] [SCAN COMPLETE] Evaluated 46,596 BIN items in 27367ms | 197 Flips Found.
+[21:23:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:23:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:24:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,415 total active auctions).
+[21:24:23] [INFO] [VolumeCache Status] 791 records saved on disk | 0 items queued.
+[21:24:23] [SUCCESS] [SCAN COMPLETE] Evaluated 46,619 BIN items in 26569ms | 193 Flips Found.
+[21:24:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:24:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:25:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,443 total active auctions).
+[21:25:24] [INFO] [VolumeCache Status] 791 records saved on disk | 1 items queued.
+[21:25:24] [SUCCESS] [SCAN COMPLETE] Evaluated 46,641 BIN items in 26948ms | 193 Flips Found.
+[21:25:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:25:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:26:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,414 total active auctions).
+[21:26:23] [INFO] [VolumeCache Status] 792 records saved on disk | 0 items queued.
+[21:26:23] [SUCCESS] [SCAN COMPLETE] Evaluated 46,610 BIN items in 26674ms | 194 Flips Found.
+[21:26:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:26:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:27:18] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,394 total active auctions).
+[21:27:23] [INFO] [VolumeCache Status] 792 records saved on disk | 0 items queued.
+[21:27:23] [SUCCESS] [SCAN COMPLETE] Evaluated 46,585 BIN items in 26371ms | 195 Flips Found.
+[21:27:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
+[21:27:57] [INFO] [BazaarService] Live prices updated for 1939 items.

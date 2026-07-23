@@ -48,15 +48,18 @@ class VolumeCache {
         }
     }
 
-    // Instant lookup with auto-queueing
-    getVolume(itemTag, isFlipCandidate = false) {
-        if (!itemTag) return 0;
+    // Instant lookup with auto-queueing for full volume and median price data
+    getHistoricalData(itemTag, isFlipCandidate = false) {
+        if (!itemTag) return { salesPerDay: 0, medianPrice: 0 };
 
         if (this.cache.has(itemTag)) {
             const data = this.cache.get(itemTag);
             // Cache valid for 48 hours
             if (Date.now() - data.timestamp < 172800000) {
-                return data.salesPerDay;
+                return {
+                    salesPerDay: data.salesPerDay || 0,
+                    medianPrice: data.medianPrice || 0
+                };
             }
         }
 
@@ -67,7 +70,11 @@ class VolumeCache {
             this.queue.add(itemTag);
         }
 
-        return 0; // Default fallback for uncached items
+        return { salesPerDay: 0, medianPrice: 0 };
+    }
+
+    getVolume(itemTag, isFlipCandidate = false) {
+        return this.getHistoricalData(itemTag, isFlipCandidate).salesPerDay;
     }
 
     getStatus() {
@@ -106,8 +113,13 @@ class VolumeCache {
                     ? response.data.volume
                     : (response.data && typeof response.data.salesPerDay === 'number' ? response.data.salesPerDay : 0);
 
+                const medianPrice = response.data && typeof response.data.median === 'number'
+                    ? response.data.median
+                    : (response.data && typeof response.data.mean === 'number' ? response.data.mean : (response.data && typeof response.data.mode === 'number' ? response.data.mode : 0));
+
                 this.cache.set(itemTag, {
                     salesPerDay: salesPerDay,
+                    medianPrice: medianPrice,
                     timestamp: Date.now()
                 });
 

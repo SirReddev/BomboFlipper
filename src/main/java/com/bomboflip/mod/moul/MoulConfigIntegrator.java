@@ -36,9 +36,15 @@ public final class MoulConfigIntegrator {
 
         MinecraftClient.getInstance().setScreen(new MoulConfigScreenComponent(Text.empty(), context, previousScreen) {
             @Override
-            public void removed() {
-                super.removed();
+            public void close() {
                 save();
+                super.close();
+            }
+
+            @Override
+            public void removed() {
+                save();
+                super.removed();
             }
         });
     }
@@ -63,11 +69,15 @@ public final class MoulConfigIntegrator {
                         config.minDemandTier,
                         String.join(", ", config.blacklist)
                 );
-                if (client.player != null) {
-                    client.player.sendMessage(net.minecraft.text.Text.literal(msg), false);
-                } else if (client.inGameHud != null) {
-                    client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(msg));
-                }
+
+                // Execute on main client thread after screen transition completes
+                client.execute(() -> {
+                    if (client.player != null) {
+                        client.player.sendMessage(net.minecraft.text.Text.literal(msg), false);
+                    } else if (client.inGameHud != null && client.inGameHud.getChatHud() != null) {
+                        client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(msg));
+                    }
+                });
             }
         }
     }
