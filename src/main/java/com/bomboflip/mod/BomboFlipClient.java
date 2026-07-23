@@ -72,6 +72,23 @@ public class BomboFlipClient implements ClientModInitializer {
 
         // 3. Register the client-side commands
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            // Internal command for [CLICK TO BUY] button
+            dispatcher.register(ClientCommandManager.literal("bomboflip_buy")
+                    .then(ClientCommandManager.argument("uuid", StringArgumentType.word())
+                            .executes(context -> {
+                                String uuid = StringArgumentType.getString(context, "uuid");
+                                com.bomboflip.mod.autobuy.FlipAutoBuyHandler.prepareAutoBuy(0);
+                                MinecraftClient client = MinecraftClient.getInstance();
+                                client.execute(() -> {
+                                    if (client.player != null) {
+                                        client.player.networkHandler.sendChatMessage("/viewauction " + uuid);
+                                    }
+                                });
+                                return 1;
+                            })
+                    )
+            );
+
             dispatcher.register(ClientCommandManager.literal("bomboflipper")
 
                     // Base command: /bomboflipper (Opens the MoulConfig GUI)
@@ -88,7 +105,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
                                     .executes(context -> {
                                         boolean val = BoolArgumentType.getBool(context, "value");
-                                        BomboFlipConfig.getInstance().enabled = val;
+                                        BomboFlipConfig.getInstance().setEnabled(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Enabled set to: " + val));
@@ -102,7 +119,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("amount", LongArgumentType.longArg(0))
                                     .executes(context -> {
                                         long val = LongArgumentType.getLong(context, "amount");
-                                        BomboFlipConfig.getInstance().budget = val;
+                                        BomboFlipConfig.getInstance().setBudget(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Budget set to: " + val));
@@ -116,7 +133,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("amount", LongArgumentType.longArg(0))
                                     .executes(context -> {
                                         long val = LongArgumentType.getLong(context, "amount");
-                                        BomboFlipConfig.getInstance().minProfit = val;
+                                        BomboFlipConfig.getInstance().setMinProfit(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Minimum Profit set to: " + val));
@@ -130,7 +147,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("amount", LongArgumentType.longArg(0))
                                     .executes(context -> {
                                         long val = LongArgumentType.getLong(context, "amount");
-                                        BomboFlipConfig.getInstance().maxProfit = val;
+                                        BomboFlipConfig.getInstance().setMaxProfit(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Maximum Profit set to: " + val));
@@ -144,7 +161,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("tier", IntegerArgumentType.integer(1, 5))
                                     .executes(context -> {
                                         int val = IntegerArgumentType.getInteger(context, "tier");
-                                        BomboFlipConfig.getInstance().minDemandTier = val;
+                                        BomboFlipConfig.getInstance().setMinDemandTier(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Minimum Demand Tier set to: " + val));
@@ -158,7 +175,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
                                     .executes(context -> {
                                         boolean val = BoolArgumentType.getBool(context, "value");
-                                        BomboFlipConfig.getInstance().chatAlertsEnabled = val;
+                                        BomboFlipConfig.getInstance().setChatAlertsEnabled(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Chat Alerts set to: " + val));
@@ -172,7 +189,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
                                     .executes(context -> {
                                         boolean val = BoolArgumentType.getBool(context, "value");
-                                        BomboFlipConfig.getInstance().soundAlertsEnabled = val;
+                                        BomboFlipConfig.getInstance().setSoundAlertsEnabled(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Sound Alerts set to: " + val));
@@ -186,7 +203,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
                                     .executes(context -> {
                                         boolean val = BoolArgumentType.getBool(context, "value");
-                                        BomboFlipConfig.getInstance().oneClickBuy = val;
+                                        BomboFlipConfig.getInstance().setOneClickBuy(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] One-Click Buy set to: " + val));
@@ -200,7 +217,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
                                     .executes(context -> {
                                         boolean val = BoolArgumentType.getBool(context, "value");
-                                        BomboFlipConfig.getInstance().fullAfk = val;
+                                        BomboFlipConfig.getInstance().setFullAfk(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Full AFK set to: " + val));
@@ -214,7 +231,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
                                     .executes(context -> {
                                         boolean val = BoolArgumentType.getBool(context, "value");
-                                        BomboFlipConfig.getInstance().debugMode = val;
+                                        BomboFlipConfig.getInstance().setDebugMode(val);
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Debug Mode set to: " + val));
@@ -228,7 +245,7 @@ public class BomboFlipClient implements ClientModInitializer {
                             // /bomboflipper blacklist clear
                             .then(ClientCommandManager.literal("clear")
                                     .executes(context -> {
-                                        BomboFlipConfig.getInstance().blacklist.clear();
+                                        BomboFlipConfig.getInstance().setBlacklist(new java.util.ArrayList<>());
                                         BomboFlipConfig.getInstance().save();
 
                                         context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Blacklist cleared."));
@@ -240,7 +257,7 @@ public class BomboFlipClient implements ClientModInitializer {
                                     .then(ClientCommandManager.argument("item", StringArgumentType.greedyString())
                                             .executes(context -> {
                                                 String item = StringArgumentType.getString(context, "item");
-                                                BomboFlipConfig.getInstance().blacklist.add(item);
+                                                BomboFlipConfig.getInstance().addToBlacklist(item);
                                                 BomboFlipConfig.getInstance().save();
 
                                                 context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Added '" + item + "' to blacklist."));
@@ -253,7 +270,8 @@ public class BomboFlipClient implements ClientModInitializer {
                                     .then(ClientCommandManager.argument("item", StringArgumentType.greedyString())
                                             .executes(context -> {
                                                 String item = StringArgumentType.getString(context, "item");
-                                                if (BomboFlipConfig.getInstance().blacklist.remove(item)) {
+                                                BomboFlipConfig.getInstance().removeFromBlacklist(item);
+                                                if (true) { // Logic simplified for removal notification
                                                     context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Removed '" + item + "' from blacklist."));
                                                 } else {
                                                     context.getSource().sendFeedback(Text.literal("§c[BomboFlipper] Item '" + item + "' not found in blacklist."));

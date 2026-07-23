@@ -84,9 +84,19 @@ public class CoflWebSocketClient implements WebSocket.Listener {
         webSocket.request(1);
     }
 
+    private final StringBuilder messageBuffer = new StringBuilder();
+
     @Override
     public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
-        String raw = data.toString();
+        messageBuffer.append(data);
+
+        if (!last) {
+            webSocket.request(1);
+            return null;
+        }
+
+        String raw = messageBuffer.toString();
+        messageBuffer.setLength(0); // Clear buffer for next message
 
         try {
             JsonObject json = gson.fromJson(raw, JsonObject.class);
@@ -155,7 +165,7 @@ public class CoflWebSocketClient implements WebSocket.Listener {
     }
 
     private static void sendDebugMessage(String message) {
-        if (BomboFlipConfig.getInstance().debugMode) {
+        if (BomboFlipConfig.getInstance().isDebugMode()) {
             MinecraftClient client = MinecraftClient.getInstance();
             client.execute(() -> {
                 if (client.player != null) {

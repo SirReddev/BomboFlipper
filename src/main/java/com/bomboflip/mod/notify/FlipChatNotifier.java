@@ -27,19 +27,24 @@ public class FlipChatNotifier {
 
         MutableText mainMessage = prefix.append(itemText).append(priceText).append(profitText).append(demandText);
 
-        // Add the Click to Buy button (only if oneClickBuy config is enabled)
-        if (BomboFlipConfig.getInstance().isOneClickBuy()) {
+        String uuidStr = (uuid != null && !uuid.isEmpty()) ? uuid : "";
+        if (BomboFlipConfig.getInstance().isOneClickBuy() && !uuidStr.isEmpty()) {
             MutableText clickToBuy = Text.literal(" [CLICK TO BUY]")
                     .formatted(Formatting.RED, Formatting.BOLD)
-                    .styled(style -> style.withClickEvent(new ClickEvent.RunCommand(command)));
+                    .styled(style -> style.withClickEvent(new ClickEvent.RunCommand("/bomboflip_buy " + uuidStr)));
             mainMessage.append(clickToBuy);
+        } else if (!uuidStr.isEmpty()) {
+            MutableText clickToView = Text.literal(" [VIEW AUCTION]")
+                    .formatted(Formatting.YELLOW, Formatting.BOLD)
+                    .styled(style -> style.withClickEvent(new ClickEvent.RunCommand("/viewauction " + uuidStr)));
+            mainMessage.append(clickToView);
         }
 
         // 2. Build Debug Detail Line (only shown when Debug Mode is ON)
         MutableText debugLine = null;
         if (BomboFlipConfig.getInstance().isDebugMode()) {
             double marginPct = price > 0 ? ((double) profit / price) * 100.0 : 0.0;
-            String uuidStr = (uuid != null && !uuid.isEmpty()) ? uuid : "N/A";
+            String debugUuidStr = (uuid != null && !uuid.isEmpty()) ? uuid : "N/A";
 
             debugLine = Text.literal("  └─ [DEBUG] ").formatted(Formatting.DARK_AQUA, Formatting.BOLD)
                     .append(Text.literal("Resale: ").formatted(Formatting.GRAY))
@@ -47,7 +52,7 @@ public class FlipChatNotifier {
                     .append(Text.literal(" | Margin: ").formatted(Formatting.GRAY))
                     .append(Text.literal(String.format("+%.1f%%", marginPct)).formatted(Formatting.GREEN))
                     .append(Text.literal(" | UUID: ").formatted(Formatting.GRAY))
-                    .append(Text.literal(uuidStr).formatted(Formatting.DARK_GRAY));
+                    .append(Text.literal(debugUuidStr).formatted(Formatting.DARK_GRAY));
         }
 
         final MutableText extraDebug = debugLine;

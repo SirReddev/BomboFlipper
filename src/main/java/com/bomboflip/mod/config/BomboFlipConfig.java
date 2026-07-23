@@ -44,6 +44,11 @@ public class BomboFlipConfig {
         return g != null ? g.general.fullAfk : false;
     }
 
+    public int getAutoBuyDelay() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.general.autoBuyDelay : 400;
+    }
+
     public long getBudget() {
         MoulBomboConfig g = gui();
         return g != null ? MoulConfigIntegrator.parseNumber(g.general.budget, 100000000L) : 100000000L;
@@ -96,20 +101,82 @@ public class BomboFlipConfig {
         return list;
     }
 
-    // ── Legacy field accessors (for backwards compat with commands) ──
+    // ── Live Setters (commands write directly to MoulConfig GUI instance) ──
 
-    public boolean enabled = true;
-    public boolean oneClickBuy = true;
-    public boolean fullAfk = false;
-    public long budget = 100000000L;
-    public long minProfit = 500000L;
-    public long maxProfit = 50000000L;
-    public int minDemandTier = 1;
-    public boolean chatAlertsEnabled = true;
-    public boolean soundAlertsEnabled = true;
-    public boolean debugMode = false;
-    public boolean showAllFlips = false;
-    public List<String> blacklist = new ArrayList<>(Arrays.asList("Skin", "Dye", "Rune"));
+    public void setEnabled(boolean val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.general.enabled = val;
+    }
+
+    public void setOneClickBuy(boolean val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.general.oneClickBuy = val;
+    }
+
+    public void setFullAfk(boolean val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.general.fullAfk = val;
+    }
+
+    public void setBudget(long val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.general.budget = String.valueOf(val);
+    }
+
+    public void setMinProfit(long val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.general.minProfit = String.valueOf(val);
+    }
+
+    public void setMaxProfit(long val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.general.maxProfit = String.valueOf(val);
+    }
+
+    public void setMinDemandTier(int val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.filters.minDemandTier = val;
+    }
+
+    public void setChatAlertsEnabled(boolean val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.alerts.chatAlertsEnabled = val;
+    }
+
+    public void setSoundAlertsEnabled(boolean val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.alerts.soundAlertsEnabled = val;
+    }
+
+    public void setDebugMode(boolean val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.alerts.debugMode = val;
+    }
+
+    public void setShowAllFlips(boolean val) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.alerts.showAllFlips = val;
+    }
+
+    public void setBlacklist(List<String> list) {
+        MoulBomboConfig g = gui();
+        if (g != null) g.filters.blacklist = String.join(", ", list);
+    }
+
+    public void addToBlacklist(String item) {
+        List<String> bl = getBlacklist();
+        if (!bl.contains(item)) {
+            bl.add(item);
+            setBlacklist(bl);
+        }
+    }
+
+    public void removeFromBlacklist(String item) {
+        List<String> bl = getBlacklist();
+        if (bl.remove(item)) {
+            setBlacklist(bl);
+        }
+    }
 
     // Load from JSON
     public static void load() {
@@ -117,28 +184,12 @@ public class BomboFlipConfig {
     }
 
     public static void syncWithMoul() {
-        // No-op: we now read live from MoulConfig
+        // No-op
     }
 
-    // Save (push command-set values to GUI and persist)
+    // Save (persist current GUI fields to disk)
     public void save() {
-        MoulBomboConfig gui = MoulConfigIntegrator.getManaged().getInstance();
-        if (gui != null) {
-            gui.general.enabled = this.enabled;
-            gui.general.oneClickBuy = this.oneClickBuy;
-            gui.general.fullAfk = this.fullAfk;
-            gui.general.budget = String.valueOf(this.budget);
-            gui.general.minProfit = String.valueOf(this.minProfit);
-            gui.general.maxProfit = String.valueOf(this.maxProfit);
-            gui.filters.minDemandTier = this.minDemandTier;
-            gui.filters.blacklist = String.join(", ", this.blacklist);
-            gui.alerts.chatAlertsEnabled = this.chatAlertsEnabled;
-            gui.alerts.soundAlertsEnabled = this.soundAlertsEnabled;
-            gui.alerts.debugMode = this.debugMode;
-            gui.alerts.showAllFlips = this.showAllFlips;
-
-            MoulConfigIntegrator.save();
-        }
+        MoulConfigIntegrator.save();
     }
 
     public void resetToDefaults() {
@@ -147,6 +198,7 @@ public class BomboFlipConfig {
             gui.general.enabled = true;
             gui.general.oneClickBuy = true;
             gui.general.fullAfk = false;
+            gui.general.autoBuyDelay = 400;
             gui.general.budget = "100000000";
             gui.general.minProfit = "500000";
             gui.general.maxProfit = "100000000";

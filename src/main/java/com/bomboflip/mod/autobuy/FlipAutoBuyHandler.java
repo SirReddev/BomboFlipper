@@ -44,7 +44,6 @@ public class FlipAutoBuyHandler {
     // Timing
     private static long timeOpened = 0;            // When "BIN Auction View" was opened
     private static long lastActionTime = 0;        // Throttle for sequential actions
-    private static final long BUY_DELAY_MS = 400;  // NEC's beddelay equivalent (safe default)
     private static final long ACTION_DELAY_MS = 300; // Delay between sequential GUI actions
 
     // Executor for delayed tasks (same pattern as NEC's Client.scheduledExecutorService)
@@ -58,7 +57,6 @@ public class FlipAutoBuyHandler {
     public static void init() {
         // ── Screen Open Handler (equivalent to NEC's MixinContainerChest + GuiEvents.onTick) ──
         ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
-            if (!BomboFlipConfig.getInstance().isFullAfk()) return;
             if (!(screen instanceof HandledScreen<?> handledScreen)) return;
 
             String title = screen.getTitle().getString();
@@ -114,7 +112,7 @@ public class FlipAutoBuyHandler {
                             }
                         }
                     });
-                }, BUY_DELAY_MS, TimeUnit.MILLISECONDS);
+                }, BomboFlipConfig.getInstance().getAutoBuyDelay(), TimeUnit.MILLISECONDS);
             }
 
             // ════════════════════════════════════════════════════════════
@@ -132,6 +130,18 @@ public class FlipAutoBuyHandler {
                         // NEC: After confirm, find empty inventory slot for the incoming item
                         // and set tryToSell + slotUnchanged
                         scheduler.schedule(() -> {
+                            if (!BomboFlipConfig.getInstance().isFullAfk()) {
+                                // Just a One-Click Buy, do NOT auto-relist!
+                                resetState();
+                                client.execute(() -> {
+                                    if (client.player != null) {
+                                        client.player.sendMessage(Text.literal("§a[BomboFlipper] ✔ Item bought! (One-Click Buy)"), false);
+                                        client.player.closeHandledScreen();
+                                    }
+                                });
+                                return;
+                            }
+
                             client.execute(() -> {
                                 if (client.player == null) return;
 
@@ -374,6 +384,24 @@ public class FlipAutoBuyHandler {
                         }
                     });
                 }, 700, TimeUnit.MILLISECONDS);
+            }
+        });
+
+        // ── Chat Screen Handler (NEC's Chat hook for failure detection) ──
+        net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents.GAME.register((message, overlay) -> {
+            String text = message.getString().toLowerCase();
+
+            // If the purchase fails, we MUST reset the state machine so it doesn't 
+            // auto-buy if the user manually checks the auction via chat link.
+            if (text.contains("didn't participate") || 
+                text.contains("wasn't found") || 
+                text.contains("cannot view this auction") ||
+                text.contains("not enough coins")) {
+                
+                if (autoBuy) {
+                    System.out.println("[BomboFlipper] Auction purchase failed. Resetting Full AFK state machine.");
+                    resetState();
+                }
             }
         });
     }

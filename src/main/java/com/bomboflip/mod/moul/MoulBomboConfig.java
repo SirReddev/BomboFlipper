@@ -41,6 +41,16 @@ public class MoulBomboConfig extends Config {
         public boolean fullAfk = false;
 
         @Expose
+        @ConfigOption(
+                name = "Auto-Buy Delay (ms)", 
+                desc = "Ping compensation delay before clicking BUY.\n" +
+                       "Lower = Faster buying, but high risk of server rejecting the click if you have high ping.\n" +
+                       "Default is 400ms."
+        )
+        @ConfigEditorSlider(minValue = 50, maxValue = 1000, minStep = 50)
+        public int autoBuyDelay = 400;
+
+        @Expose
         @ConfigOption(name = "Budget", desc = "Max spend per flip")
         @ConfigEditorText
         public String budget = "100000000";

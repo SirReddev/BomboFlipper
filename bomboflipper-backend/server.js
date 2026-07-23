@@ -45,11 +45,16 @@ function broadcastFlip(flipPayload) {
     });
 }
 
-async function fetchAllAHPages(totalPages) {
+async function fetchAllAHPages(totalPages, firstPageData) {
     const allAuctions = [];
-    const chunkSize = 15;
+    if (firstPageData && firstPageData.auctions) {
+        allAuctions.push(...firstPageData.auctions);
+    }
+    
+    // Blast all remaining pages with high concurrency
+    const chunkSize = 50; 
 
-    for (let i = 0; i < totalPages; i += chunkSize) {
+    for (let i = 1; i < totalPages; i += chunkSize) {
         const batchPromises = [];
         for (let page = i; page < Math.min(i + chunkSize, totalPages); page++) {
             batchPromises.push(
@@ -67,28 +72,26 @@ async function fetchAllAHPages(totalPages) {
     return allAuctions;
 }
 
-async function runAuctionCheckCycle() {
+async function runAuctionCheckCycle(firstPageData) {
     const cycleStartTime = Date.now();
-    logger.cycle(`Starting Auction House & Bazaar scan cycle...`);
+    logger.cycle(`New Hypixel API update detected! Starting hyper-scan...`);
 
     try {
         // 1. Fetch live upgrade prices from the Bazaar
         await bazaarService.updateBazaar();
         const bzKeys = Object.keys(bazaarService.products).length;
-        logger.info(`[BazaarService] Live prices updated for ${bzKeys} items.`);
 
-        // 2. Fetch total page count
-        const firstPageRes = await axios.get('https://api.hypixel.net/skyblock/auctions?page=0', { timeout: 8000 });
-        const totalPages = firstPageRes.data ? firstPageRes.data.totalPages : 0;
+        // 2. We already have total pages from the polling check
+        const totalPages = firstPageData.totalPages || 0;
 
         if (totalPages === 0) {
             logger.error(`Hypixel AH API returned 0 total pages.`);
             return;
         }
 
-        // 3. Fetch all pages in chunked parallel batches (15 pages at a time)
-        const allAuctions = await fetchAllAHPages(totalPages);
-        logger.info(`[AuctionCheck] Downloaded ${totalPages} AH pages (${logger.formatNumber(allAuctions.length)} total active auctions).`);
+        // 3. Fetch all remaining pages in high-concurrency batches
+        const allAuctions = await fetchAllAHPages(totalPages, firstPageData);
+        logger.info(`[AuctionCheck] Downloaded ${totalPages} AH pages (${logger.formatNumber(allAuctions.length)} total active auctions) in ${Date.now() - cycleStartTime}ms.`);
 
         // 4. Pass auctions to Flipping Engine for valuation
         const evaluationResult = await flippingEngine.evaluateAuctions(allAuctions);
@@ -121,5 +124,32 @@ async function runAuctionCheckCycle() {
     }
 }
 
-setInterval(runAuctionCheckCycle, 60000);
-runAuctionCheckCycle();
+// --- High Speed Polling Logic ---
+let lastUpdatedTime = 0;
+let isScanning = false;
+
+async function pollHypixelAPI() {
+    if (isScanning) return;
+
+    try {
+        const res = await axios.get('https://api.hypixel.net/skyblock/auctions?page=0', { timeout: 3000 });
+        if (res.data && res.data.lastUpdated) {
+            if (res.data.lastUpdated !== lastUpdatedTime) {
+                // First boot
+                if (lastUpdatedTime === 0) {
+                    logger.info(`[Poller] Initialized to Hypixel API clock: ${res.data.lastUpdated}`);
+                } 
+                lastUpdatedTime = res.data.lastUpdated;
+                isScanning = true;
+                await runAuctionCheckCycle(res.data);
+                isScanning = false;
+            }
+        }
+    } catch (e) {
+        // Ignore timeout / network errors during silent polling
+    }
+}
+
+// Poll Hypixel every 1 second (1000ms) to detect the exact millisecond the AH refreshes
+setInterval(pollHypixelAPI, 1000);
+pollHypixelAPI();
