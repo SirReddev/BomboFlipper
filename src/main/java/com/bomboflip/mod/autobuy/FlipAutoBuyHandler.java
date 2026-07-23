@@ -59,6 +59,11 @@ public class FlipAutoBuyHandler {
         ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
             if (!(screen instanceof HandledScreen<?> handledScreen)) return;
 
+            if (!BomboFlipConfig.getInstance().isFullAfk() && !BomboFlipConfig.getInstance().isOneClickBuy()) {
+                resetState();
+                return;
+            }
+
             String title = screen.getTitle().getString();
             if (title == null) return;
 
@@ -95,6 +100,7 @@ public class FlipAutoBuyHandler {
                             }
 
                             if (isCollectCoins) {
+                                if (!BomboFlipConfig.getInstance().isFullAfk()) return;
                                 // AUTO-CLAIM: Click slot 31 to collect coins
                                 client.interactionManager.clickSlot(syncId, 31, 0, SlotActionType.PICKUP, client.player);
                                 System.out.println("[BomboFlipper] Auto-claimed coins from sold auction.");
@@ -421,6 +427,14 @@ public class FlipAutoBuyHandler {
         slot = -1;
         slotUnchanged = -1;
         System.out.println("[BomboFlipper] Auto-buy armed! listForPrice=" + resalePrice);
+
+        // Safety timeout: if the transaction doesn't complete or fails silently within 10 seconds, reset the state
+        scheduler.schedule(() -> {
+            if (autoBuy) {
+                System.out.println("[BomboFlipper] AutoBuy state machine timed out after 10s. Resetting.");
+                resetState();
+            }
+        }, 10, TimeUnit.SECONDS);
     }
 
     /**

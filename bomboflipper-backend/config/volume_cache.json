@@ -10193,5 +10193,80 @@
     "salesPerDay": 19.5,
     "medianPrice": 149998,
     "timestamp": 1784844630962
+  },
+  "EMBER_LEGGINGS": {
+    "salesPerDay": 13,
+    "medianPrice": 8900000,
+    "timestamp": 1784848223574
+  },
+  "PARROT_MASK": {
+    "salesPerDay": 3.5,
+    "medianPrice": 12500000,
+    "timestamp": 1784848224956
+  },
+  "DYE_MOCHA": {
+    "salesPerDay": 1.5,
+    "medianPrice": 60000000,
+    "timestamp": 1784848226474
+  },
+  "DYE_CYCLAMEN": {
+    "salesPerDay": 1,
+    "medianPrice": 59990000,
+    "timestamp": 1784848227993
+  },
+  "BONZO_MASK_JESTER": {
+    "salesPerDay": 2,
+    "medianPrice": 249999999,
+    "timestamp": 1784848229464
+  },
+  "GOLD_CHEST": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784848231017
+  },
+  "GOLD_CLAWS": {
+    "salesPerDay": 15.5,
+    "medianPrice": 8000000,
+    "timestamp": 1784848232522
+  },
+  "FOSSIL_MUNCHER_PERSONALITY": {
+    "salesPerDay": 3,
+    "medianPrice": 6000000,
+    "timestamp": 1784848233979
+  },
+  "PET_SKIN_BLAZE_PLUSHIE": {
+    "salesPerDay": 1.5,
+    "medianPrice": 13900000,
+    "timestamp": 1784848235491
+  },
+  "WATER_HYDRA_BABY": {
+    "salesPerDay": 0.5,
+    "medianPrice": 20000000,
+    "timestamp": 1784848237045
+  },
+  "ARMADILLO_MASK": {
+    "salesPerDay": 7,
+    "medianPrice": 6000000,
+    "timestamp": 1784848238513
+  },
+  "PET_SKIN_ARMADILLO_GLACIAL": {
+    "salesPerDay": 0.5,
+    "medianPrice": 79999000,
+    "timestamp": 1784848240093
+  },
+  "PET_SKIN_MONKEY_LEMUR": {
+    "salesPerDay": 0.5,
+    "medianPrice": 30000000,
+    "timestamp": 1784848242109
+  },
+  "PUMPKIN_CANDY_HANDOUT": {
+    "salesPerDay": 0,
+    "medianPrice": 0,
+    "timestamp": 1784848275202
+  },
+  "PET_SKIN_SHEEP_GRAY": {
+    "salesPerDay": 2.5,
+    "medianPrice": 392999999,
+    "timestamp": 1784848335470
   }
 }
