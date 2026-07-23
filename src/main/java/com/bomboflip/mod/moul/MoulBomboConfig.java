@@ -31,6 +31,11 @@ public class MoulBomboConfig extends Config {
         public boolean enabled = true;
 
         @Expose
+        @ConfigOption(name = "Full AFK", desc = "OFF by default. Master NotEnoughCoins mode: Auto-buys flips, claims sold coins, and lists items at target profit")
+        @ConfigEditorBoolean
+        public boolean fullAfk = false;
+
+        @Expose
         @ConfigOption(name = "Budget", desc = "Max spend per flip")
         @ConfigEditorText
         public String budget = "100000000";

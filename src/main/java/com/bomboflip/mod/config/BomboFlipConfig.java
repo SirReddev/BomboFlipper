@@ -13,6 +13,7 @@ public class BomboFlipConfig {
 
     // --- YOUR ACTIVE SETTINGS ---
     public boolean enabled = true;
+    public boolean fullAfk = false;
     public long budget = 100000000L; // 100m default
     public long minProfit = 500000L; // 500k default
     public long maxProfit = 50000000L; // 50m default
@@ -44,6 +45,7 @@ public class BomboFlipConfig {
         if (gui == null) return;
 
         instance.enabled = gui.general.enabled;
+        instance.fullAfk = gui.general.fullAfk;
         instance.budget = MoulConfigIntegrator.parseNumber(gui.general.budget, instance.budget);
         instance.minProfit = MoulConfigIntegrator.parseNumber(gui.general.minProfit, instance.minProfit);
         instance.maxProfit = MoulConfigIntegrator.parseNumber(gui.general.maxProfit, instance.maxProfit);
@@ -67,6 +69,7 @@ public class BomboFlipConfig {
         MoulBomboConfig gui = MoulConfigIntegrator.getManaged().getInstance();
         if (gui != null) {
             gui.general.enabled = this.enabled;
+            gui.general.fullAfk = this.fullAfk;
             gui.general.budget = String.valueOf(this.budget);
             gui.general.minProfit = String.valueOf(this.minProfit);
             gui.general.maxProfit = String.valueOf(this.maxProfit);
@@ -85,6 +88,7 @@ public class BomboFlipConfig {
         MoulBomboConfig gui = MoulConfigIntegrator.getManaged().getInstance();
         if (gui != null) {
             gui.general.enabled = true;
+            gui.general.fullAfk = false;
             gui.general.budget = "100000000";
             gui.general.minProfit = "500000";
             gui.general.maxProfit = "100000000";
