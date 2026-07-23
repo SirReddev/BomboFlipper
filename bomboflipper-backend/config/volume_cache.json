@@ -9893,5 +9893,80 @@
     "salesPerDay": 1.5,
     "medianPrice": 50000,
     "timestamp": 1784837914595
+  },
+  "TRAINING_DUMMY": {
+    "salesPerDay": 32.5,
+    "medianPrice": 750000,
+    "timestamp": 1784838336256
+  },
+  "EMPEROR_ARTIFACT": {
+    "salesPerDay": 6,
+    "medianPrice": 255555555,
+    "timestamp": 1784838337547
+  },
+  "MINING_2_TRAVEL_SCROLL": {
+    "salesPerDay": 107.5,
+    "medianPrice": 497997,
+    "timestamp": 1784838339117
+  },
+  "HEAT_CHESTPLATE": {
+    "salesPerDay": 40,
+    "medianPrice": 400000,
+    "timestamp": 1784838340568
+  },
+  "SPEEDSTER_BOOTS": {
+    "salesPerDay": 32,
+    "medianPrice": 190000,
+    "timestamp": 1784838342094
+  },
+  "VINERIP_LASSO": {
+    "salesPerDay": 58,
+    "medianPrice": 389068,
+    "timestamp": 1784838343581
+  },
+  "ANNIHILATION_CLOAK": {
+    "salesPerDay": 1.5,
+    "medianPrice": 250000000,
+    "timestamp": 1784838345114
+  },
+  "PERFECT_CHESTPLATE_1": {
+    "salesPerDay": 4.5,
+    "medianPrice": 600000,
+    "timestamp": 1784838346602
+  },
+  "SPORE_HARVESTER": {
+    "salesPerDay": 89,
+    "medianPrice": 388998,
+    "timestamp": 1784838512097
+  },
+  "RUNEBLADE_TALISMAN": {
+    "salesPerDay": 78.5,
+    "medianPrice": 500,
+    "timestamp": 1784838571137
+  },
+  "WITHER_GOGGLES_CELESTIAL": {
+    "salesPerDay": 1,
+    "medianPrice": 755000000,
+    "timestamp": 1784838572615
+  },
+  "ABIPHONE_XII_MEGA_COLOR": {
+    "salesPerDay": 4,
+    "medianPrice": 1300000,
+    "timestamp": 1784838574078
+  },
+  "TALISMAN_ENRICHMENT_CRITICAL_CHANCE": {
+    "salesPerDay": 58,
+    "medianPrice": 5990000,
+    "timestamp": 1784838877905
+  },
+  "MEDIUM_FISH_BOWL": {
+    "salesPerDay": 37,
+    "medianPrice": 1600000,
+    "timestamp": 1784838990417
+  },
+  "BARREL_OF_RICHES": {
+    "salesPerDay": 2.5,
+    "medianPrice": 39000000,
+    "timestamp": 1784839054590
   }
 }

@@ -30,6 +30,8 @@ public final class MoulConfigIntegrator {
         return managed;
     }
 
+    private static long lastSaveTime = 0;
+
     public static void openConfigScreen() {
         GuiContext context = new GuiContext(new GuiElementComponent(getManaged().getEditor()));
         Screen previousScreen = MinecraftClient.getInstance().currentScreen;
@@ -50,6 +52,12 @@ public final class MoulConfigIntegrator {
     }
 
     public static void save() {
+        long now = System.currentTimeMillis();
+        if (now - lastSaveTime < 500) {
+            return; // Throttle duplicate save triggers from back-to-back close() & removed()
+        }
+        lastSaveTime = now;
+
         if (managed != null) {
             try {
                 managed.saveToFile();
@@ -69,27 +77,33 @@ public final class MoulConfigIntegrator {
             );
 
             String debugMsg = config.debugMode ? String.format(
-                    "  └─ [DEBUG] Enabled=%b | Blacklist=[%s] | ChatAlerts=%b | SoundAlerts=%b",
+                    "  └─ [DEBUG] Enabled=%b | FullAFK=%b | OneClickBuy=%b | Blacklist=[%s]",
                     config.enabled,
-                    String.join(", ", config.blacklist),
-                    config.chatAlertsEnabled,
-                    config.soundAlertsEnabled
+                    config.fullAfk,
+                    config.oneClickBuy,
+                    String.join(", ", config.blacklist)
             ) : null;
 
-            // Execute on main client thread after screen transition completes
-            client.execute(() -> {
-                if (client.player != null) {
-                    client.player.sendMessage(net.minecraft.text.Text.literal(mainMsg), false);
-                    if (debugMsg != null) {
-                        client.player.sendMessage(net.minecraft.text.Text.literal(debugMsg), false);
+            // Schedule notification on thread after screen transition is completely finished
+            new Thread(() -> {
+                try {
+                    Thread.sleep(100); // 100ms delay guarantees screen cleanup is finished
+                } catch (InterruptedException ignored) {}
+
+                client.execute(() -> {
+                    if (client.player != null) {
+                        client.player.sendMessage(net.minecraft.text.Text.literal(mainMsg), false);
+                        if (debugMsg != null) {
+                            client.player.sendMessage(net.minecraft.text.Text.literal(debugMsg), false);
+                        }
+                    } else if (client.inGameHud != null && client.inGameHud.getChatHud() != null) {
+                        client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(mainMsg));
+                        if (debugMsg != null) {
+                            client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(debugMsg));
+                        }
                     }
-                } else if (client.inGameHud != null && client.inGameHud.getChatHud() != null) {
-                    client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(mainMsg));
-                    if (debugMsg != null) {
-                        client.inGameHud.getChatHud().addMessage(net.minecraft.text.Text.literal(debugMsg));
-                    }
-                }
-            });
+                });
+            }).start();
         }
     }
 

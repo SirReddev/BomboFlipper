@@ -13,6 +13,7 @@ public class BomboFlipConfig {
 
     // --- YOUR ACTIVE SETTINGS ---
     public boolean enabled = true;
+    public boolean oneClickBuy = true;
     public boolean fullAfk = false;
     public long budget = 100000000L; // 100m default
     public long minProfit = 500000L; // 500k default
@@ -45,6 +46,7 @@ public class BomboFlipConfig {
         if (gui == null) return;
 
         instance.enabled = gui.general.enabled;
+        instance.oneClickBuy = gui.general.oneClickBuy;
         instance.fullAfk = gui.general.fullAfk;
         instance.budget = MoulConfigIntegrator.parseNumber(gui.general.budget, instance.budget);
         instance.minProfit = MoulConfigIntegrator.parseNumber(gui.general.minProfit, instance.minProfit);
@@ -69,6 +71,7 @@ public class BomboFlipConfig {
         MoulBomboConfig gui = MoulConfigIntegrator.getManaged().getInstance();
         if (gui != null) {
             gui.general.enabled = this.enabled;
+            gui.general.oneClickBuy = this.oneClickBuy;
             gui.general.fullAfk = this.fullAfk;
             gui.general.budget = String.valueOf(this.budget);
             gui.general.minProfit = String.valueOf(this.minProfit);
@@ -88,6 +91,7 @@ public class BomboFlipConfig {
         MoulBomboConfig gui = MoulConfigIntegrator.getManaged().getInstance();
         if (gui != null) {
             gui.general.enabled = true;
+            gui.general.oneClickBuy = true;
             gui.general.fullAfk = false;
             gui.general.budget = "100000000";
             gui.general.minProfit = "500000";

@@ -31,6 +31,11 @@ public class MoulBomboConfig extends Config {
         public boolean enabled = true;
 
         @Expose
+        @ConfigOption(name = "One-Click Buy", desc = "Enable instant one-click buying buttons in chat")
+        @ConfigEditorBoolean
+        public boolean oneClickBuy = true;
+
+        @Expose
         @ConfigOption(name = "Full AFK", desc = "OFF by default. Master NotEnoughCoins mode: Auto-buys flips, claims sold coins, and lists items at target profit")
         @ConfigEditorBoolean
         public boolean fullAfk = false;

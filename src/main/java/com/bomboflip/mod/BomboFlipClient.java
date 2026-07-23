@@ -181,6 +181,34 @@ public class BomboFlipClient implements ClientModInitializer {
                             )
                     )
 
+                    // Sub-command: /bomboflipper oneClickBuy <true/false>
+                    .then(ClientCommandManager.literal("oneClickBuy")
+                            .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
+                                    .executes(context -> {
+                                        boolean val = BoolArgumentType.getBool(context, "value");
+                                        BomboFlipConfig.getInstance().oneClickBuy = val;
+                                        BomboFlipConfig.getInstance().save();
+
+                                        context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] One-Click Buy set to: " + val));
+                                        return 1;
+                                    })
+                            )
+                    )
+
+                    // Sub-command: /bomboflipper fullAfk <true/false>
+                    .then(ClientCommandManager.literal("fullAfk")
+                            .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
+                                    .executes(context -> {
+                                        boolean val = BoolArgumentType.getBool(context, "value");
+                                        BomboFlipConfig.getInstance().fullAfk = val;
+                                        BomboFlipConfig.getInstance().save();
+
+                                        context.getSource().sendFeedback(Text.literal("§a[BomboFlipper] Full AFK set to: " + val));
+                                        return 1;
+                                    })
+                            )
+                    )
+
                     // Sub-command: /bomboflipper debugMode <true/false>
                     .then(ClientCommandManager.literal("debugMode")
                             .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
