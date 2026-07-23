@@ -71,10 +71,5 @@ public class BomboFlipConfig {
         } catch (Exception e) {
             System.err.println("[BomboFlipper] Failed to save config!");
         }
-
-        // Bi-directional sync: push changes to MoulConfig GUI instance
-        try {
-            com.bomboflip.mod.moul.MoulConfigIntegrator.pullFromRuntimeConfig();
-        } catch (Exception ignored) {}
     }
 }
