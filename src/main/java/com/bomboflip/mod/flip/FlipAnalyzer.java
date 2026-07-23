@@ -65,7 +65,9 @@ public class FlipAnalyzer {
                 }
             }
 
-            FlipChatNotifier.notifyFlip(itemName, price, profit, command, demandTier, salesPerDay);
+            long estimatedValue = json.has("estimatedValue") ? json.get("estimatedValue").getAsLong() : (price + profit);
+
+            FlipChatNotifier.notifyFlip(itemName, price, profit, estimatedValue, command, demandTier, salesPerDay, uuid);
 
         } catch (Exception e) {
             System.err.println("[BomboFlipper] Failed to parse incoming flip data: " + e.getMessage());

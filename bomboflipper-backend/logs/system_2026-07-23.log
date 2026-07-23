@@ -1034,3 +1034,6 @@
 [21:27:23] [SUCCESS] [SCAN COMPLETE] Evaluated 46,585 BIN items in 26371ms | 195 Flips Found.
 [21:27:57] [CYCLE] Starting Auction House & Bazaar scan cycle...
 [21:27:57] [INFO] [BazaarService] Live prices updated for 1939 items.
+[21:28:17] [INFO] [AuctionCheck] Downloaded 51 AH pages (50,414 total active auctions).
+[21:28:23] [INFO] [VolumeCache Status] 792 records saved on disk | 0 items queued.
+[21:28:23] [SUCCESS] [SCAN COMPLETE] Evaluated 46,603 BIN items in 25892ms | 193 Flips Found.
