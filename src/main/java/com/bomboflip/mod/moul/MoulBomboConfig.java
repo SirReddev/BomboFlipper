@@ -51,6 +51,16 @@ public class MoulBomboConfig extends Config {
         public int autoBuyDelay = 400;
 
         @Expose
+        @ConfigOption(
+                name = "Relist/Claim Delay (ms)", 
+                desc = "Ping compensation delay for auto-relisting and claiming items/coins.\n" +
+                       "Increase this if the bot gets stuck while trying to relist or claim items.\n" +
+                       "Default is 600ms."
+        )
+        @ConfigEditorSlider(minValue = 200, maxValue = 2000, minStep = 50)
+        public int relistDelay = 600;
+
+        @Expose
         @ConfigOption(name = "Budget", desc = "Max spend per flip")
         @ConfigEditorText
         public String budget = "100000000";

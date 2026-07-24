@@ -49,6 +49,11 @@ public class BomboFlipConfig {
         return g != null ? g.general.autoBuyDelay : 400;
     }
 
+    public int getRelistDelay() {
+        MoulBomboConfig g = gui();
+        return g != null ? g.general.relistDelay : 600;
+    }
+
     public long getBudget() {
         MoulBomboConfig g = gui();
         return g != null ? MoulConfigIntegrator.parseNumber(g.general.budget, 100000000L) : 100000000L;

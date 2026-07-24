@@ -15,9 +15,6 @@ import net.minecraft.text.Text;
 
 public class BomboFlipClient implements ClientModInitializer {
 
-    private static long nextAfkTickTime = 0;
-    private static final java.util.Random random = new java.util.Random();
-
     @Override
     public void onInitializeClient() {
         System.out.println("[BomboFlipper] Initializing mod...");
@@ -38,24 +35,6 @@ public class BomboFlipClient implements ClientModInitializer {
         // Register server join event: clear announced auctions memory so active flips re-announce on join
         net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
             com.bomboflip.mod.flip.FlipAnalyzer.clearAnnouncedAuctions();
-        });
-
-        // Anti-AFK Tick Handler (Runs subtle rotation packets when fullAfk is enabled)
-        net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (client.player == null || client.world == null) return;
-            if (!BomboFlipConfig.getInstance().isFullAfk()) return;
-
-            long currentTime = System.currentTimeMillis();
-            if (nextAfkTickTime == 0) {
-                nextAfkTickTime = currentTime + (45000 + random.nextInt(45000)); // 45s-90s randomized interval
-            }
-
-            if (currentTime >= nextAfkTickTime) {
-                // Micro yaw rotation (+- 0.5 deg)
-                float deltaYaw = (random.nextFloat() - 0.5f) * 1.0f;
-                client.player.setYaw(client.player.getYaw() + deltaYaw);
-                nextAfkTickTime = currentTime + (45000 + random.nextInt(45000));
-            }
         });
 
         // 2. Start the WebSocket connection statically in the background

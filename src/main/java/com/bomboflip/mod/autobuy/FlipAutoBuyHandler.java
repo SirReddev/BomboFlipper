@@ -106,7 +106,7 @@ public class FlipAutoBuyHandler {
                                 System.out.println("[BomboFlipper] Auto-claimed coins from sold auction.");
                                 scheduler.schedule(() -> client.execute(() -> {
                                     if (client.player != null) client.player.closeHandledScreen();
-                                }), 500, TimeUnit.MILLISECONDS);
+                                }), BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
                                 return;
                             }
 
@@ -199,11 +199,11 @@ public class FlipAutoBuyHandler {
                                             client.player.networkHandler.sendChatMessage("/ah");
                                         }
                                     });
-                                }, 1000, TimeUnit.MILLISECONDS);
+                                }, BomboFlipConfig.getInstance().getRelistDelay() * 2L, TimeUnit.MILLISECONDS);
                             });
-                        }, 500, TimeUnit.MILLISECONDS);
+                        }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
                     });
-                }, ACTION_DELAY_MS, TimeUnit.MILLISECONDS);
+                }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
             }
 
             // ════════════════════════════════════════════════════════════
@@ -218,7 +218,7 @@ public class FlipAutoBuyHandler {
                         client.interactionManager.clickSlot(syncId, 15, 0, SlotActionType.PICKUP, client.player);
                         System.out.println("[BomboFlipper] Auction House: clicked slot 15 (Manage Auctions).");
                     });
-                }, ACTION_DELAY_MS, TimeUnit.MILLISECONDS);
+                }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
             }
 
             // ════════════════════════════════════════════════════════════
@@ -248,7 +248,7 @@ public class FlipAutoBuyHandler {
                         System.out.println("[BomboFlipper] Manage Auctions: no Create button found, trying slot 48.");
                         client.interactionManager.clickSlot(syncId, 48, 0, SlotActionType.PICKUP, client.player);
                     });
-                }, ACTION_DELAY_MS, TimeUnit.MILLISECONDS);
+                }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
             }
 
             // ════════════════════════════════════════════════════════════
@@ -275,7 +275,7 @@ public class FlipAutoBuyHandler {
                                     client.interactionManager.clickSlot(syncId, 31, 0, SlotActionType.PICKUP, client.player);
                                     System.out.println("[BomboFlipper] Create BIN Auction: clicked slot 31 (set price / sign).");
                                 });
-                            }, ACTION_DELAY_MS, TimeUnit.MILLISECONDS);
+                            }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
                         } else if (!timeDone) {
                             // Step 2: Click slot 33 (Auction Duration)
                             client.interactionManager.clickSlot(syncId, 33, 0, SlotActionType.PICKUP, client.player);
@@ -283,10 +283,11 @@ public class FlipAutoBuyHandler {
                         } else {
                             // Step 3: Click slot 29 (Confirm listing)
                             client.interactionManager.clickSlot(syncId, 29, 0, SlotActionType.PICKUP, client.player);
-                            System.out.println("[BomboFlipper] Create BIN Auction: clicked slot 29 (Confirm).");
+                            System.out.println("[BomboFlipper] Create BIN Auction: slotted item " + slot);
                         }
+
                     });
-                }, ACTION_DELAY_MS, TimeUnit.MILLISECONDS);
+                }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
             }
 
             // ════════════════════════════════════════════════════════════
@@ -304,7 +305,7 @@ public class FlipAutoBuyHandler {
                         timeDone = true;
                         System.out.println("[BomboFlipper] Auction Duration: set to 24h (slot 15). timeDone=true.");
                     });
-                }, ACTION_DELAY_MS, TimeUnit.MILLISECONDS);
+                }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
             }
 
             // ════════════════════════════════════════════════════════════
@@ -321,25 +322,17 @@ public class FlipAutoBuyHandler {
 
                         // Reset all state (NEC does this after confirm)
                         scheduler.schedule(() -> {
-                            signDone = false;
-                            justBought = false;
-                            autoBuy = false;
-                            tryToSell = false;
-                            slotted = false;
-                            timeDone = false;
-                            slot = -1;
-                            slotUnchanged = -1;
-                            listForPrice = 0;
-
                             client.execute(() -> {
                                 if (client.player != null) {
                                     client.player.sendMessage(Text.literal("§a[BomboFlipper] ✔ Item listed on AH! Full AFK cycle complete."), false);
                                     client.player.closeHandledScreen();
                                 }
+                                // Item successfully listed, reset state
+                                resetState();
                             });
-                        }, 500, TimeUnit.MILLISECONDS);
+                        }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
                     });
-                }, ACTION_DELAY_MS, TimeUnit.MILLISECONDS);
+                }, BomboFlipConfig.getInstance().getRelistDelay(), TimeUnit.MILLISECONDS);
             }
         });
 
